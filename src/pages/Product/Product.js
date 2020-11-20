@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { setPageTitle } from '../../utils/setPageTitle'
 import { useProduct } from '../../services/products/query'
 
-export default function Product({productSlug}) {
+export default function Product({ productSlug }) {
   const { t } = useTranslation()
   const {
     id,

@@ -27,15 +27,15 @@ export function App() {
             <Dashboard path="/dashboard" />
             <Account path="/account" />
             <Artists path="/artists" />
-        <Artist path="/artist/:artistSlug" />
+            <Artist path="/artist/:artistSlug" />
             <Blog path="/blog" />
             <Cart path="/cart" />
             <Checkout path="/checkout" />
             <Contact path="/contact" />
             <Login path="/login" />
-        <Products path="/products" />
+            <Products path="/products" />
             <Product path="/product/:productSlug" />
-        <Videos path="/videos" />
+            <Videos path="/videos" />
             <Video path="/video/:videoSlug" />
           </Router>
         </React.Suspense>
