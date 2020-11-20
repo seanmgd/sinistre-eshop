@@ -7,7 +7,7 @@ export default function Home() {
   const { t } = useTranslation()
 
   React.useEffect(() => {
-    setPageTitle('Home')
+    setPageTitle(t('home'))
   }, [])
 
   return <PageTitle>{t('home')}</PageTitle>
