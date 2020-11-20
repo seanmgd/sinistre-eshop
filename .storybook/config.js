@@ -1,18 +1,10 @@
 import { withKnobs } from '@storybook/addon-knobs'
 import { addDecorator, addParameters, configure } from '@storybook/react'
 import { create } from '@storybook/theming'
-
-const CENTER_STYLE = {
-  display: 'flex',
-  justifyContent: 'center',
-  alignItems: 'center',
-  minHeight: '100vh',
-  width: '100%',
-  flexDirection: 'column',
-}
+import { AppProviders } from '../src/AppProviders'
 
 addDecorator(withKnobs)
-addDecorator(storyFn => <div style={CENTER_STYLE}>{storyFn()}</div>)
+addDecorator(storyFn => <AppProviders>{storyFn()}</AppProviders>)
 
 addParameters({
   options: {

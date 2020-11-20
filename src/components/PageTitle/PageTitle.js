@@ -1,3 +1,7 @@
-export function PageTitle({ children, ...props }) {
-  return <h1 {...props}>{children}</h1>
-}
+import styled from 'styled-components'
+
+export const PageTitle = styled.h1`
+  font-weight: 900;
+  font-size: 28px;
+  color: ${({ theme }) => theme.colors.black.base};
+`

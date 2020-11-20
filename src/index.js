@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { App } from './app'
+import { AppProviders } from './AppProviders'
 import './i18n'
 import * as serviceWorker from './serviceWorker'
 
@@ -13,7 +14,9 @@ const mountingPoint = document.getElementById(
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <AppProviders>
+      <App />
+    </AppProviders>
   </React.StrictMode>,
   mountingPoint,
 )
