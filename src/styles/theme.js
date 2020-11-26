@@ -2,6 +2,7 @@ export default {
   colors: {
     primary: {
       base: '#253141',
+      light: 'rgba(37, 49, 65, 0.2)',
     },
     grey: {
       light: '#CAC9CF',
@@ -10,6 +11,7 @@ export default {
     },
     black: {
       base: '#0E141B',
+      light: 'rgba(14, 20, 27, 0.2)',
     },
     error: {
       base: '#d41e1e',
