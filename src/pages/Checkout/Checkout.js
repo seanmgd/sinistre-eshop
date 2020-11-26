@@ -8,6 +8,7 @@ export default function Checkout() {
 
   React.useEffect(() => {
     setPageTitle(t('checkout'))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return <PageTitle>{t('checkout')}</PageTitle>

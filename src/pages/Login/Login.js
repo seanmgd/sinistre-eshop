@@ -8,6 +8,7 @@ export default function Login() {
 
   React.useEffect(() => {
     setPageTitle(t('login'))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return <PageTitle>{t('login')}</PageTitle>

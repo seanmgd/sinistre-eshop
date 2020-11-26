@@ -6,12 +6,11 @@ import { UseArtists } from '../../services/artists/query'
 
 export default function Artists() {
   const { t } = useTranslation()
+  const results = UseArtists()
 
   React.useEffect(() => {
     setPageTitle(t('artists'))
   }, [])
-
-  const results = UseArtists()
 
   return (
     <>

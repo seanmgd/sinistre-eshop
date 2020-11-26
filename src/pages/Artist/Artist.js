@@ -20,6 +20,7 @@ export default function Artist(artistSlug) {
 
   React.useEffect(() => {
     setPageTitle(name)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

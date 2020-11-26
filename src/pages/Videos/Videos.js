@@ -6,12 +6,11 @@ import { UseVideos } from '../../services/videos/query'
 
 export default function Videos() {
   const { t } = useTranslation()
+  const results = UseVideos()
 
   React.useEffect(() => {
     setPageTitle(t('videos'))
   }, [])
-
-  const results = UseVideos()
 
   return (
     <>

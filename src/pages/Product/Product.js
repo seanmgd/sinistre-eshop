@@ -18,6 +18,7 @@ export default function Product(productSlug) {
 
   React.useEffect(() => {
     setPageTitle(name)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

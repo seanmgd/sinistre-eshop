@@ -6,12 +6,11 @@ import { UseProducts } from '../../services/products/query'
 
 export default function Products() {
   const { t } = useTranslation()
+  const results = UseProducts()
 
   React.useEffect(() => {
     setPageTitle(t('products'))
   }, [])
-
-  const results = UseProducts()
 
   return (
     <>
