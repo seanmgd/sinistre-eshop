@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Toast notification should render a notification 1`] = `
+<div
+  class="sc-bdfBwQ hTdTkg"
+  style="opacity: 0; transform: translateY(-10px) translateZ(0);"
+>
+  <p
+    class="sc-gsTCUz gbDUqI"
+  />
+</div>
+`;
