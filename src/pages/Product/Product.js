@@ -4,11 +4,12 @@ import { PageTitle } from '../../components'
 import { setPageTitle } from '../../utils/setPageTitle'
 
 export default function Product() {
-    const { t } = useTranslation()
+  const { t } = useTranslation()
 
-    React.useEffect(() => {
-        setPageTitle(t('product'))
-    }, [])
+  React.useEffect(() => {
+    setPageTitle(t('product'))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
-    return <PageTitle>{t('product')}</PageTitle>
+  return <PageTitle>{t('product')}</PageTitle>
 }

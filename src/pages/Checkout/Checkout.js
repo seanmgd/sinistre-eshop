@@ -4,11 +4,12 @@ import { PageTitle } from '../../components'
 import { setPageTitle } from '../../utils/setPageTitle'
 
 export default function Checkout() {
-    const { t } = useTranslation()
+  const { t } = useTranslation()
 
-    React.useEffect(() => {
-        setPageTitle(t('checkout'))
-    }, [])
+  React.useEffect(() => {
+    setPageTitle(t('checkout'))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
-    return <PageTitle>{t('checkout')}</PageTitle>
+  return <PageTitle>{t('checkout')}</PageTitle>
 }

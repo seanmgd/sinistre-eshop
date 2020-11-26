@@ -8,6 +8,7 @@ export default function Home() {
 
   React.useEffect(() => {
     setPageTitle(t('home'))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return <PageTitle>{t('home')}</PageTitle>
