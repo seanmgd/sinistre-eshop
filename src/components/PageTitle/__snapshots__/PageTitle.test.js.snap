@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Avatar /> should render a page title 1`] = `
+exports[`<PageTitle /> should render a page title 1`] = `
 <h1
   class="sc-bdfBwQ kfndwt"
 >
@@ -8,7 +8,7 @@ exports[`<Avatar /> should render a page title 1`] = `
 </h1>
 `;
 
-exports[`<Avatar /> should spread other props on root element 1`] = `
+exports[`<PageTitle /> should spread other props on root element 1`] = `
 <h1
   class="sc-bdfBwQ kfndwt test-class"
   style="background-color: red;"
