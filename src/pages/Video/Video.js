@@ -4,11 +4,12 @@ import { PageTitle } from '../../components'
 import { setPageTitle } from '../../utils/setPageTitle'
 
 export default function Video() {
-    const { t } = useTranslation()
+  const { t } = useTranslation()
 
-    React.useEffect(() => {
-        setPageTitle(t('video'))
-    }, [])
+  React.useEffect(() => {
+    setPageTitle(t('video'))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
 
-    return <PageTitle>{t('video')}</PageTitle>
+  return <PageTitle>{t('video')}</PageTitle>
 }
