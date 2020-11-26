@@ -4,11 +4,11 @@ import { PageTitle } from '../../components'
 import { setPageTitle } from '../../utils/setPageTitle'
 
 export default function Blog() {
-    const { t } = useTranslation()
+  const { t } = useTranslation()
 
-    React.useEffect(() => {
-        setPageTitle(t('blog'))
-    }, [])
+  React.useEffect(() => {
+    setPageTitle(t('blog'))
+  }, [])
 
-    return <PageTitle>{t('blog')}</PageTitle>
+  return <PageTitle>{t('blog')}</PageTitle>
 }

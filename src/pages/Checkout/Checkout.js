@@ -4,11 +4,11 @@ import { PageTitle } from '../../components'
 import { setPageTitle } from '../../utils/setPageTitle'
 
 export default function Checkout() {
-    const { t } = useTranslation()
+  const { t } = useTranslation()
 
-    React.useEffect(() => {
-        setPageTitle(t('checkout'))
-    }, [])
+  React.useEffect(() => {
+    setPageTitle(t('checkout'))
+  }, [])
 
-    return <PageTitle>{t('checkout')}</PageTitle>
+  return <PageTitle>{t('checkout')}</PageTitle>
 }

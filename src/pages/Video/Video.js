@@ -2,13 +2,26 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { PageTitle } from '../../components'
 import { setPageTitle } from '../../utils/setPageTitle'
+import { UseVideos } from '../../services/videos/query'
 
 export default function Video() {
-    const { t } = useTranslation()
+  const { t } = useTranslation()
 
-    React.useEffect(() => {
-        setPageTitle(t('video'))
-    }, [])
+  React.useEffect(() => {
+    setPageTitle(t('videos'))
+  }, [])
 
-    return <PageTitle>{t('video')}</PageTitle>
+  const results = UseVideos()
+
+  return (
+    <>
+      <PageTitle>{t('videos')}</PageTitle>
+      {results.map(result => (
+        <p key={result.id}>
+          name : {result.name} | slug : {result.slug} | link : {result.link} |
+          image_url : {result.image_url} | created_at : {result.created_at}
+        </p>
+      ))}
+    </>
+  )
 }

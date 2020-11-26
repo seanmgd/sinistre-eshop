@@ -26,7 +26,7 @@ export function App() {
         <Checkout path="/checkout" />
         <Contact path="/contact" />
         <Login path="/login" />
-        <Product path="/product" />
+        <Product path="/products" />
         <Video path="/videos" />
       </Router>
     </React.Suspense>
