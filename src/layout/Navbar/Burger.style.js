@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { device } from '../../const/device'
+import { devices } from '../../constants/devices'
 
 export const StyledBurger = styled.div`
   width: 2rem;
@@ -12,7 +12,7 @@ export const StyledBurger = styled.div`
   justify-content: space-around;
   flex-flow: column nowrap;
 
-  @media ${device.tablet} {
+  @media ${devices.tablet} {
     display: none;
   }
 

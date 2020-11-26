@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { device } from '../../const/device'
+import { devices } from '../../constants/devices'
 
 export const StyledNavbar = styled.nav`
   width: 100%;
@@ -12,7 +12,7 @@ export const StyledNavbar = styled.nav`
   background-color: ${({ theme }) => theme.colors.grey.light};
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
 
-  @media ${device.tablet} {
+  @media ${devices.tablet} {
     display: flex;
   }
 `
