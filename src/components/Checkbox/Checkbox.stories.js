@@ -1,31 +1,21 @@
-import React from 'react'
-import { Checkbox } from './Checkbox'
 import { boolean } from '@storybook/addon-knobs'
-import { StyledCheckbox } from './Checkbox.styles'
+import React from 'react'
+import { Checkbox as CheckboxComponent } from './Checkbox'
 
 export default {
-  title: 'Components/Checkbox',
-  component: Checkbox,
+  title: 'Form elements/Checkbox',
+  component: CheckboxComponent,
 }
 
-export const ToStorybook = () => (
-  <StyledCheckbox
-    disabled={boolean('disabled', Checkbox.defaultProps.disabled)}
-    checked={boolean('checked', Checkbox.defaultProps.checked)}
+export const Checkbox = () => (
+  <CheckboxComponent
+    disabled={boolean('disabled', CheckboxComponent.defaultProps.disabled)}
+    checked={boolean('checked', CheckboxComponent.defaultProps.checked)}
   />
 )
 
-ToStorybook.story = {
-  name: 'Checkbox',
-}
-
 export const Example = () => {
-const [check, setCheck] = React.UseEffect
- return (
-  <StyledCheckbox
-      disabled={boolean('disabled', Checkbox.defaultProps.disabled)}
-      checked={boolean('checked', Checkbox.defaultProps.checked)}
-  />)
+  const [checked, setChecked] = React.useState(false)
+
+  return <CheckboxComponent checked={checked} onChange={setChecked} />
 }
-
-
