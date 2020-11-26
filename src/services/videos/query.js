@@ -7,7 +7,7 @@ export const UseVideos = () => {
   React.useEffect(() => {
     axios({
       method: 'GET',
-      url: api_url + 'videos',
+      url: api_url + '/videos',
     })
       .then(res => {
         setVideos(res.data)
@@ -18,4 +18,22 @@ export const UseVideos = () => {
   }, [])
 
   return videos
+}
+
+export const UseVideo = videoId => {
+  const [video, setVideo] = React.useState([])
+  React.useEffect(() => {
+    axios({
+      method: 'GET',
+      url: api_url + videoId.uri,
+    })
+      .then(res => {
+        setVideo(res.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }, [])
+
+  return video
 }

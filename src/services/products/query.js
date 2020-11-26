@@ -7,7 +7,7 @@ export const UseProducts = () => {
   React.useEffect(() => {
     axios({
       method: 'GET',
-      url: api_url + 'products',
+      url: api_url + '/products',
     })
       .then(res => {
         setProducts(res.data)
@@ -18,4 +18,23 @@ export const UseProducts = () => {
   }, [])
 
   return products
+}
+
+export const UseProduct = productId => {
+  const [product, setProduct] = React.useState([])
+  React.useEffect(() => {
+    axios({
+      method: 'GET',
+      url: api_url + productId.uri,
+    })
+      .then(res => {
+        setProduct(res.data)
+        console.log(res.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }, [])
+
+  return product
 }

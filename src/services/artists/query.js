@@ -7,7 +7,7 @@ export const UseArtists = () => {
   React.useEffect(() => {
     axios({
       method: 'GET',
-      url: api_url + 'artists',
+      url: api_url + '/artists',
     })
       .then(res => {
         setArtists(res.data)
@@ -18,4 +18,22 @@ export const UseArtists = () => {
   }, [])
 
   return artists
+}
+
+export const UseArtist = artistId => {
+  const [artist, setArtist] = React.useState([])
+  React.useEffect(() => {
+    axios({
+      method: 'GET',
+      url: api_url + artistId.uri,
+    })
+      .then(res => {
+        setArtist(res.data)
+      })
+      .catch(err => {
+        console.log(err)
+      })
+  }, [])
+
+  return artist
 }

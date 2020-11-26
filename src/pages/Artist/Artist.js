@@ -1,30 +1,33 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { PageTitle } from '../../components'
 import { setPageTitle } from '../../utils/setPageTitle'
-import { UseArtists } from '../../services/artists/query'
+import { UseArtist } from '../../services/artists/query'
 
-export default function Artist() {
+export default function Artist(artistSlug) {
   const { t } = useTranslation()
+  const {
+    name,
+    slug,
+    description,
+    image_url,
+    fb_link,
+    sc_link,
+    vimeo_link,
+    yt_link,
+    ig_link,
+    created_at,
+  } = UseArtist(artistSlug)
 
   React.useEffect(() => {
-    setPageTitle(t('artists'))
+    setPageTitle(name)
   }, [])
 
-  const results = UseArtists()
-
   return (
-    <>
-      <PageTitle>{t('artists')}</PageTitle>
-      {results.map(result => (
-        <p key={result.id}>
-          name : {result.name} | slug : {result.slug} | description :
-          {result.description} | fb_link : {result.fb_link}| ig_link :
-          {result.ig_link} | sc_link : {result.sc_link} | yt_link :
-          {result.yt_link}| vimeo_link : {result.vimeo_link} | image_url :
-          {result.image_url} | created_at : {result.created_at}
-        </p>
-      ))}
-    </>
+    <p>
+      name : {name} | slug : {slug} | description : {description} | fb_link :{' '}
+      {fb_link} | sc_link : {sc_link} | vimeo_link : {vimeo_link} | yt_link :{' '}
+      {yt_link} | ig_link : {ig_link} | image_url : {image_url} | created_at :{' '}
+      {created_at}
+    </p>
   )
 }
