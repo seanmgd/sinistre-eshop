@@ -1,4 +1,3 @@
-import React from 'react'
 import { render, fireEvent } from '../../renderTest'
 import { PageTitle } from './PageTitle'
 
@@ -6,7 +5,7 @@ function createProps(props) {
   return { children: 'this is a test', ...props }
 }
 
-describe('<Avatar />', () => {
+describe('<PageTitle />', () => {
   it('should render a page title', () => {
     const props = createProps()
     const { container } = render(<PageTitle {...props} />)

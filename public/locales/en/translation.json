@@ -1,4 +1,13 @@
 {
-  "home": "Welcome to sinistre-eshop",
-  "dashboard": "Dashboard page"
+  "account": "Account",
+  "artists": "Artists",
+  "blog": "Blog",
+  "cart": "Cart",
+  "checkout": "Checkout",
+  "contact": "Contact",
+  "dashboard": "Dashboard",
+  "home": "Home",
+  "login": "Login",
+  "product": "Product",
+  "videos": "Videos"
 }

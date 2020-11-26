@@ -1,4 +1,13 @@
 {
-  "home": "Bienvenue sur sinistre-eshop",
-  "dashboard": "Page tableau de bord"
+  "account": "Compte",
+  "artists": "Artistes",
+  "blog": "Blog",
+  "cart": "Panier",
+  "checkout": "Paiement",
+  "contact": "Contact",
+  "dashboard": "Tableau de bord",
+  "home": "Accueil",
+  "login": "Connexion",
+  "product": "Produits",
+  "videos": "Videos"
 }
