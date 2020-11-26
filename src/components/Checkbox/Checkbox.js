@@ -1,11 +1,10 @@
 import PropTypes from 'prop-types'
 import { StyledCheckbox } from './Checkbox.styles'
 
-export function Checkbox({ disabled, checked }) {
+export function Checkbox({...props }) {
   return (
     <StyledCheckbox
-      disabled={disabled}
-      defaultChecked={checked}
+      {...props}
       type="checkbox"
       data-testid="checkbox"
     />
@@ -14,7 +13,7 @@ export function Checkbox({ disabled, checked }) {
 
 Checkbox.propTypes = {
   disabled: PropTypes.bool,
-  defaultChecked: PropTypes.bool,
+  checked: PropTypes.bool,
 }
 
 Checkbox.defaultProps = {
