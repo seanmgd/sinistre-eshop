@@ -1,13 +1,5 @@
-import { ThemeProvider } from 'styled-components'
-import GlobalStyles from './styles/globalStyles'
-import theme from './styles/theme'
+import { ThemeSwitcherProvider } from './contexts/themeSwitcher'
 
 export function AppProviders({ children }) {
-  return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyles />
-
-      {children}
-    </ThemeProvider>
-  )
+  return <ThemeSwitcherProvider>{children}</ThemeSwitcherProvider>
 }
