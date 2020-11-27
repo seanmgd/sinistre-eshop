@@ -24,7 +24,7 @@ export const useArtist = artistId => {
   React.useEffect(() => {
     axios({
       method: 'GET',
-      url: process.env.REACT_APP_API_URL + artistId.uri,
+      url: `${process.env.REACT_APP_API_URL}/artist/${artistId}`,
     })
       .then(res => {
         setArtist(res.data)

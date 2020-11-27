@@ -6,7 +6,7 @@ import { useVideos } from '../../services/videos/query'
 
 export default function Videos() {
   const { t } = useTranslation()
-  const results = useVideos()
+  const videos = useVideos()
 
   React.useEffect(() => {
     setPageTitle(t('videos'))
@@ -15,10 +15,10 @@ export default function Videos() {
   return (
     <>
       <PageTitle>{t('videos')}</PageTitle>
-      {results.map(result => (
-        <p key={result.id}>
-          name : {result.name} | slug : {result.slug} | link : {result.link} |
-          image_url : {result.image_url} | created_at : {result.created_at}
+      {videos.map(video => (
+        <p key={video.id}>
+          name : {video.name} | slug : {video.slug} | link : {video.link} |
+          image_url : {video.image_url} | created_at : {video.created_at}
         </p>
       ))}
     </>

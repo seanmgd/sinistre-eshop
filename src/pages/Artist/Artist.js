@@ -1,10 +1,8 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
 import { setPageTitle } from '../../utils/setPageTitle'
 import { useArtist } from '../../services/artists/query'
 
-export default function Artist(artistSlug) {
-  const { t } = useTranslation()
+  export default function Artist({artistSlug}) {
   const {
     name,
     slug,
@@ -21,7 +19,7 @@ export default function Artist(artistSlug) {
   React.useEffect(() => {
     setPageTitle(name)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [name])
 
   return (
     <p>

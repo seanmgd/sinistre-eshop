@@ -24,7 +24,7 @@ export const useVideo = videoId => {
   React.useEffect(() => {
     axios({
       method: 'GET',
-      url: process.env.REACT_APP_API_URL + videoId.uri,
+      url: `${process.env.REACT_APP_API_URL}/video/${videoId}`,
     })
       .then(res => {
         setVideo(res.data)

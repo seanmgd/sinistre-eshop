@@ -6,7 +6,7 @@ import { useArtists } from '../../services/artists/query'
 
 export default function Artists() {
   const { t } = useTranslation()
-  const results = useArtists()
+  const artists = useArtists()
 
   React.useEffect(() => {
     setPageTitle(t('artists'))
@@ -15,13 +15,13 @@ export default function Artists() {
   return (
     <>
       <PageTitle>{t('artists')}</PageTitle>
-      {results.map(result => (
-        <p key={result.id}>
-          name : {result.name} | slug : {result.slug} | description :
-          {result.description} | fb_link : {result.fb_link}| ig_link :
-          {result.ig_link} | sc_link : {result.sc_link} | yt_link :
-          {result.yt_link}| vimeo_link : {result.vimeo_link} | image_url :
-          {result.image_url} | created_at : {result.created_at}
+      {artists.map(artist => (
+        <p key={artist.id}>
+          name : {artist.name} | slug : {artist.slug} | description :
+          {artist.description} | fb_link : {artist.fb_link}| ig_link :
+          {artist.ig_link} | sc_link : {artist.sc_link} | yt_link :
+          {artist.yt_link}| vimeo_link : {artist.vimeo_link} | image_url :
+          {artist.image_url} | created_at : {artist.created_at}
         </p>
       ))}
     </>
