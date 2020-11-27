@@ -1,11 +1,28 @@
 import React from 'react'
 import { setPageTitle } from '../../utils/setPageTitle'
 import { useArtist } from '../../services/artists/query'
+import {
+  Container,
+  ImageContainer,
+  InfoContainer,
+  IconContainer,
+  ArtistIcon,
+} from './Artist.styles'
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faFacebook,
+  faSoundcloud,
+  faVimeoV,
+  faYoutube,
+  faInstagram,
+} from '@fortawesome/free-brands-svg-icons'
 
-  export default function Artist({artistSlug}) {
+library.add(faFacebook, faSoundcloud, faVimeoV, faYoutube, faInstagram)
+
+export default function Artist({artistSlug}) {
   const {
     name,
-    slug,
     description,
     image_url,
     fb_link,
@@ -13,7 +30,6 @@ import { useArtist } from '../../services/artists/query'
     vimeo_link,
     yt_link,
     ig_link,
-    created_at,
   } = useArtist(artistSlug)
 
   React.useEffect(() => {
@@ -22,11 +38,46 @@ import { useArtist } from '../../services/artists/query'
   }, [name])
 
   return (
-    <p>
-      name : {name} | slug : {slug} | description : {description} | fb_link :{' '}
-      {fb_link} | sc_link : {sc_link} | vimeo_link : {vimeo_link} | yt_link :{' '}
-      {yt_link} | ig_link : {ig_link} | image_url : {image_url} | created_at :{' '}
-      {created_at}
-    </p>
+    <Container>
+      <ImageContainer image={image_url} />
+      <InfoContainer>
+        <div>
+          <p>{name}</p>
+          <IconContainer>
+            <a href={fb_link} target="_blank" rel="noreferrer">
+              <ArtistIcon
+                as={FontAwesomeIcon}
+                icon={faFacebook}
+              />
+            </a>
+            <a href={yt_link} target="_blank" rel="noreferrer">
+              <ArtistIcon
+                  as={FontAwesomeIcon}
+                  icon={faYoutube}
+              />
+            </a>
+            <a href={sc_link} target="_blank" rel="noreferrer">
+              <ArtistIcon
+                  as={FontAwesomeIcon}
+                  icon={faSoundcloud}
+              />
+            </a>
+            <a href={vimeo_link} target="_blank" rel="noreferrer">
+              <ArtistIcon
+                  as={FontAwesomeIcon}
+                  icon={faVimeoV}
+              />
+            </a>
+            <a href={ig_link} target="_blank" rel="noreferrer">
+              <ArtistIcon
+                  as={FontAwesomeIcon}
+                  icon={faInstagram}
+              />
+            </a>
+          </IconContainer>
+        </div>
+        <p>{description}</p>
+      </InfoContainer>
+    </Container>
   )
 }
