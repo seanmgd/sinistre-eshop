@@ -24,7 +24,7 @@ export const useProduct = productId => {
   React.useEffect(() => {
     axios({
       method: 'GET',
-      url: process.env.REACT_APP_API_URL + productId.uri,
+      url: `${process.env.REACT_APP_API_URL}/product/${productId}`,
     })
       .then(res => {
         setProduct(res.data)
