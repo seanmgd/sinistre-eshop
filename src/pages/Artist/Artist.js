@@ -1,6 +1,4 @@
 import React from 'react'
-import { Link } from '@reach/router'
-import { useTranslation } from 'react-i18next'
 import { setPageTitle } from '../../utils/setPageTitle'
 import { UseArtist } from '../../services/artists/query'
 import {
@@ -22,7 +20,6 @@ import {
 library.add(faFacebook, faSoundcloud, faVimeoV, faYoutube, faInstagram)
 
 export default function Artist(artistSlug) {
-  const { t } = useTranslation()
   const {
     name,
     description,
