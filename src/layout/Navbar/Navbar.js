@@ -13,8 +13,8 @@ const ROUTES = [
     path: '/videos',
   },
   {
-    name: 'product',
-    path: '/product',
+    name: 'products',
+    path: '/products',
   },
   {
     name: 'artists',

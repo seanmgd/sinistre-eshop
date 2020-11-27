@@ -1,15 +1,19 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { PageTitle } from '../../components'
 import { setPageTitle } from '../../utils/setPageTitle'
+import { useVideo } from '../../services/videos/query'
 
-export default function Video() {
-  const { t } = useTranslation()
+export default function Video({videoSlug}) {
+  const { name, slug, link, image_url, created_at } = useVideo(videoSlug)
 
   React.useEffect(() => {
-    setPageTitle(t('video'))
+    setPageTitle(name)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [name])
 
-  return <PageTitle>{t('video')}</PageTitle>
+  return (
+    <p>
+      name : {name} | slug : {slug} | link : {link} | image_url : {image_url} |
+      created_at : {created_at}
+    </p>
+  )
 }

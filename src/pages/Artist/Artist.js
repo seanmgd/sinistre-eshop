@@ -1,15 +1,32 @@
 import React from 'react'
-import { useTranslation } from 'react-i18next'
-import { PageTitle } from '../../components'
 import { setPageTitle } from '../../utils/setPageTitle'
+import { useArtist } from '../../services/artists/query'
 
-export default function Artist() {
-  const { t } = useTranslation()
+  export default function Artist({artistSlug}) {
+  const {
+    name,
+    slug,
+    description,
+    image_url,
+    fb_link,
+    sc_link,
+    vimeo_link,
+    yt_link,
+    ig_link,
+    created_at,
+  } = useArtist(artistSlug)
 
   React.useEffect(() => {
-    setPageTitle(t('artists'))
+    setPageTitle(name)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [name])
 
-  return <PageTitle>{t('artists')}</PageTitle>
+  return (
+    <p>
+      name : {name} | slug : {slug} | description : {description} | fb_link :{' '}
+      {fb_link} | sc_link : {sc_link} | vimeo_link : {vimeo_link} | yt_link :{' '}
+      {yt_link} | ig_link : {ig_link} | image_url : {image_url} | created_at :{' '}
+      {created_at}
+    </p>
+  )
 }
