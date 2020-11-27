@@ -25,5 +25,10 @@
   "mail_address": "Adresse mail",
   "password": "Mot de passe",
   "firstname": "Prénom",
-  "lastname": "Nom"
+  "lastname": "Nom",
+  "submit": "Envoyer",
+  "message": "Message",
+  "MailAddress": "Adresse Email",
+  "confirmMessageContact": "Message envoyé",
+  "errorMessageContact": "Une erreur est internu lors de l'envoi"
 }
