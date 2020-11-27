@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { setPageTitle } from '../../utils/setPageTitle'
-import { UseProduct } from '../../services/products/query'
+import { useProduct } from '../../services/products/query'
 
 export default function Product(productSlug) {
   const { t } = useTranslation()
@@ -14,7 +14,7 @@ export default function Product(productSlug) {
     images_url,
     price,
     created_at,
-  } = UseProduct(productSlug)
+  } = useProduct(productSlug)
 
   React.useEffect(() => {
     setPageTitle(name)

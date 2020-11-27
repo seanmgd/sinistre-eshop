@@ -2,11 +2,11 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { PageTitle } from '../../components'
 import { setPageTitle } from '../../utils/setPageTitle'
-import { UseProducts } from '../../services/products/query'
+import { useProducts } from '../../services/products/query'
 
 export default function Products() {
   const { t } = useTranslation()
-  const results = UseProducts()
+  const results = useProducts()
 
   React.useEffect(() => {
     setPageTitle(t('products'))

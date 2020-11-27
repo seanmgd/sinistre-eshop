@@ -1,6 +1,6 @@
 import React from 'react'
 import { setPageTitle } from '../../utils/setPageTitle'
-import { UseArtist } from '../../services/artists/query'
+import { useArtist } from '../../services/artists/query'
 import {
   Container,
   ImageContainer,
@@ -29,7 +29,7 @@ export default function Artist(artistSlug) {
     vimeo_link,
     yt_link,
     ig_link,
-  } = UseArtist(artistSlug)
+  } = useArtist(artistSlug)
 
   React.useEffect(() => {
     setPageTitle(name)

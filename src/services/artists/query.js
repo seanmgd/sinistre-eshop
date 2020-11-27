@@ -1,13 +1,12 @@
 import React from 'react'
 import axios from 'axios'
-import { api_url } from '../../constants/api'
 
-export const UseArtists = () => {
+export const useArtists = () => {
   const [artists, setArtists] = React.useState([])
   React.useEffect(() => {
     axios({
       method: 'GET',
-      url: api_url + '/artists',
+      url: process.env.REACT_APP_API_URL + '/artists',
     })
       .then(res => {
         setArtists(res.data)
@@ -20,12 +19,12 @@ export const UseArtists = () => {
   return artists
 }
 
-export const UseArtist = artistId => {
+export const useArtist = artistId => {
   const [artist, setArtist] = React.useState([])
   React.useEffect(() => {
     axios({
       method: 'GET',
-      url: api_url + artistId.uri,
+      url: process.env.REACT_APP_API_URL + artistId.uri,
     })
       .then(res => {
         setArtist(res.data)
