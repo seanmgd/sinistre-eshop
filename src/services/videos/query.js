@@ -1,6 +1,6 @@
 import React from 'react'
 import axios from 'axios'
-import { api_url } from '../../const/api'
+import { api_url } from '../../constants/api'
 
 export const UseVideos = () => {
   const [videos, setVideos] = React.useState([])
