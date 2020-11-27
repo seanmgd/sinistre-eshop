@@ -53,6 +53,7 @@ export const StyledUl = styled.ul`
   width: 200px;
   padding-top: 3.5rem;
   transition: transform 0.3s ease-in-out;
+  z-index: 1;
   li {
     color: ${({ theme }) => theme.colors.grey.dark};
     font-weight: bold;

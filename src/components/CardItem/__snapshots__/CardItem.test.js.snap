@@ -6,7 +6,7 @@ exports[`Card item should render a card item  with black background color and te
   href="/"
 >
   <div
-    class="sc-bdfBwQ jlEeTk"
+    class="sc-bdfBwQ gwPNOT"
     label="this is a test"
   />
 </a>
@@ -18,7 +18,7 @@ exports[`Card item should render a card item  with dark-grey background color an
   href="/"
 >
   <div
-    class="sc-bdfBwQ iLflNY"
+    class="sc-bdfBwQ boPxAL"
     label="this is a test"
   />
 </a>
@@ -30,7 +30,7 @@ exports[`Card item should render a card item  with grey background color and tex
   href="/"
 >
   <div
-    class="sc-bdfBwQ ijyXbQ"
+    class="sc-bdfBwQ cBcSlb"
     label="this is a test"
   />
 </a>
@@ -42,7 +42,7 @@ exports[`Card item should render a card item  with light-grey background color a
   href="/"
 >
   <div
-    class="sc-bdfBwQ dTYqdY"
+    class="sc-bdfBwQ koGeHP"
     label="this is a test"
   />
 </a>
@@ -54,7 +54,7 @@ exports[`Card item should render a large text card item 1`] = `
   href="/"
 >
   <div
-    class="sc-bdfBwQ hewzbI"
+    class="sc-bdfBwQ khjUgD"
     label="this is a test"
   />
 </a>
@@ -66,7 +66,7 @@ exports[`Card item should render a medium text card item 1`] = `
   href="/"
 >
   <div
-    class="sc-bdfBwQ hewzbI"
+    class="sc-bdfBwQ khjUgD"
     label="this is a test"
   />
 </a>
@@ -78,7 +78,7 @@ exports[`Card item should render a small text card item 1`] = `
   href="/"
 >
   <div
-    class="sc-bdfBwQ hewzbI"
+    class="sc-bdfBwQ khjUgD"
     label="this is a test"
   />
 </a>
@@ -90,7 +90,7 @@ exports[`Card item should render a x-large text card item 1`] = `
   href="/"
 >
   <div
-    class="sc-bdfBwQ hewzbI"
+    class="sc-bdfBwQ khjUgD"
     label="this is a test"
   />
 </a>
@@ -102,7 +102,7 @@ exports[`Card item should render card item 1`] = `
   href="/"
 >
   <div
-    class="sc-bdfBwQ hewzbI"
+    class="sc-bdfBwQ khjUgD"
     label="this is a test"
   />
 </a>
@@ -116,7 +116,7 @@ exports[`Card item should spread other props on root element 1`] = `
   href="/"
 >
   <div
-    class="sc-bdfBwQ hewzbI"
+    class="sc-bdfBwQ khjUgD"
     label="this is a test"
   />
 </a>

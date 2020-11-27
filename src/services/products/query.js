@@ -33,7 +33,7 @@ export const useProduct = productId => {
       .catch(err => {
         console.log(err)
       })
-  }, [])
+  }, [productId])
 
   return product
 }

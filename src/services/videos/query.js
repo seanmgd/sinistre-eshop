@@ -32,7 +32,7 @@ export const useVideo = videoId => {
       .catch(err => {
         console.log(err)
       })
-  }, [])
+  }, [videoId])
 
   return video
 }

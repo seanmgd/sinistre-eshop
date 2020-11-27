@@ -32,7 +32,7 @@ export const useArtist = artistId => {
       .catch(err => {
         console.log(err)
       })
-  }, [])
+  }, [artistId])
 
   return artist
 }
