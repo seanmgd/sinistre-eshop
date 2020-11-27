@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Card item should render a card item  with black background color and text color 1`] = `
+<a
+  aria-current="page"
+  href="/"
+>
+  <div
+    class="sc-bdfBwQ jlEeTk"
+    label="this is a test"
+  />
+</a>
+`;
+
+exports[`Card item should render a card item  with dark-grey background color and text color 1`] = `
+<a
+  aria-current="page"
+  href="/"
+>
+  <div
+    class="sc-bdfBwQ iLflNY"
+    label="this is a test"
+  />
+</a>
+`;
+
+exports[`Card item should render a card item  with grey background color and text color 1`] = `
+<a
+  aria-current="page"
+  href="/"
+>
+  <div
+    class="sc-bdfBwQ ijyXbQ"
+    label="this is a test"
+  />
+</a>
+`;
+
+exports[`Card item should render a card item  with light-grey background color and text color 1`] = `
+<a
+  aria-current="page"
+  href="/"
+>
+  <div
+    class="sc-bdfBwQ dTYqdY"
+    label="this is a test"
+  />
+</a>
+`;
+
+exports[`Card item should render a large text card item 1`] = `
+<a
+  aria-current="page"
+  href="/"
+>
+  <div
+    class="sc-bdfBwQ hewzbI"
+    label="this is a test"
+  />
+</a>
+`;
+
+exports[`Card item should render a medium text card item 1`] = `
+<a
+  aria-current="page"
+  href="/"
+>
+  <div
+    class="sc-bdfBwQ hewzbI"
+    label="this is a test"
+  />
+</a>
+`;
+
+exports[`Card item should render a small text card item 1`] = `
+<a
+  aria-current="page"
+  href="/"
+>
+  <div
+    class="sc-bdfBwQ hewzbI"
+    label="this is a test"
+  />
+</a>
+`;
+
+exports[`Card item should render a x-large text card item 1`] = `
+<a
+  aria-current="page"
+  href="/"
+>
+  <div
+    class="sc-bdfBwQ hewzbI"
+    label="this is a test"
+  />
+</a>
+`;
+
+exports[`Card item should render card item 1`] = `
+<a
+  aria-current="page"
+  href="/"
+>
+  <div
+    class="sc-bdfBwQ hewzbI"
+    label="this is a test"
+  />
+</a>
+`;
+
+exports[`Card item should spread other props on root element 1`] = `
+<a
+  aria-current="page"
+  class="test-class"
+  data-testid="test-id"
+  href="/"
+>
+  <div
+    class="sc-bdfBwQ hewzbI"
+    label="this is a test"
+  />
+</a>
+`;

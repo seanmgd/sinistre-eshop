@@ -2,7 +2,7 @@ import React from 'react'
 import { setPageTitle } from '../../utils/setPageTitle'
 import { useVideo } from '../../services/videos/query'
 
-export default function Video({videoSlug}) {
+export default function Video({ videoSlug }) {
   const { name, slug, link, image_url, created_at } = useVideo(videoSlug)
 
   React.useEffect(() => {

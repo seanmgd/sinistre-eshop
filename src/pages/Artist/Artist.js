@@ -20,7 +20,7 @@ import {
 
 library.add(faFacebook, faSoundcloud, faVimeoV, faYoutube, faInstagram)
 
-export default function Artist({artistSlug}) {
+export default function Artist({ artistSlug }) {
   const {
     name,
     description,
@@ -45,34 +45,19 @@ export default function Artist({artistSlug}) {
           <p>{name}</p>
           <IconContainer>
             <a href={fb_link} target="_blank" rel="noreferrer">
-              <ArtistIcon
-                as={FontAwesomeIcon}
-                icon={faFacebook}
-              />
+              <ArtistIcon as={FontAwesomeIcon} icon={faFacebook} />
             </a>
             <a href={yt_link} target="_blank" rel="noreferrer">
-              <ArtistIcon
-                  as={FontAwesomeIcon}
-                  icon={faYoutube}
-              />
+              <ArtistIcon as={FontAwesomeIcon} icon={faYoutube} />
             </a>
             <a href={sc_link} target="_blank" rel="noreferrer">
-              <ArtistIcon
-                  as={FontAwesomeIcon}
-                  icon={faSoundcloud}
-              />
+              <ArtistIcon as={FontAwesomeIcon} icon={faSoundcloud} />
             </a>
             <a href={vimeo_link} target="_blank" rel="noreferrer">
-              <ArtistIcon
-                  as={FontAwesomeIcon}
-                  icon={faVimeoV}
-              />
+              <ArtistIcon as={FontAwesomeIcon} icon={faVimeoV} />
             </a>
             <a href={ig_link} target="_blank" rel="noreferrer">
-              <ArtistIcon
-                  as={FontAwesomeIcon}
-                  icon={faInstagram}
-              />
+              <ArtistIcon as={FontAwesomeIcon} icon={faInstagram} />
             </a>
           </IconContainer>
         </div>

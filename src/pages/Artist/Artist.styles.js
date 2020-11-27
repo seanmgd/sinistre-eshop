@@ -134,6 +134,6 @@ export const IconContainer = styled.span`
 `
 
 export const ArtistIcon = styled.svg`
-  margin-right:.5em;
-  color:${({ theme }) => theme.colors.primary.base};
+  margin-right: 0.5em;
+  color: ${({ theme }) => theme.colors.primary.base};
 `
