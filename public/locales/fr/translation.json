@@ -7,7 +7,12 @@
   "contact": "Contact",
   "dashboard": "Tableau de bord",
   "home": "Accueil",
-  "login": "Connexion",
+  "login": "S'identifier",
+  "register": "Créer un compte",
+  "new user": "Nouveau chez sinistre ?",
+  "user": "Vous possédez déjà un compte ?",
+  "create account": "Créer votre compte sinistre",
+  "login to account": "identifier-vous",
   "product": "Produits",
   "videos": "Videos"
 }

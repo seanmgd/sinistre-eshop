@@ -2,36 +2,39 @@ import { NavItem, StyledNavbar } from './Navbar.style'
 import { Link } from '@reach/router'
 import { useTranslation } from 'react-i18next'
 import { Burger } from './Burger'
-
-const ROUTES = [
-  {
-    name: 'home',
-    path: '/',
-  },
-  {
-    name: 'videos',
-    path: '/videos',
-  },
-  {
-    name: 'product',
-    path: '/product',
-  },
-  {
-    name: 'artists',
-    path: '/artists',
-  },
-  {
-    name: 'login',
-    path: '/login',
-  },
-  {
-    name: 'contact',
-    path: '/contact',
-  },
-]
+import { useUserContext } from '../../contexts/user'
 
 export const Navbar = () => {
   const { t } = useTranslation()
+  const { user } = useUserContext()
+  const isAuth = user.token
+
+  const ROUTES = [
+    {
+      name: 'home',
+      path: '/',
+    },
+    {
+      name: 'videos',
+      path: '/videos',
+    },
+    {
+      name: 'product',
+      path: '/product',
+    },
+    {
+      name: 'artists',
+      path: '/artists',
+    },
+    {
+      name: isAuth ? 'logout' : 'login',
+      path: isAuth ? '/logout' : '/login',
+    },
+    {
+      name: 'contact',
+      path: '/contact',
+    },
+  ]
 
   return (
     <>
@@ -46,5 +49,3 @@ export const Navbar = () => {
     </>
   )
 }
-
-Navbar.ROUTES = ROUTES

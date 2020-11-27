@@ -8,6 +8,11 @@
   "dashboard": "Dashboard",
   "home": "Home",
   "login": "Login",
+  "register": "Create account",
+  "new user": "New to sinistre ?",
+  "user": "Already have an account ?",
+  "create account": "Create a sinistre account",
+  "login to account": "login to your sinistre account",
   "product": "Product",
   "videos": "Videos"
 }
