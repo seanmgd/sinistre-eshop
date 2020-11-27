@@ -23,7 +23,7 @@ export const Container = styled.div`
 export const ImageContainer = styled.div`
   display: flex;
   width: 100%;
-  height:40vh;
+  height: 40vh;
   background-position: center;
   background-color: black;
   background-image: url('${props => props.image}');
@@ -31,7 +31,7 @@ export const ImageContainer = styled.div`
   
   @media ${devices.tablet} { 
     width: 50%;
-  height: 70vh;
+    height: 70vh;
   }
   @media ${devices.laptop} { 
     width: 35%; 
@@ -131,4 +131,9 @@ export const IconContainer = styled.span`
   @media ${devices.tablet} {
     font-size: 1.5em;
   }
+`
+
+export const ArtistIcon = styled.svg`
+  margin-right:.5em;
+  color:${({ theme }) => theme.colors.primary.base};
 `

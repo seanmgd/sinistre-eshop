@@ -6,6 +6,7 @@ import {
   ImageContainer,
   InfoContainer,
   IconContainer,
+  ArtistIcon,
 } from './Artist.styles'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -19,7 +20,7 @@ import {
 
 library.add(faFacebook, faSoundcloud, faVimeoV, faYoutube, faInstagram)
 
-export default function Artist(artistSlug) {
+export default function Artist({artistSlug}) {
   const {
     name,
     description,
@@ -44,40 +45,33 @@ export default function Artist(artistSlug) {
           <p>{name}</p>
           <IconContainer>
             <a href={fb_link} target="_blank" rel="noreferrer">
-              <FontAwesomeIcon
+              <ArtistIcon
+                as={FontAwesomeIcon}
                 icon={faFacebook}
-                style={{ marginRight: '.5em' }}
-                color="black"
               />
             </a>
-
             <a href={yt_link} target="_blank" rel="noreferrer">
-              <FontAwesomeIcon
-                icon={faYoutube}
-                style={{ marginRight: '.5em' }}
-                color="black"
+              <ArtistIcon
+                  as={FontAwesomeIcon}
+                  icon={faYoutube}
               />
             </a>
             <a href={sc_link} target="_blank" rel="noreferrer">
-              <FontAwesomeIcon
-                icon={faSoundcloud}
-                style={{ marginRight: '.5em' }}
-                color="black"
+              <ArtistIcon
+                  as={FontAwesomeIcon}
+                  icon={faSoundcloud}
               />
             </a>
             <a href={vimeo_link} target="_blank" rel="noreferrer">
-              <FontAwesomeIcon
-                icon={faVimeoV}
-                style={{ marginRight: '.5em' }}
-                color="black"
+              <ArtistIcon
+                  as={FontAwesomeIcon}
+                  icon={faVimeoV}
               />
             </a>
-
             <a href={ig_link} target="_blank" rel="noreferrer">
-              <FontAwesomeIcon
-                icon={faInstagram}
-                style={{ marginRight: '.5em' }}
-                color="black"
+              <ArtistIcon
+                  as={FontAwesomeIcon}
+                  icon={faInstagram}
               />
             </a>
           </IconContainer>
