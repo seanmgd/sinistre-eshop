@@ -1,13 +1,12 @@
 import React from 'react'
 import axios from 'axios'
-import { api_url } from '../../const/api'
 
-export const UseVideos = () => {
+export const useVideos = () => {
   const [videos, setVideos] = React.useState([])
   React.useEffect(() => {
     axios({
       method: 'GET',
-      url: api_url + '/videos',
+      url: process.env.REACT_APP_API_URL + '/videos',
     })
       .then(res => {
         setVideos(res.data)
@@ -20,12 +19,12 @@ export const UseVideos = () => {
   return videos
 }
 
-export const UseVideo = videoId => {
+export const useVideo = videoId => {
   const [video, setVideo] = React.useState([])
   React.useEffect(() => {
     axios({
       method: 'GET',
-      url: api_url + videoId.uri,
+      url: process.env.REACT_APP_API_URL + videoId.uri,
     })
       .then(res => {
         setVideo(res.data)

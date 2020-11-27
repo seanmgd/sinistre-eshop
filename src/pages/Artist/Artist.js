@@ -1,7 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { setPageTitle } from '../../utils/setPageTitle'
-import { UseArtist } from '../../services/artists/query'
+import { useArtist } from '../../services/artists/query'
 
 export default function Artist(artistSlug) {
   const { t } = useTranslation()
@@ -16,7 +16,7 @@ export default function Artist(artistSlug) {
     yt_link,
     ig_link,
     created_at,
-  } = UseArtist(artistSlug)
+  } = useArtist(artistSlug)
 
   React.useEffect(() => {
     setPageTitle(name)

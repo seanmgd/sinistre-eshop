@@ -2,11 +2,11 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { PageTitle } from '../../components'
 import { setPageTitle } from '../../utils/setPageTitle'
-import { UseArtists } from '../../services/artists/query'
+import { useArtists } from '../../services/artists/query'
 
 export default function Artists() {
   const { t } = useTranslation()
-  const results = UseArtists()
+  const results = useArtists()
 
   React.useEffect(() => {
     setPageTitle(t('artists'))

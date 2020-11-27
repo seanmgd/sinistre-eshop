@@ -1,13 +1,12 @@
 import React from 'react'
 import axios from 'axios'
-import { api_url } from '../../const/api'
 
-export const UseProducts = () => {
+export const useProducts = () => {
   const [products, setProducts] = React.useState([])
   React.useEffect(() => {
     axios({
       method: 'GET',
-      url: api_url + '/products',
+      url: process.env.REACT_APP_API_URL + '/products',
     })
       .then(res => {
         setProducts(res.data)
@@ -20,12 +19,12 @@ export const UseProducts = () => {
   return products
 }
 
-export const UseProduct = productId => {
+export const useProduct = productId => {
   const [product, setProduct] = React.useState([])
   React.useEffect(() => {
     axios({
       method: 'GET',
-      url: api_url + productId.uri,
+      url: process.env.REACT_APP_API_URL + productId.uri,
     })
       .then(res => {
         setProduct(res.data)

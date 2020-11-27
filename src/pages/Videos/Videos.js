@@ -2,11 +2,11 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { PageTitle } from '../../components'
 import { setPageTitle } from '../../utils/setPageTitle'
-import { UseVideos } from '../../services/videos/query'
+import { useVideos } from '../../services/videos/query'
 
 export default function Videos() {
   const { t } = useTranslation()
-  const results = UseVideos()
+  const results = useVideos()
 
   React.useEffect(() => {
     setPageTitle(t('videos'))
