@@ -2,7 +2,7 @@
 
 exports[`<PageTitle /> should render a page title 1`] = `
 <h1
-  class="sc-bdfBwQ kfndwt"
+  class="sc-bdfBwQ hjEcar"
 >
   this is a test
 </h1>
@@ -10,7 +10,7 @@ exports[`<PageTitle /> should render a page title 1`] = `
 
 exports[`<PageTitle /> should spread other props on root element 1`] = `
 <h1
-  class="sc-bdfBwQ kfndwt test-class"
+  class="sc-bdfBwQ hjEcar test-class"
   style="background-color: red;"
 >
   this is a test
