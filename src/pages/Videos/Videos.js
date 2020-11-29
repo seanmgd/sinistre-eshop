@@ -1,8 +1,9 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { PageTitle } from '../../components'
 import { setPageTitle } from '../../utils/setPageTitle'
 import { useVideos } from '../../services/videos/query'
+import CardItem from '../../components/CardItem/CardItem'
+import { Container } from '../../layout/Layout/Container'
 
 export default function Videos() {
   const { t } = useTranslation()
@@ -10,17 +11,19 @@ export default function Videos() {
 
   React.useEffect(() => {
     setPageTitle(t('videos'))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
-    <>
-      <PageTitle>{t('videos')}</PageTitle>
+    <Container>
       {videos.map(video => (
-        <p key={video.id}>
-          name : {video.name} | slug : {video.slug} | link : {video.link} |
-          image_url : {video.image_url} | created_at : {video.created_at}
-        </p>
+        <CardItem
+          key={video.id}
+          label={video.name}
+          imgUrl={video.image_url}
+          to={`/video/${video.slug}`}
+        />
       ))}
-    </>
+    </Container>
   )
 }

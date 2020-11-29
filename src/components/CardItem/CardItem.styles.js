@@ -24,15 +24,16 @@ export const ImgCard = styled.div`
   justify-content: center;
   align-items: center;
   height: 600px;
-  width: 30%;
   background-image: url(${({ imgUrl }) => imgUrl});
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
+  transition: 1s ease all;
 
   :hover {
     background-image: none;
     background-color: ${({ hoverColor, theme }) => getColor(hoverColor, theme)};
+    transform: translateY(2px);
   }
 
   :after {
@@ -40,10 +41,11 @@ export const ImgCard = styled.div`
     color: ${({ labelColor, theme }) => getColor(labelColor, theme)};
     font-size: ${({ size }) => FONTSIZES[size]};
     font-weight: bold;
+    text-transform: capitalize;
     position: absolute;
+    width: 100%;
     top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    text-align: center;
   }
 
   :hover:after {

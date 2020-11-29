@@ -1,0 +1,30 @@
+import styled from 'styled-components'
+import { devices } from '../../constants/devices'
+
+export const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  @media ${devices.tablet} {
+    flex-direction: row;
+    height: 93vh;
+    padding: 0;
+  }
+  a {
+    width: 100%;
+    @media ${devices.tablet} {
+      padding: 0 1em;
+      width: 35%;
+    }
+    @media ${devices.laptopL} {
+      padding: 0 2em;
+      width: 25%;
+    }
+    @media ${devices.desktop} {
+      padding: 0 5em;
+      width: 25%;
+    }
+  }
+`

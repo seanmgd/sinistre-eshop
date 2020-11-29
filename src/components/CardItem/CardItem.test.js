@@ -4,7 +4,7 @@ import { render } from '../../renderTest'
 import CardItem from './CardItem'
 
 function createProps(props = {}) {
-  return { label: 'this is a test', to: '/', ...props }
+  return { label: 'this is a test', to: '/', imgUrl: 'testimg', ...props }
 }
 
 describe('Card item', () => {

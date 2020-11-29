@@ -1,8 +1,9 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { PageTitle } from '../../components'
 import { setPageTitle } from '../../utils/setPageTitle'
 import { useArtists } from '../../services/artists/query'
+import CardItem from '../../components/CardItem/CardItem'
+import { Container } from '../../layout/Layout/Container'
 
 export default function Artists() {
   const { t } = useTranslation()
@@ -10,20 +11,19 @@ export default function Artists() {
 
   React.useEffect(() => {
     setPageTitle(t('artists'))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
-    <>
-      <PageTitle>{t('artists')}</PageTitle>
+    <Container>
       {artists.map(artist => (
-        <p key={artist.id}>
-          name : {artist.name} | slug : {artist.slug} | description :
-          {artist.description} | fb_link : {artist.fb_link}| ig_link :
-          {artist.ig_link} | sc_link : {artist.sc_link} | yt_link :
-          {artist.yt_link}| vimeo_link : {artist.vimeo_link} | image_url :
-          {artist.image_url} | created_at : {artist.created_at}
-        </p>
+        <CardItem
+          key={artist.id}
+          label={artist.name}
+          imgUrl={artist.image_url}
+          to={`/artist/${artist.slug}`}
+        />
       ))}
-    </>
+    </Container>
   )
 }

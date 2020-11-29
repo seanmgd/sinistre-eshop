@@ -31,7 +31,7 @@ CardItem.propTypes = {
   labelColor: PropTypes.oneOf(COLORS).isRequired,
   labelSize: PropTypes.oneOf(SIZES).isRequired,
   hoverColor: PropTypes.oneOf(COLORS).isRequired,
-  urlImg: PropTypes.string.isRequired,
+  imgUrl: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
 }
 

@@ -1,8 +1,9 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { PageTitle } from '../../components'
 import { setPageTitle } from '../../utils/setPageTitle'
 import { useProducts } from '../../services/products/query'
+import CardItem from '../../components/CardItem/CardItem'
+import { Container } from '../../layout/Layout/Container'
 
 export default function Products() {
   const { t } = useTranslation()
@@ -10,19 +11,19 @@ export default function Products() {
 
   React.useEffect(() => {
     setPageTitle(t('products'))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (
-    <>
-      <PageTitle>{t('products')}</PageTitle>
+    <Container>
       {products.map(product => (
-        <p key={product.id}>
-          name : {product.name} | slug : {product.slug} | description :
-          {product.description} | image_url : {product.image_url} | images_url :{' '}
-          {product.images_url} | price :{product.price} | created_at :{' '}
-          {product.created_at}
-        </p>
+        <CardItem
+          key={product.id}
+          label={product.name}
+          imgUrl={product.image_url}
+          to={`/product/${product.slug}`}
+        />
       ))}
-    </>
+    </Container>
   )
 }
