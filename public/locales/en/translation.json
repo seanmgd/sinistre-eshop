@@ -9,5 +9,7 @@
   "home": "Home",
   "login": "Login",
   "products": "Products",
-  "videos": "Videos"
+  "videos": "Videos",
+  "qty": "Qty",
+  "clear": "Clear"
 }

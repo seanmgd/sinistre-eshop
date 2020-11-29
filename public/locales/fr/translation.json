@@ -9,5 +9,7 @@
   "home": "Accueil",
   "login": "Connexion",
   "products": "Produits",
-  "videos": "Videos"
+  "videos": "Videos",
+  "qty": "Qté",
+  "clear": "Effacer"
 }
