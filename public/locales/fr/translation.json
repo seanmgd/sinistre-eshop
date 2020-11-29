@@ -10,6 +10,10 @@
   "login": "Connexion",
   "products": "Produits",
   "videos": "Videos",
+  "cookies_rgpd": "Nous utilisons les cookies afin de fournir les services et fonctionnalités proposés sur notre site pour améliorer l’expérience de nos utilisateurs. Les cookies sont des données qui stockées sur votre ordinateur.",
+  "accept": "Accepter et fermer",
+  "qty": "Qté",
+  "clear": "Effacer",
   "add_cart": "Ajouter au panier",
   "size": "Taille"
 }
