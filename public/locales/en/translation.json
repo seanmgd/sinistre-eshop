@@ -10,6 +10,8 @@
   "login": "Login",
   "products": "Products",
   "videos": "Videos",
+  "cookies_rgpd": "We use cookies in order to provide the services and features offered on our site and to improve the experience of our users. Cookies are data downloaded or stored on your computer or other device.",
+  "accept": "Accept and close",
   "qty": "Qty",
   "clear": "Clear"
 }
