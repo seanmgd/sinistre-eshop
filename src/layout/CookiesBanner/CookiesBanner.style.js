@@ -4,7 +4,8 @@ import { devices } from '../../constants/devices'
 export const CookiesBannerContainer = styled.div`
   width: 100vw;
   min-height: 128px;
-  background-color: ${({ theme }) => theme.colors.grey.light};
+  background-color: ${({ theme }) => theme.colors.primary.base};
+  color: ${({ theme }) => theme.colors.primary.light};
   position: fixed;
   font-weight: bold;
   display: flex;
@@ -28,6 +29,10 @@ export const CookiesTextContainer = styled.div`
     margin: 1em auto;
     width: 20vw;
     min-width: 150px;
+  }
+
+  span {
+    text-align: justify;
   }
 
   @media ${devices.laptopL} {
