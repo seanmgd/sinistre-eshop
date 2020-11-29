@@ -8,6 +8,8 @@
   "dashboard": "Tableau de bord",
   "home": "Accueil",
   "login": "Connexion",
-  "product": "Produits",
-  "videos": "Videos"
+  "products": "Produits",
+  "videos": "Videos",
+  "qty": "Qté",
+  "clear": "Effacer"
 }

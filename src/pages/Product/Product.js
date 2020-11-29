@@ -1,15 +1,31 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { PageTitle } from '../../components'
 import { setPageTitle } from '../../utils/setPageTitle'
+import { useProduct } from '../../services/products/query'
 
-export default function Product() {
+export default function Product({ productSlug }) {
   const { t } = useTranslation()
+  const {
+    id,
+    name,
+    slug,
+    description,
+    image_url,
+    images_url,
+    price,
+    created_at,
+  } = useProduct(productSlug)
 
   React.useEffect(() => {
-    setPageTitle(t('product'))
+    setPageTitle(name)
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [name])
 
-  return <PageTitle>{t('product')}</PageTitle>
+  return (
+    <p>
+      name : {name} | slug : {slug} | description : {description} | image_url :{' '}
+      {image_url} | images_url : {images_url}| price : {price} | created_at :{' '}
+      {created_at}
+    </p>
+  )
 }

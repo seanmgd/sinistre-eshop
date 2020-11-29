@@ -8,6 +8,8 @@
   "dashboard": "Dashboard",
   "home": "Home",
   "login": "Login",
-  "product": "Product",
-  "videos": "Videos"
+  "products": "Products",
+  "videos": "Videos",
+  "qty": "Qty",
+  "clear": "Clear"
 }

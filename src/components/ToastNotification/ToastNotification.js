@@ -13,9 +13,9 @@ const ToastNotification = ({ textNotification }) => {
   }, [])
 
   return (
-    <DivContainer variants={variantToast} initial="initial" animate={animate}>
+    <Container variants={variantToast} initial="initial" animate={animate}>
       <Text>{textNotification}</Text>
-    </DivContainer>
+    </Container>
   )
 }
 
@@ -24,27 +24,28 @@ ToastNotification.propTypes = {
 }
 
 ToastNotification.defaultProps = {
-  text: 'Notificaiton de test',
+  text: 'This is a notification example',
 }
 
 const variantToast = {
-  initial: { opacity: 0, y: -10, transition: { duration: 1 } },
-  animated: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  animatedClose: { y: 50, opacity: 0, transition: { duration: 1 } },
+  initial: { opacity: 0, transition: { duration: 1 } },
+  animated: { opacity: 1, transition: { duration: 0.5 } },
+  animatedClose: { opacity: 0, transition: { duration: 1 } },
 }
 
-const DivContainer = styled(motion.div)`
-  background-color: ${({ theme }) => theme.colors.black.base};
+const Container = styled(motion.div)`
+  background-color: ${({ theme }) => theme.colors.primary.base};
   position: absolute;
-  top: 20px;
-  right: 0;
-  width: 150px;
+  top: 100px;
+  left: 50%;
+  transform: translate(-50%, -50%) !important;
+  width: 250px;
   overflow: hidden;
 `
 
 const Text = styled.p`
-  color: ${({ theme }) => theme.colors.grey.light};
-  font-size: 12px;
-  padding: 8px;
+  color: ${({ theme }) => theme.colors.primary.light};
+  font-size: 16px;
+  padding: 16px;
 `
 export default ToastNotification
