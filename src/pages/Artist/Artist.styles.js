@@ -3,10 +3,10 @@ import { devices } from '../../constants/devices'
 
 export const Container = styled.div`
   display: flex;
-  margin: 2em;
-  align-items: flex-start;
+  align-items: center;
   justify-content: center;
   flex-direction: column;
+  height: 93vh;
   @media ${devices.tablet} {
     flex-direction: inherit;
     div {
@@ -28,24 +28,24 @@ export const ImageContainer = styled.div`
   background-color: black;
   background-image: url('${props => props.image}');
   background-size: cover;
-  
-  @media ${devices.tablet} { 
+
+  @media ${devices.tablet} {
     width: 50%;
     height: 70vh;
   }
-  @media ${devices.laptop} { 
-    width: 35%; 
+  @media ${devices.laptop} {
+    width: 35%;
   }
-  @media ${devices.laptopL} { 
+  @media ${devices.laptopL} {
     width: 25%;
   }
- `
+`
 
 export const InfoContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
   height: inherit;
+  margin: 0 2em;
   p {
     display: block;
     text-align: justify;
@@ -63,13 +63,13 @@ export const InfoContainer = styled.div`
       font-size: 1.5em;
     }
     span {
-      margin-left: 1em;
+      margin-left: 8px;
     }
   }
-  
-  @media ${devices.tablet} { 
+
+  @media ${devices.tablet} {
     width: 50%;
-    height: inherit;
+    height: 70vh;
     div {
       margin: 0;
       flex-direction: column;
@@ -77,45 +77,25 @@ export const InfoContainer = styled.div`
       align-items: baseline;
       p {
         margin-left: -3px;
+        margin-top: -8px;
         font-size: 4em;
       }
       span {
-        margin 1em 0;
+        margin: 1em 0;
       }
     }
   }
-  
+
   @media ${devices.laptop} {
-    width: 35%; 
+    width: 35%;
     div {
-      margin: 0;
-      flex-direction: column;
-      justify-content: left;
-      align-items: baseline;
       p {
-        margin-left: -3px;
         font-size: 5em;
-      }
-      span {
-        margin 1em 0;
       }
     }
   }
   @media ${devices.laptopL} {
-    width: 25%; 
-    div {
-      margin: 0;
-      flex-direction: column;
-      justify-content: left;
-      align-items: baseline;
-      p {
-        margin-left: -3px;
-        font-size: 5em;
-      }
-      span {
-        margin 1em 0;
-      }
-    }
+    width: 25%;
   }
 `
 
