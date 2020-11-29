@@ -30,7 +30,7 @@ export const Burger = () => {
       path: '/artists',
     },
     {
-      name: isAuth ? 'logout' : 'login',
+      name: isAuth ? t('logout') : t('login'),
       path: '/login',
     },
     {

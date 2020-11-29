@@ -1,25 +1,25 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { PageTitle } from '../../components'
 import { setPageTitle } from '../../utils/setPageTitle'
 import { Button } from '../../components'
-import styled from 'styled-components'
 import { renderForm } from '../../utils/renderForm'
 import { checkValidity } from '../../utils/checkFormValidity'
-import { devices } from '../../constants/devices'
 import { useUserContext } from '../../contexts/user'
+import { FormContainer, Form, NewClientText } from './Login.styles'
 
 export default function Login() {
-  const [formControls, setFormControls] = useState({
+  const { t } = useTranslation()
+  const [formControls, setFormControls] = React.useState({
     controls: {
       email: {
         elementType: 'input',
         elementConfig: {
           type: 'email',
-          placeholder: 'Mail Address',
+          placeholder: '',
         },
         value: '',
-        label: 'Adresse E-mail :',
+        label: t('mail_address'),
         validation: {
           required: true,
           isEmail: true,
@@ -31,10 +31,10 @@ export default function Login() {
         elementType: 'input',
         elementConfig: {
           type: 'password',
-          placeholder: 'Password',
+          placeholder: '',
         },
         value: '',
-        label: 'Mot de passe :',
+        label: t('password'),
         validation: {
           required: true,
           minLength: 6,
@@ -45,8 +45,7 @@ export default function Login() {
     },
     isSignup: true,
   })
-  const [loginMode, setLoginMode] = useState(true)
-  const { t } = useTranslation()
+  const [loginMode, setLoginMode] = React.useState(true)
   const { login, error } = useUserContext()
 
   React.useEffect(() => {
@@ -62,10 +61,10 @@ export default function Login() {
             elementType: 'input',
             elementConfig: {
               type: 'text',
-              placeholder: 'firstName',
+              placeholder: '',
             },
             value: '',
-            label: 'Firstname :',
+            label: t('firstname'),
             validation: {
               required: true,
             },
@@ -76,10 +75,10 @@ export default function Login() {
             elementType: 'input',
             elementConfig: {
               type: 'text',
-              placeholder: 'lastname',
+              placeholder: '',
             },
             value: '',
-            label: 'Lastname :',
+            label: t('lastname'),
             validation: {
               required: true,
             },
@@ -90,10 +89,10 @@ export default function Login() {
             elementType: 'input',
             elementConfig: {
               type: 'email',
-              placeholder: 'Mail Address',
+              placeholder: '',
             },
             value: '',
-            label: 'Adresse E-mail :',
+            label: t('mail_address'),
             validation: {
               required: true,
               isEmail: true,
@@ -105,10 +104,10 @@ export default function Login() {
             elementType: 'input',
             elementConfig: {
               type: 'password',
-              placeholder: 'Password',
+              placeholder: '',
             },
             value: '',
-            label: 'Mot de passe :',
+            label: t('password'),
             validation: {
               required: true,
               minLength: 6,
@@ -125,10 +124,10 @@ export default function Login() {
             elementType: 'input',
             elementConfig: {
               type: 'email',
-              placeholder: 'Mail Address',
+              placeholder: '',
             },
             value: '',
-            label: 'Adresse E-mail :',
+            label: t('mail_address'),
             validation: {
               required: true,
               isEmail: true,
@@ -140,10 +139,10 @@ export default function Login() {
             elementType: 'input',
             elementConfig: {
               type: 'password',
-              placeholder: 'Password',
+              placeholder: '',
             },
             value: '',
-            label: 'Mot de passe :',
+            label: t('password'),
             validation: {
               required: true,
               minLength: 6,
@@ -191,64 +190,20 @@ export default function Login() {
   }
 
   return (
-    <>
-      <FormContainer>
-        <Form>
-          <PageTitle>{loginMode ? t('login') : t('register')}</PageTitle>
-          {renderForm(formElements, inputChangedHandler)}
-          <Button size="medium" onClick={loginMode && loginHandler}>
-            {loginMode ? t('login') : t('register')}
-          </Button>
-        </Form>
-        <NewClientText>
-          <span>{loginMode ? t('new user') : t('user')}</span>
-        </NewClientText>
-        <Button size="medium" onClick={() => setLoginMode(!loginMode)}>
-          {loginMode ? t('create account') : t('login to account')}
+    <FormContainer>
+      <Form>
+        <PageTitle>{loginMode ? t('login') : t('register')}</PageTitle>
+        {renderForm(formElements, inputChangedHandler)}
+        <Button size="large" onClick={loginMode && loginHandler}>
+          {loginMode ? t('login') : t('register')}
         </Button>
-      </FormContainer>
-    </>
+      </Form>
+      <NewClientText>
+        <span>{loginMode ? t('new_user') : t('user')}</span>
+      </NewClientText>
+      <Button size="large" onClick={() => setLoginMode(!loginMode)}>
+        {loginMode ? t('create_account') : t('login_account')}
+      </Button>
+    </FormContainer>
   )
 }
-
-export const FormContainer = styled.div`
-  & button {
-    width: 100%;
-    color: white;
-  }
-  @media ${devices.mobileM && devices.mobileS} {
-    margin: 10% 15%;
-  }
-  @media ${devices.tablet} {
-    margin: 10% 20%;
-  }
-  @media ${devices.laptop} {
-    margin: 5% 38%;
-  }
-`
-
-export const Form = styled.form`
-  padding: 20px;
-  border: ${({ theme }) => theme.colors.primary.light} 1px solid;
-  border-radius: 4px;
-  margin-bottom: 25px;
-  & h1 {
-    margin-bottom: 15px;
-  }
-  & label {
-    display: inline-block;
-  }
-`
-
-export const NewClientText = styled.h2`
-  width: 100%;
-  text-align: center;
-  border-bottom: 1px solid ${({ theme }) => theme.colors.primary.light};
-  color: ${({ theme }) => theme.colors.grey.light};
-  line-height: 0.1em;
-  margin: 10px 0 20px;
-  & span {
-    background: #fff;
-    padding: 0 10px;
-  }
-`
