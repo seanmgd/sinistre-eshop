@@ -3,11 +3,41 @@ import React from 'react'
 import { Navbar } from './Navbar'
 import { Link } from '@reach/router'
 import { useTranslation } from 'react-i18next'
+import { useUserContext } from '../../contexts/user'
 
 export const Burger = () => {
   const [open, setOpen] = React.useState(false)
 
   const { t } = useTranslation()
+  const { user } = useUserContext()
+  const isAuth = user.token
+
+  const ROUTES = [
+    {
+      name: 'home',
+      path: '/',
+    },
+    {
+      name: 'videos',
+      path: '/videos',
+    },
+    {
+      name: 'product',
+      path: '/product',
+    },
+    {
+      name: 'artists',
+      path: '/artists',
+    },
+    {
+      name: isAuth ? t('logout') : t('login'),
+      path: '/login',
+    },
+    {
+      name: 'contact',
+      path: '/contact',
+    },
+  ]
 
   return (
     <>
@@ -17,7 +47,7 @@ export const Burger = () => {
         <div />
       </StyledBurger>
       <StyledUl open={open}>
-        {Navbar.ROUTES.map(route => (
+        {ROUTES.map(route => (
           <li key={route.name}>
             <Link
               to={route.path}
