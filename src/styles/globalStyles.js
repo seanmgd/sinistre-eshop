@@ -110,7 +110,8 @@ const GlobalStyles = createGlobalStyle`
     font-family: Roboto;
     font-size: 14px;
     font-weight: 400;
-    color: ${({ theme }) => theme.colors.black.base};
+    color: ${({ theme }) => theme.colors.primary.base};
+    background: ${({ theme }) => theme.colors.primary.light};
     }
 
     :focus {
@@ -334,7 +335,7 @@ const GlobalStyles = createGlobalStyle`
     input,
     select,
     textarea {
-    color: ${({ theme }) => theme.colors.black.base};
+    color: ${({ theme }) => theme.colors.primary.base};
     font-family: Roboto;
     }
 

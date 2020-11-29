@@ -2,9 +2,14 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components'
 import theme from '../../styles/theme'
 
-const PADDINGS = { small: '4px', medium: '8px', large: '16px' }
+const PADDINGS = {
+  small: '4px',
+  medium: '8px',
+  large: '12px',
+  'x-large': '16px',
+}
 const SIZES = Object.keys(PADDINGS)
-const COLORS = Object.keys(theme.colors)
+const COLORS = Object.keys(theme.light.colors)
 
 export const Button = styled.button`
   color: ${({ color, theme }) => theme.colors[color].light};

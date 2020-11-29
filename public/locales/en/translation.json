@@ -8,11 +8,17 @@
   "dashboard": "Dashboard",
   "home": "Home",
   "login": "Login",
+  "products": "Products",
+  "videos": "Videos",
+  "cookies_rgpd": "We use cookies in order to provide the services and features offered on our site and to improve the experience of our users. Cookies are data downloaded or stored on your computer or other device.",
+  "accept": "Accept and close",
+  "qty": "Qty",
+  "clear": "Clear",
+  "add_cart": "Add to cart",
+  "size": "Size",
   "register": "Create account",
   "new user": "New to sinistre ?",
   "user": "Already have an account ?",
   "create account": "Create a sinistre account",
-  "login to account": "login to your sinistre account",
-  "product": "Product",
-  "videos": "Videos"
+  "login to account": "login to your sinistre account"
 }

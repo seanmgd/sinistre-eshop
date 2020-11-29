@@ -49,7 +49,11 @@ export const Burger = () => {
       <StyledUl open={open}>
         {ROUTES.map(route => (
           <li key={route.name}>
-            <Link to={route.path} key={route.name}>
+            <Link
+              to={route.path}
+              key={route.name}
+              onClick={() => setOpen(false)}
+            >
               {t(route.name)}
             </Link>
           </li>
