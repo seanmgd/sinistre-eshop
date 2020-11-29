@@ -26,7 +26,6 @@ export const InputElement = styled.input`
   width: 100%;
   &:focus {
     border-color: ${({ theme }) => `${theme.colors.grey.dark}`};
-    box-shadow: 0 0 3px 2px rgba(80, 85, 99, 0.5);
   }
   background-color: ${({ touched, theme, invalid }) =>
     invalid && touched && `${theme.colors.error.light}`};
