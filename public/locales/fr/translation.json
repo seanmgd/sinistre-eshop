@@ -25,5 +25,16 @@
   "mail_address": "Adresse mail",
   "password": "Mot de passe",
   "firstname": "Prénom",
-  "lastname": "Nom"
+  "lastname": "Nom",
+  "shipping": "Livraison",
+  "shipping_estimated": "Livraison estimée le ",
+  "shipping_details": "Details de livraison",
+  "checkout_details": "Mode de Paiement",
+  "coupon": "Avez-vous un coupon de réduction ?",
+  "apply": "Appliquer",
+  "security": "Vous êtes sur une page sécurisée. Toutes les informations ont été\n  cryptées avec des certificats SSL.",
+  "order": "Votre commande",
+  "complete_address": "Addresse complète (rue, numéro, code porte..)",
+  "zip_code": "Code postal",
+  "city": "Ville"
 }

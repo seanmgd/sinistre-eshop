@@ -6,11 +6,21 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0;
+  width: 100%;
   @media ${devices.tablet} {
     flex-direction: row;
     height: 93vh;
-    padding: 0;
+  }
+`
+
+export const CardsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  @media ${devices.tablet} {
+    flex-direction: row;
   }
   a {
     width: 100%;

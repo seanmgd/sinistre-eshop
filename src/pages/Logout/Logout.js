@@ -1,12 +1,11 @@
+import React from 'react'
 import { useUserContext } from '../../contexts/user'
-import { React, useEffect } from 'react'
-import { Redirect } from '@reach/router'
 
 function Logout() {
   const { logout } = useUserContext()
-  useEffect(() => {
+  React.useEffect(() => {
     logout()
-  }, [])
+  }, [logout])
   return null
 }
 

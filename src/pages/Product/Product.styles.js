@@ -1,13 +1,6 @@
 import styled from 'styled-components'
 import { devices } from '../../constants/devices'
 
-export const Container = styled.div`
-  display: flex;
-  align-items: center;
-  position: relative;
-  height: 93vh;
-`
-
 export const Content = styled.div`
   height: 100vh;
   display: flex;
@@ -25,11 +18,10 @@ export const Content = styled.div`
 
 export const ImagesContainer = styled.div`
   display: flex;
-  height: 100%;
+  height: inherit;
 
   @media ${devices.tablet} {
     width: 55vw;
-    height: inherit;
   }
   @media ${devices.laptop} {
     width: 50vw;

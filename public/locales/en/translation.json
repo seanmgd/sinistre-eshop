@@ -25,5 +25,16 @@
   "mail_address": "Mail address",
   "password": "Password",
   "firstname": "Firstname",
-  "lastname": "Lastname"
+  "lastname": "Lastname",
+  "shipping": "Shipping",
+  "shipping_estimated": "Shipping estimated on ",
+  "shipping_details": "Shipping details",
+  "checkout_details": "Checkout details",
+  "coupon": "Have you a coupon code ?",
+  "apply": "Apply",
+  "security": "You are on a security page. All data information are encrypted with SSL certificate.",
+  "order": "Your order",
+  "complete_address": "Full address (street name, number...)",
+  "zip_code": "Zip code",
+  "city": "City"
 }

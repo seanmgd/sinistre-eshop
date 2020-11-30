@@ -1,6 +1,5 @@
 import { StyledBurger, StyledUl } from './Burger.style'
 import React from 'react'
-import { Navbar } from './Navbar'
 import { Link } from '@reach/router'
 import { useTranslation } from 'react-i18next'
 import { useUserContext } from '../../contexts/user'
@@ -22,8 +21,8 @@ export const Burger = () => {
       path: '/videos',
     },
     {
-      name: 'product',
-      path: '/product',
+      name: 'products',
+      path: '/products',
     },
     {
       name: 'artists',

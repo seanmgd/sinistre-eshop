@@ -7,7 +7,6 @@ export default function Video({ videoSlug }) {
 
   React.useEffect(() => {
     setPageTitle(name)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [name])
 
   return (

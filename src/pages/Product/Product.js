@@ -4,8 +4,8 @@ import { setPageTitle } from '../../utils/setPageTitle'
 import { useProduct } from '../../services/products/query'
 import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
+import { Container } from '../../layout/Layout/Container'
 import {
-  Container,
   Content,
   ImagesContainer,
   OtherImageContainer,

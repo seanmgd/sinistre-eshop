@@ -17,8 +17,7 @@ export default function Cart() {
 
   React.useEffect(() => {
     setPageTitle(t('cart'))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [t])
 
   return (
     <Container>

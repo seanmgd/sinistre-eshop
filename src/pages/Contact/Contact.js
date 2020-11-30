@@ -8,8 +8,7 @@ export default function Contact() {
 
   React.useEffect(() => {
     setPageTitle(t('contact'))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [t])
 
   return <PageTitle>{t('contact')}</PageTitle>
 }

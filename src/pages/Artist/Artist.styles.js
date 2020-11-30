@@ -1,25 +1,6 @@
 import styled from 'styled-components'
 import { devices } from '../../constants/devices'
 
-export const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  height: 93vh;
-  @media ${devices.tablet} {
-    flex-direction: inherit;
-    div {
-      margin: 1em;
-    }
-  }
-  @media ${devices.laptopL} {
-    div {
-      margin: 2em;
-    }
-  }
-`
-
 export const ImageContainer = styled.div`
   display: flex;
   width: 100%;
@@ -56,7 +37,7 @@ export const InfoContainer = styled.div`
     align-items: center;
     height: auto;
     margin: 1em 0;
-    p {
+    h1 {
       font-size: 2em;
     }
     svg {
@@ -75,7 +56,7 @@ export const InfoContainer = styled.div`
       flex-direction: column;
       justify-content: left;
       align-items: baseline;
-      p {
+      h1 {
         margin-left: -3px;
         margin-top: -8px;
         font-size: 4em;
@@ -89,7 +70,7 @@ export const InfoContainer = styled.div`
   @media ${devices.laptop} {
     width: 35%;
     div {
-      p {
+      h1 {
         font-size: 5em;
       }
     }
