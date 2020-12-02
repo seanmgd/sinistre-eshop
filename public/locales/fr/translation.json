@@ -28,7 +28,6 @@
   "lastname": "Nom",
   "submit": "Envoyer",
   "message": "Message",
-  "MailAddress": "Adresse Email",
   "confirmMessageContact": "Message envoyé",
   "errorMessageContact": "Une erreur est internu lors de l'envoi",
   "footer_social_medias_motto": "Rejoignez nous sur les réseaux sociaux pour en savoir sur nos produits et bon plans",
@@ -50,5 +49,7 @@
   "order": "Votre commande",
   "complete_address": "Addresse complète (rue, numéro, code porte..)",
   "zip_code": "Code postal",
-  "city": "Ville"
+  "city": "Ville",
+  "welcome":"Bienvenue chez Sinistre",
+  "switch": "Changer le theme"
 }
