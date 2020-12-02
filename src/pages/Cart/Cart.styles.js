@@ -5,7 +5,7 @@ export const Container = styled.div`
   display: flex;
   justify-content: center;
   align-items: baseline;
-  height: 93vh;
+
   max-width: 1140px;
   margin: 0 auto;
   flex-direction: column;

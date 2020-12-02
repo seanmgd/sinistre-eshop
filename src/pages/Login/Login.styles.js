@@ -2,17 +2,10 @@ import styled from 'styled-components'
 import { devices } from '../../constants/devices'
 
 export const FormContainer = styled.div`
+  max-width: 500px;
+  margin: 0 auto;
   button {
     width: 100%;
-  }
-  @media ${devices.mobileM && devices.mobileS} {
-    margin: 10% 15%;
-  }
-  @media ${devices.tablet} {
-    margin: 10% 20%;
-  }
-  @media ${devices.laptop} {
-    margin: 5% 38%;
   }
 `
 

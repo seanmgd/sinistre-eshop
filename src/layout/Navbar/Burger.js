@@ -38,16 +38,16 @@ export const Burger = () => {
     },
     {
       name: 'blog',
-      path: '/blog'
+      path: '/blog',
     },
     {
       name: 'cookies',
-      path: '/'
+      path: '/',
     },
     {
       name: 'terms_of_use',
-      path: '/'
-    }
+      path: '/',
+    },
   ]
 
   return (

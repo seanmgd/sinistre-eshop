@@ -1,4 +1,4 @@
-import { NavItem, StyledNavbar } from './Navbar.style'
+import { NavItem, StyledNavbar, Container } from './Navbar.style'
 import { Link } from '@reach/router'
 import { useTranslation } from 'react-i18next'
 import { Burger } from './Burger'
@@ -39,11 +39,13 @@ export const Navbar = () => {
   return (
     <>
       <StyledNavbar>
-        {ROUTES.map(route => (
-          <NavItem as={Link} to={route.path} key={route.path}>
-            {t(route.name)}
-          </NavItem>
-        ))}
+        <Container>
+          {ROUTES.map(route => (
+            <NavItem as={Link} to={route.path} key={route.path}>
+              {t(route.name)}
+            </NavItem>
+          ))}
+        </Container>
       </StyledNavbar>
       <Burger />
     </>

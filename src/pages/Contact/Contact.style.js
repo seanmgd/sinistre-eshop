@@ -5,8 +5,6 @@ import { motion } from 'framer-motion'
 export const DivContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 5em;
-  height: 93vh;
 `
 
 export const FormContact = styled.div`
@@ -21,6 +19,7 @@ export const FormContact = styled.div`
 export const Title = styled(PageTitle)`
   align-self: center;
 `
+
 export const MessageConfirm = styled(motion.p)`
   align-self: center;
   padding: 12px;
