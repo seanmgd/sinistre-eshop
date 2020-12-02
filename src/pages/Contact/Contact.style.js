@@ -5,11 +5,13 @@ import { motion } from 'framer-motion'
 export const DivContainer = styled.div`
   display: flex;
   flex-direction: column;
-  padding-top: 15px;
+  padding-top: 5em;
+  height: 93vh;
 `
 
 export const FormContact = styled.div`
-  width: 70%;
+  max-width: 500px;
+  width: 80%;
   align-self: center;
   display: flex;
   flex-direction: column;

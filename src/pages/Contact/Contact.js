@@ -19,9 +19,9 @@ export default function Contact() {
     controls: {
       email: {
         elementType: 'input',
-        elementConfig: { type: 'email', placeholder: 'Mail Address' },
+        elementConfig: { type: 'email', placeholder: '' },
         value: '',
-        label: 'E-mail :',
+        label: t('mail_address'),
         validation: { required: true, isEmail: true },
         valid: false,
         touched: false,
@@ -91,7 +91,7 @@ export default function Contact() {
   return (
     <DivContainer>
       <Title>{t('contact')}</Title>
-      <FormContact method="POST">
+      <FormContact>
         {renderForm(formElements, inputChangedHandler)}
         <Button
           size="large"
@@ -104,7 +104,7 @@ export default function Contact() {
         </Button>
       </FormContact>
       {message && (
-        <MessageConfirm animate={{ opacity: 1 }} transition={{ duration: 2 }}>
+        <MessageConfirm animate={{ opacity: 1 }} transition={{ duration: 1 }}>
           {message}
         </MessageConfirm>
       )}
