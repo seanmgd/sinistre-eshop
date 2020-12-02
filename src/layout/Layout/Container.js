@@ -10,7 +10,6 @@ export const Container = styled.div`
   @media ${devices.tablet} {
     flex-direction: row;
     padding: 0;
-    height: 93vh;
   }
 `
 

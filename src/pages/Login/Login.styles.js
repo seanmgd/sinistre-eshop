@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { devices } from '../../constants/devices'
 
 export const FormContainer = styled.div`
   max-width: 500px;

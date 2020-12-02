@@ -1,9 +1,9 @@
 import React from 'react'
-import { PageTitle } from '../../components'
 import { setPageTitle } from '../../utils/setPageTitle'
 import { useTranslation } from 'react-i18next'
 import { useThemeSwitcher } from '../../contexts/themeSwitcher'
 import { Button } from '../../components/Button'
+import { CustomContainer, Title } from './Home.styles'
 
 export default function Home() {
   const { t } = useTranslation()
@@ -14,9 +14,9 @@ export default function Home() {
   }, [t])
 
   return (
-    <>
-      <PageTitle>{t('home')}</PageTitle>
-      <Button onClick={switchTheme}>switch theme</Button>
-    </>
+    <CustomContainer>
+      <Title>{t('welcome')}</Title>
+      <Button onClick={switchTheme}>{t('switch')}</Button>
+    </CustomContainer>
   )
 }

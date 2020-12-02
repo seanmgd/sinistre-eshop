@@ -10,9 +10,9 @@ export const FooterWrapper = styled.footer`
     position: static;
     bottom: 0;
     width: 100%;
-    height: 9vh;
-    color: ${({ theme }) => theme.colors.black.dark};
-    background-color: ${({ theme }) => theme.colors.grey.light};
+    height: 11vh;
+    color: ${({ theme }) => theme.colors.primary.base};
+    background-color: ${({ theme }) => theme.colors.primary.light};
     border-top: 1px solid #d6d4d4;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
