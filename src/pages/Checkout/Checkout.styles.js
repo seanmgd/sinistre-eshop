@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { devices } from '../../constants/devices'
+import { Button } from '../../components/Button'
 
 export const Container = styled.div`
   display: flex;
@@ -59,7 +60,7 @@ export const CouponDetails = styled.div`
   }
 `
 
-export const InputStyled = styled.div`
+export const InputCoupon = styled.div`
   display: flex;
   margin-top: 8px;
   input {
@@ -68,16 +69,17 @@ export const InputStyled = styled.div`
     text-transform: uppercase;
     font-size: 1.5em;
   }
-  button {
-    width: 40%;
-    text-align: center;
-    margin-left: -3px;
-    background: ${({ theme }) => theme.colors.primary.base};
-    color: ${({ theme }) => theme.colors.primary.light};
-    font-size: 18px;
-    border-top-right-radius: 4px;
-    border-bottom-right-radius: 4px;
-  }
+`
+
+export const ButtonCoupon = styled(Button)`
+  width: 40%;
+  text-align: center;
+  margin-left: -3px;
+  background: ${({ theme }) => theme.colors.primary.base};
+  color: ${({ theme }) => theme.colors.primary.light};
+  font-size: 18px;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
 `
 
 export const SecurityDetails = styled.div`
@@ -92,6 +94,9 @@ export const SecurityDetails = styled.div`
   @media ${devices.laptop} {
     flex-direction: row;
   }
+`
+export const SecurityImage = styled.div`
+  display: none;
 `
 
 export const CardElementWrapper = styled.div`
@@ -111,7 +116,7 @@ export const StyledP = styled.p`
   }
 `
 
-export const StyledTitle = styled.p`
+export const Title = styled.p`
   display: block;
   font-size: 2em;
   margin-top: 0.67em;

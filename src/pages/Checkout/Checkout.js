@@ -8,14 +8,15 @@ import {
   Form,
   InfoDetails,
   OrderDetails,
-  RowDetails,
   SecurityDetails,
+  SecurityImage,
   CouponDetails,
-  InputStyled,
+  InputCoupon,
+  ButtonCoupon,
   cardElementOptions,
   CardElementWrapper,
   StyledP,
-  StyledTitle,
+  Title,
 } from './Checkout.styles'
 import security from '../../styles/img/security-icon.png'
 import { checkValidity } from '../../utils/checkFormValidity'
@@ -217,16 +218,16 @@ export default function Checkout() {
   return (
     <Container>
       <ShippingDetails>
-        {/*<StyledTitle>{t('shipping_details')}</StyledTitle>*/}
+        {/*<Title>{t('shipping_details')}</Title>*/}
         {/*<Form>{renderForm(formElements, inputChangedHandler)}</Form>*/}
-        <StyledTitle>{t('checkout_details')}</StyledTitle>
+        <Title>{t('checkout_details')}</Title>
         {/*<CardElementWrapper>*/}
         {/*  <CardElement options={cardElementOptions} />*/}
         {/*</CardElementWrapper>*/}
         <Paypal total={12} />
       </ShippingDetails>
       <InfoDetails>
-        <StyledTitle>{t('order')}</StyledTitle>
+        <Title>{t('order')}</Title>
         <OrderDetails>
           <CheckoutDetails
             productName="Basic hoodie"
@@ -257,14 +258,14 @@ export default function Checkout() {
         </OrderDetails>
         <CouponDetails>
           <span>{t('coupon')}</span>
-          <InputStyled>
+          <InputCoupon>
             <input type="text" />
-            <button>{t('apply')}</button>
-          </InputStyled>
+            <ButtonCoupon>{t('apply')}</ButtonCoupon>
+          </InputCoupon>
         </CouponDetails>
         <SecurityDetails>
           <StyledP>{t('security')}</StyledP>
-          <img src={security} alt="security" />
+          <SecurityImage image={security} alt="security" />
         </SecurityDetails>
       </InfoDetails>
     </Container>
