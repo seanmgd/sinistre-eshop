@@ -20,16 +20,11 @@ export function CartContextProvider({ value, ...rest }) {
     product => {
       setCart(prev => {
         const [alreadyStoredProduct] = prev.filter(
-          ({ id, size }) => id === product.id && size === product.size,
+          ({ id }) => id === product.id,
         )
 
         if (!!alreadyStoredProduct) {
-          return [
-            ...prev.filter(
-              ({ id, size }) => id !== product.id && size !== product.size,
-            ),
-            product,
-          ]
+          return [...prev.filter(({ id }) => id !== product.id), product]
         }
 
         return [...prev, product]
@@ -37,12 +32,32 @@ export function CartContextProvider({ value, ...rest }) {
     },
     [setCart],
   )
+
+  const updateCart = React.useCallback(
+    product => {
+      setCart(prev => {
+        if (Math.sign(product.qty) === 0) {
+          //If quantity is 0, then remove the product in the cart
+          prev.splice(
+            cart.findIndex(e => e.id === product.id),
+            1,
+          )
+
+          window.location.reload() //TR Find better alternative
+          return prev
+        }
+        return [...prev.filter(({ id }) => id !== product.id), product]
+      })
+    },
+    [setCart, cart],
+  )
   const values = React.useMemo(
     () => ({
       cart,
       addToCart,
+      updateCart,
     }),
-    [cart, addToCart],
+    [cart, addToCart, updateCart],
   )
 
   return <CartContext.Provider value={values} {...rest} />

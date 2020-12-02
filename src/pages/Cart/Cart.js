@@ -20,10 +20,10 @@ import {
 
 export default function Cart() {
   const { t } = useTranslation()
-  const { cart } = useCartContext()
+  const { cart, updateCart } = useCartContext()
   const handleClear = event => {
     stopEvent(event)
-    localStorage.removeItem('sinistre_cart')
+    localStorage.removeItem('sinistre_cart') //TR Find better alternative
     window.location.reload()
   }
 
@@ -32,29 +32,25 @@ export default function Cart() {
   }, [t])
 
   let cartValues = Object.values(cart.map(e => [e.price, e.qty]))
+  let totalProduct = 0
+  for (let e of cartValues) {
+    totalProduct += e[1]
+  }
   let totalPrice = 0
-  for (let i of cartValues) {
-    totalPrice += i[0] * i[1]
+  for (let e of cartValues) {
+    totalPrice += e[0] * e[1]
   }
-  console.log(cart)
 
-  const handleAddQty = productId => {
-    console.log(productId)
-
+  const handleUpdateQty = (productId, increment) => {
     let cartIndex = cart.findIndex(e => e.id === productId)
-
-    console.log('Before update: ', cart[cartIndex])
-
-    cart[cartIndex].qty = String(parseInt(cart[cartIndex].qty) + 1)
-
-    console.log('After update: ', cart[cartIndex])
-
-    console.log('New cart', cart) //Tristan -> il faut mettre a jour ce Cart en utilisant le ./contexts/cart.js
+    if (increment) {
+      cart[cartIndex].qty = String(parseInt(cart[cartIndex].qty) + 1)
+    } else {
+      cart[cartIndex].qty = String(parseInt(cart[cartIndex].qty) - 1)
+    }
+    updateCart(cart[cartIndex])
   }
 
-  const handleRemoveQty = (event, product) => {
-    console.log(product)
-  }
   return (
     <Container>
       {cart.length !== 0 ? (
@@ -83,14 +79,14 @@ export default function Cart() {
                   <IncrementButton>
                     <Button
                       size="large"
-                      onClick={() => handleAddQty(product.id)}
+                      onClick={() => handleUpdateQty(product.id, true)}
                     >
                       +
                     </Button>
                     <Button
                       size="large"
                       color="error"
-                      onClick={handleRemoveQty}
+                      onClick={() => handleUpdateQty(product.id, false)}
                     >
                       -
                     </Button>
@@ -101,7 +97,7 @@ export default function Cart() {
             <Overview>
               <InfoOverwiew>
                 <div>
-                  Total {t('products')} <span> {cart.length} </span>
+                  Total {t('products')} <span> {Number(totalProduct)} </span>
                 </div>
                 <div>
                   Total {t('checkout')} <span>{totalPrice} €</span>
