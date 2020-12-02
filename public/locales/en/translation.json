@@ -30,5 +30,15 @@
   "message": "Message",
   "MailAddress": "Mail Address",
   "confirmMessageContact": "Message sent",
-  "errorMessageContact": "An error is acknowledged when sending the message"
+  "errorMessageContact": "An error is acknowledged when sending the message",
+  "footer_social_medias_motto": "Join us on social networks to find out more about our products and our deals.",
+  "services_clients": "Customer services",
+  "contact_us": "Contact us",
+  "help": "Support",
+  "discovers": "Discover Sinistre",
+  "who_are_we": "Who are we ?",
+  "legal_notices": "Legal notices",
+  "cookies": "Cookies",
+  "terms_of_use": "Terms of use"
+
 }

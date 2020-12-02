@@ -1,13 +1,15 @@
 import { Navbar } from '../Navbar'
-import { LayoutWrapper } from './Layout.style'
+import { ChildrenWrapper, LayoutWrapper } from './Layout.style'
+import { Footer } from '../Footer'
 import { CookiesBanner } from '../CookiesBanner'
 
 export default function Layout({ children }) {
   return (
     <LayoutWrapper>
       <Navbar />
-      {children}
+      <ChildrenWrapper>{children}</ChildrenWrapper>
       <CookiesBanner />
+      <Footer />
     </LayoutWrapper>
   )
 }
