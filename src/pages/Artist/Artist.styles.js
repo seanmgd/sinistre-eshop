@@ -31,9 +31,11 @@ export const ImageContainer = styled.div`
   @media ${devices.tablet} {
     width: 50%;
     height: 70vh;
+    margin-left: 32px;
   }
   @media ${devices.laptop} {
     width: 35%;
+    margin: 0;
   }
   @media ${devices.laptopL} {
     width: 25%;
@@ -48,7 +50,6 @@ export const InfoContainer = styled.div`
   p {
     display: block;
     text-align: justify;
-    font-size: 1.2em;
   }
   div {
     display: flex;
@@ -76,8 +77,8 @@ export const InfoContainer = styled.div`
       align-items: baseline;
       h1 {
         margin-left: -3px;
-        margin-top: -8px;
-        font-size: 4em;
+        margin-top: -3px;
+        font-size: 28px;
       }
       span {
         margin: 1em 0;
@@ -89,7 +90,7 @@ export const InfoContainer = styled.div`
     width: 35%;
     div {
       h1 {
-        font-size: 5em;
+        font-size: 3em;
       }
     }
   }

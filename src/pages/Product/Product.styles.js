@@ -15,9 +15,6 @@ export const Content = styled.div`
 
   @media ${devices.tablet} {
     flex-direction: row;
-    height: 60vh;
-  }
-  @media ${devices.laptop} {
     height: 70vh;
   }
 `
@@ -27,7 +24,7 @@ export const ImagesContainer = styled.div`
   height: inherit;
 
   @media ${devices.tablet} {
-    width: 50vw;
+    width: 57vw;
     height: inherit;
   }
   @media ${devices.laptopL} {
@@ -76,14 +73,13 @@ export const InfoContainer = styled.div`
   height: inherit;
   margin: 0 2em;
   h1 {
-    font-size: 27px;
+    font-size: 28px;
     text-align: center;
     margin: 0.5em 0;
   }
   p {
     display: block;
     text-align: justify;
-    font-size: 1.2em;
   }
 
   @media ${devices.tablet} {
@@ -95,7 +91,7 @@ export const InfoContainer = styled.div`
     align-items: baseline;
     h1 {
       text-align: left;
-      margin: -6px 0 0.5em;
+      margin: -3px 0 0.5em;
     }
   }
 
