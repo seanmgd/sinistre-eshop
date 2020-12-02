@@ -26,5 +26,11 @@
   "password": "Password",
   "firstname": "Firstname",
   "lastname": "Lastname",
+  "submit": "Submit",
+  "message": "Message",
+  "MailAddress": "Mail Address",
+  "confirmMessageContact": "Message sent",
+  "errorMessageContact": "An error is acknowledged when sending the message",
   "empty_cart": "Your cart is empty, please select a product to add"
+
 }

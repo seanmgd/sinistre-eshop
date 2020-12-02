@@ -26,5 +26,10 @@
   "password": "Mot de passe",
   "firstname": "Prénom",
   "lastname": "Nom",
+  "submit": "Envoyer",
+  "message": "Message",
+  "MailAddress": "Adresse Email",
+  "confirmMessageContact": "Message envoyé",
+  "errorMessageContact": "Une erreur est internu lors de l'envoi",
   "empty_cart": "Votre panier est vide, veuillez ajouter un produit en cliquant ici"
 }
