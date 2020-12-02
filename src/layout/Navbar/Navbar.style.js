@@ -11,6 +11,7 @@ export const StyledNavbar = styled.nav`
   overflow: hidden;
   background-color: ${({ theme }) => theme.colors.grey.light};
   box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+  z-index: 999;
 
   @media ${devices.tablet} {
     display: flex;

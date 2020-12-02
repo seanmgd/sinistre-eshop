@@ -1,6 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { setPageTitle } from '../../utils/setPageTitle'
+import axios from 'axios'
 import {
   Container,
   ShippingDetails,
@@ -11,133 +12,203 @@ import {
   SecurityDetails,
   CouponDetails,
   InputStyled,
+  cardElementOptions,
+  CardElementWrapper,
+  StyledP,
+  StyledTitle,
 } from './Checkout.styles'
 import security from '../../styles/img/security-icon.png'
-import { Input } from '../../components/Input'
+import { checkValidity } from '../../utils/checkFormValidity'
+import { renderForm } from '../../utils/renderForm'
+import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
+import Paypal from '../../components/Paypal/Paypal'
+import CheckoutDetails from '../../components/CheckoutDetails/CheckoutDetails'
 
 export default function Checkout() {
   const { t } = useTranslation()
 
-  const [formControls, setFormControls] = React.useState({
-    controls: {
-      email: {
-        elementType: 'input',
-        elementConfig: {
-          type: 'email',
-          placeholder: t('mail_address'),
-        },
-        value: '',
-        validation: {
-          required: true,
-          isEmail: true,
-        },
-        valid: false,
-        touched: false,
-      },
-      firstname: {
-        elementType: 'input',
-        elementConfig: {
-          type: 'text',
-          placeholder: t('firstname'),
-        },
-        value: '',
-        validation: {
-          required: true,
-        },
-        valid: false,
-        touched: false,
-      },
-      lastname: {
-        elementType: 'input',
-        elementConfig: {
-          type: 'text',
-          placeholder: t('lastname'),
-        },
-        value: '',
-        validation: {
-          required: true,
-        },
-        valid: false,
-        touched: false,
-      },
-      address: {
-        elementType: 'input',
-        elementConfig: {
-          type: 'text',
-          placeholder: t('complete_address'),
-        },
-        value: '',
-        validation: {
-          required: true,
-        },
-        valid: false,
-        touched: false,
-      },
-      city: {
-        elementType: 'input',
-        elementConfig: {
-          type: 'text',
-          placeholder: t('city'),
-        },
-        value: '',
-        validation: {
-          required: true,
-        },
-        valid: false,
-        touched: false,
-      },
-      zipcode: {
-        elementType: 'input',
-        elementConfig: {
-          type: 'text',
-          placeholder: t('zip_code'),
-        },
-        value: '',
-        validation: {
-          required: true,
-        },
-        valid: false,
-        touched: false,
-      },
-      cardHolder: {
-        elementType: 'input',
-        elementConfig: {
-          type: 'text',
-          placeholder: 'cardHolder',
-        },
-        value: 'Will be replaced with stripe integration',
-        validation: {
-          required: true,
-        },
-        valid: false,
-        touched: false,
-      },
-      cardNumber: {
-        elementType: 'input',
-        elementConfig: {
-          type: 'text',
-          placeholder: 'cardNumber',
-        },
-        value: 'Will be replaced with stripe integration',
-        validation: {
-          required: true,
-        },
-        valid: false,
-        touched: false,
-      },
-    },
-  })
-
-  const inputChangedHandler = (event, controlName) => {
-    const updatedControls = {
-      ...formControls.controls,
-      [controlName]: {
-        ...formControls.controls[controlName],
-        value: event.target.value,
-      },
-    }
-    setFormControls({ controls: updatedControls })
-  }
+  // const [formControls, setFormControls] = React.useState({
+  //   controls: {
+  //     email: {
+  //       elementType: 'input',
+  //       elementConfig: {
+  //         type: 'email',
+  //         placeholder: t('mail_address'),
+  //       },
+  //       value: '',
+  //       validation: {
+  //         required: true,
+  //         isEmail: true,
+  //       },
+  //       valid: false,
+  //       touched: false,
+  //     },
+  //     firstname: {
+  //       elementType: 'input',
+  //       elementConfig: {
+  //         type: 'text',
+  //         placeholder: t('firstname'),
+  //       },
+  //       value: '',
+  //       validation: {
+  //         required: true,
+  //       },
+  //       valid: false,
+  //       touched: false,
+  //     },
+  //     lastname: {
+  //       elementType: 'input',
+  //       elementConfig: {
+  //         type: 'text',
+  //         placeholder: t('lastname'),
+  //       },
+  //       value: '',
+  //       validation: {
+  //         required: true,
+  //       },
+  //       valid: false,
+  //       touched: false,
+  //     },
+  //     line: {
+  //       elementType: 'input',
+  //       elementConfig: {
+  //         type: 'text',
+  //         placeholder: t('complete_address'),
+  //       },
+  //       value: '',
+  //       validation: {
+  //         required: true,
+  //       },
+  //       valid: false,
+  //       touched: false,
+  //     },
+  //     city: {
+  //       elementType: 'input',
+  //       elementConfig: {
+  //         type: 'text',
+  //         placeholder: t('city'),
+  //       },
+  //       value: '',
+  //       validation: {
+  //         required: true,
+  //       },
+  //       valid: false,
+  //       touched: false,
+  //     },
+  //     zipcode: {
+  //       elementType: 'input',
+  //       elementConfig: {
+  //         type: 'text',
+  //         placeholder: t('zip_code'),
+  //       },
+  //       value: '',
+  //       validation: {
+  //         required: true,
+  //       },
+  //       valid: false,
+  //       touched: false,
+  //     },
+  //     country: {
+  //       elementType: 'input',
+  //       elementConfig: {
+  //         type: 'text',
+  //         placeholder: t('country'),
+  //       },
+  //       value: '',
+  //       validation: {
+  //         required: true,
+  //       },
+  //       valid: false,
+  //       touched: false,
+  //     },
+  //   },
+  // })
+  // const [processing, setProcessingTo] = React.useState(false)
+  // const [checkoutError, setCheckoutError] = React.useState()
+  //
+  // const stripe = useStripe()
+  // const elements = useElements()
+  //
+  // const formElements = []
+  // for (let key in formControls.controls) {
+  //   formElements.push({
+  //     id: key,
+  //     config: formControls.controls[key],
+  //   })
+  // }
+  //
+  // const inputChangedHandler = (event, controlName) => {
+  //   const updatedControls = {
+  //     ...formControls.controls,
+  //     [controlName]: {
+  //       ...formControls.controls[controlName],
+  //       value: event.target.value,
+  //       valid: checkValidity(
+  //         event.target.value,
+  //         formControls.controls[controlName].validation,
+  //       ),
+  //       touched: true,
+  //     },
+  //   }
+  //   setFormControls({ controls: updatedControls })
+  // }
+  //
+  // /*const handleCardDetailsChange = ev => {
+  //   ev.error ? setCheckoutError(ev.error.message) : setCheckoutError()
+  // }
+  //
+  // const paymentHandler = async event => {
+  //   event.preventDefault()
+  //   const billingDetails = {
+  //     email: formControls.controls.email.value,
+  //     firstname: formControls.controls.firstname.value,
+  //     lastname: formControls.controls.lastname.value,
+  //     address: {
+  //       line: formControls.controls.line.value,
+  //       country: formControls.controls.country.value,
+  //       postal_code: formControls.controls.zipcode.value,
+  //     },
+  //   }
+  //
+  //   setProcessingTo(true)
+  //
+  //   const cardElement = elements.getElement('card')
+  //
+  //   try {
+  //     const { data: clientSecret } = await axios.post(
+  //       '/services/payment_intents/payment_intents',
+  //       {
+  //         amount: price * 100,
+  //       },
+  //     )
+  //
+  //     const paymentMethodReq = await stripe.createPaymentMethod({
+  //       type: 'card',
+  //       card: cardElement,
+  //       billing_details: billingDetails,
+  //     })
+  //
+  //     if (paymentMethodReq.error) {
+  //       setCheckoutError(paymentMethodReq.error.message)
+  //       setProcessingTo(false)
+  //       return
+  //     }
+  //
+  //     const { error } = await stripe.confirmCardPayment(clientSecret, {
+  //       payment_method: paymentMethodReq.paymentMethod.id,
+  //     })
+  //
+  //     if (error) {
+  //       setCheckoutError(error.message)
+  //       setProcessingTo(false)
+  //       return
+  //     }
+  //
+  //     alert('yoiupi')
+  //   } catch (err) {
+  //     setCheckoutError(err.message)
+  //   }
+  // }*/
 
   React.useEffect(() => {
     setPageTitle(t('checkout'))
@@ -146,71 +217,43 @@ export default function Checkout() {
   return (
     <Container>
       <ShippingDetails>
-        <h1>{t('shipping_details')}</h1>
-        <Form>
-          <Input
-            inputElementProps={formControls.controls.email.elementConfig}
-            onChange={event => inputChangedHandler(event, 'email')}
-          />
-          <Input
-            inputElementProps={formControls.controls.firstname.elementConfig}
-            onChange={event => inputChangedHandler(event, 'firstname')}
-          />
-          <Input
-            inputElementProps={formControls.controls.lastname.elementConfig}
-            onChange={event => inputChangedHandler(event, 'lastname')}
-          />
-          <Input
-            inputElementProps={formControls.controls.address.elementConfig}
-            onChange={event => inputChangedHandler(event, 'address')}
-          />
-          <Input
-            inputElementProps={formControls.controls.city.elementConfig}
-            onChange={event => inputChangedHandler(event, 'city')}
-          />
-          <Input
-            inputElementProps={formControls.controls.zipcode.elementConfig}
-            onChange={event => inputChangedHandler(event, 'zipcode')}
-          />
-        </Form>
-        <h1>{t('checkout_details')}</h1>
-        <Form>
-          <Input
-            inputElementProps={formControls.controls.cardHolder.elementConfig}
-            onChange={event => inputChangedHandler(event, 'cardHolder')}
-          />
-          <Input
-            inputElementProps={formControls.controls.cardNumber.elementConfig}
-            onChange={event => inputChangedHandler(event, 'cardNumber')}
-          />
-        </Form>
+        {/*<StyledTitle>{t('shipping_details')}</StyledTitle>*/}
+        {/*<Form>{renderForm(formElements, inputChangedHandler)}</Form>*/}
+        <StyledTitle>{t('checkout_details')}</StyledTitle>
+        {/*<CardElementWrapper>*/}
+        {/*  <CardElement options={cardElementOptions} />*/}
+        {/*</CardElementWrapper>*/}
+        <Paypal total={12} />
       </ShippingDetails>
       <InfoDetails>
-        <h1>{t('order')}</h1>
+        <StyledTitle>{t('order')}</StyledTitle>
         <OrderDetails>
-          <RowDetails>
-            <span>Basic hoodie x 1</span>
-            <span>30 €</span>
-          </RowDetails>
-          <RowDetails>
-            <span>Tees long sleeves x 2</span>
-            <span>60 €</span>
-          </RowDetails>
-          <RowDetails>
-            <span>Basic tee shirt x 3</span>
-            <span>70 €</span>
-          </RowDetails>
-          <RowDetails>
+          <CheckoutDetails
+            productName="Basic hoodie"
+            productPrice="30"
+            productQty="1"
+          />
+          <CheckoutDetails
+            productName="Tees long sleeves"
+            productPrice="60"
+            productQty="2"
+          />
+          <CheckoutDetails
+            productName="Basic tee shirt"
+            productPrice="70"
+            productQty="3"
+          />
+          <CheckoutDetails>
             <span>{t('shipping')}</span>
             <span>
               10 € <br />
               <br /> {t('shipping_estimated')} jeudi 23 décembre
             </span>
-          </RowDetails>
-          <RowDetails>
+          </CheckoutDetails>
+          <CheckoutDetails>
             <span>Total</span>
             <span>170 €</span>
-          </RowDetails>
+          </CheckoutDetails>
         </OrderDetails>
         <CouponDetails>
           <span>{t('coupon')}</span>
@@ -220,7 +263,7 @@ export default function Checkout() {
           </InputStyled>
         </CouponDetails>
         <SecurityDetails>
-          <p>{t('security')}</p>
+          <StyledP>{t('security')}</StyledP>
           <img src={security} alt="security" />
         </SecurityDetails>
       </InfoDetails>

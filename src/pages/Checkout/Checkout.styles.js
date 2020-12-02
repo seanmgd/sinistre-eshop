@@ -10,10 +10,6 @@ export const Container = styled.div`
   max-width: 1000px;
   margin: 0 auto;
   padding: 1em;
-  h1 {
-    font-size: 2em;
-    margin-bottom: 16px;
-  }
   @media ${devices.tablet} {
     flex-direction: row;
     padding: 5em 1em;
@@ -53,26 +49,6 @@ export const OrderDetails = styled.div`
   color: ${({ theme }) => theme.colors.primary.light};
   border-radius: 4px;
 `
-export const RowDetails = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  margin-bottom: 16px;
-  :nth-last-child(2) {
-    padding-top: 8px;
-    text-align: right;
-    span:first-child {
-      font-weight: 700;
-    }
-  }
-  :last-child {
-    margin: 0;
-    padding-top: 16px;
-    border-top: 1px solid ${({ theme }) => theme.colors.primary.light};
-    font-size: 18px;
-    font-weight: 700;
-  }
-`
 
 export const CouponDetails = styled.div`
   display: flex;
@@ -110,20 +86,37 @@ export const SecurityDetails = styled.div`
   align-items: baseline;
   flex-direction: column;
   font-style: italic;
-  p {
-    margin: 12px 0;
-  }
   @media ${devices.tablet} {
     align-items: center;
-    p {
-      text-align: justify;
-      margin: 0 6px;
-    }
   }
   @media ${devices.laptop} {
     flex-direction: row;
-    p {
-      margin: 0 12px 0 0;
-    }
   }
+`
+
+export const CardElementWrapper = styled.div`
+  padding: 12px;
+  border-radius: 4px;
+  border: 1px solid ${({ theme }) => theme.colors.grey.base};
+`
+
+export const StyledP = styled.p`
+  margin: 12px 0;
+  @media ${devices.tablet} {
+    text-align: justify;
+    margin: 0 6px;
+  }
+  @media ${devices.laptop} {
+    margin: 0 12px 0 0;
+  }
+`
+
+export const StyledTitle = styled.p`
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
 `
