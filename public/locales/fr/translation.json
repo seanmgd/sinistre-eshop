@@ -50,5 +50,6 @@
   "order": "Votre commande",
   "complete_address": "Addresse complète (rue, numéro, code porte..)",
   "zip_code": "Code postal",
-  "city": "Ville"
+  "city": "Ville",
+  "errorOffline": "Vous avez des problèmes de connexion"
 }

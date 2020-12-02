@@ -50,5 +50,6 @@
   "order": "Your order",
   "complete_address": "Full address (street name, number...)",
   "zip_code": "Zip code",
-  "city": "City"
+  "city": "City",
+  "errorOffline": "You have connection problems"
 }
