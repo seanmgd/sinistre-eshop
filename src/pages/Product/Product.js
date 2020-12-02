@@ -1,34 +1,30 @@
+import { stopEvent } from '@ttrmz/react-utils'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { setPageTitle } from '../../utils/setPageTitle'
-import { useProduct } from '../../services/products/query'
-import { useCartContext } from '../../contexts/cart'
 import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
-import { stopEvent } from '@ttrmz/react-utils'
+import { useCartContext } from '../../contexts/cart'
+import { useProduct } from '../../services/products/query'
+import { setPageTitle } from '../../utils/setPageTitle'
 import {
+  Action,
   Container,
   Content,
   ImagesContainer,
-  OtherImageContainer,
-  MainImage,
-  OtherImage,
   InfoContainer,
   InputStyled,
+  MainImage,
+  OtherImage,
+  OtherImageContainer,
   SizeContainer,
-  Action,
 } from './Product.styles'
 
-const SIZES = {
-  1: 'S',
-  2: 'M',
-  3: 'L',
-  4: 'XL',
-}
+const SIZES = ['S', 'M', 'L', 'XL']
 
 export default function Product({ productSlug }) {
   const { t } = useTranslation()
-  const [isActive, setActive] = React.useState(0)
+  const [activeSize, setActiveSize] = React.useState('')
+
   const [formControls, setFormControls] = React.useState({
     controls: {
       number: {
@@ -58,19 +54,18 @@ export default function Product({ productSlug }) {
     productSlug,
   )
 
-  const { addToCart } = useCartContext()
+  const { updateCart } = useCartContext()
 
   const handleAddCart = event => {
     stopEvent(event)
-    if (isActive !== 0) {
-      const sizeSelected = SIZES[isActive]
-      const productId = `${productSlug}-${sizeSelected}`
+    if (!!activeSize) {
+      const productId = `${productSlug}-${activeSize}`
 
-      addToCart({
+      updateCart({
         id: productId,
         slug: productSlug,
         qty: formControls.controls.number.value,
-        size: sizeSelected,
+        size: activeSize,
         image: image_url,
         name: name,
         price: price,
@@ -91,44 +86,36 @@ export default function Product({ productSlug }) {
               <OtherImage image={image} alt="image" key={image} />
             ))}
           </OtherImageContainer>
+
           <MainImage image={image_url} />
         </ImagesContainer>
+
         <InfoContainer>
           <h1>{name}</h1>
+
           <p>{description}</p>
+
           <SizeContainer>
             <h2>{price + ' €'}</h2>
             <div>
               {t('size')}
-              <button
-                onClick={() => setActive(1)}
-                className={isActive === 1 && 'selected'}
-              >
-                S
-              </button>
-              <button
-                onClick={() => setActive(2)}
-                className={isActive === 2 && 'selected'}
-              >
-                M
-              </button>
-              <button
-                onClick={() => setActive(3)}
-                className={isActive === 3 && 'selected'}
-              >
-                L
-              </button>
-              <button
-                onClick={() => setActive(4)}
-                className={isActive === 4 && 'selected'}
-              >
-                XL
-              </button>
+
+              {SIZES.map(size => (
+                <button
+                  key={size}
+                  onClick={() => setActiveSize(size)}
+                  className={activeSize === size ? 'selected' : ''}
+                >
+                  {size}
+                </button>
+              ))}
             </div>
           </SizeContainer>
+
           <Action>
             <div>
               {t('qty')}
+
               <InputStyled>
                 <Input
                   value={formControls.controls.number.value}
@@ -137,7 +124,13 @@ export default function Product({ productSlug }) {
                 />
               </InputStyled>
             </div>
-            <Button color="primary" size="large" onClick={handleAddCart}>
+
+            <Button
+              disabled={!activeSize}
+              color="primary"
+              size="large"
+              onClick={handleAddCart}
+            >
               {t('add_cart')}
             </Button>
           </Action>

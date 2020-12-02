@@ -1,54 +1,44 @@
+import { Link } from '@reach/router'
+import { stopEvent } from '@ttrmz/react-utils'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { Link } from '@reach/router'
-import { setPageTitle } from '../../utils/setPageTitle'
-import { useCartContext } from '../../contexts/cart'
 import { Button } from '../../components/Button'
 import { PageTitle } from '../../components/PageTitle'
-import { stopEvent } from '@ttrmz/react-utils'
+import { useCartContext } from '../../contexts/cart'
+import { setPageTitle } from '../../utils/setPageTitle'
 import {
-  Container,
-  EmptyCart,
-  Content,
-  Grid,
-  Overview,
-  InfoOverwiew,
   ActionOverview,
-  ProductImage,
+  Container,
+  Content,
+  EmptyCart,
+  Grid,
   IncrementButton,
+  InfoOverwiew,
+  Overview,
+  ProductImage,
 } from './Cart.styles'
 
 export default function Cart() {
   const { t } = useTranslation()
-  const { cart, updateCart } = useCartContext()
+  const { cart, updateCart, clearCart } = useCartContext()
+
   const handleClear = event => {
     stopEvent(event)
-    localStorage.removeItem('sinistre_cart') //TR Find better alternative
-    window.location.reload()
+    clearCart()
   }
 
   React.useEffect(() => {
     setPageTitle(t('cart'))
   }, [t])
 
-  let cartValues = Object.values(cart.map(e => [e.price, e.qty]))
-  let totalProduct = 0
-  for (let e of cartValues) {
-    totalProduct += e[1]
-  }
-  let totalPrice = 0
-  for (let e of cartValues) {
-    totalPrice += e[0] * e[1]
-  }
+  const productsSum = cart.reduce((acc, curr) => acc + parseInt(curr.qty), 0)
+  const priceSum = cart.reduce(
+    (acc, curr) => acc + parseInt(curr.qty) * parseInt(curr.price),
+    0,
+  )
 
-  const handleUpdateQty = (productId, increment) => {
-    let cartIndex = cart.findIndex(e => e.id === productId)
-    if (increment) {
-      cart[cartIndex].qty = String(parseInt(cart[cartIndex].qty) + 1)
-    } else {
-      cart[cartIndex].qty = String(parseInt(cart[cartIndex].qty) - 1)
-    }
-    updateCart(cart[cartIndex])
+  const handleUpdateQty = (product, increment) => {
+    updateCart({ ...product, qty: String(parseInt(product.qty) + increment) })
   }
 
   return (
@@ -59,7 +49,7 @@ export default function Cart() {
           <Content>
             <Grid>
               {cart.map(product => (
-                <ul>
+                <ul key={product.id}>
                   <li>
                     <Link to={`/product/${product.slug}`}>
                       <ProductImage image={product.image} />{' '}
@@ -79,14 +69,14 @@ export default function Cart() {
                   <IncrementButton>
                     <Button
                       size="large"
-                      onClick={() => handleUpdateQty(product.id, true)}
+                      onClick={() => handleUpdateQty(product, 1)}
                     >
                       +
                     </Button>
                     <Button
                       size="large"
                       color="error"
-                      onClick={() => handleUpdateQty(product.id, false)}
+                      onClick={() => handleUpdateQty(product, -1)}
                     >
                       -
                     </Button>
@@ -97,10 +87,10 @@ export default function Cart() {
             <Overview>
               <InfoOverwiew>
                 <div>
-                  Total {t('products')} <span> {Number(totalProduct)} </span>
+                  Total {t('products')} <span> {productsSum} </span>
                 </div>
                 <div>
-                  Total {t('checkout')} <span>{totalPrice} €</span>
+                  Total {t('checkout')} <span>{priceSum} €</span>
                 </div>
               </InfoOverwiew>
               <hr />
