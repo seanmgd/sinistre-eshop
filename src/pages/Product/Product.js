@@ -19,6 +19,13 @@ import {
   Action,
 } from './Product.styles'
 
+const SIZES = {
+  1: 'S',
+  2: 'M',
+  3: 'L',
+  4: 'XL',
+}
+
 export default function Product({ productSlug }) {
   const { t } = useTranslation()
   const [isActive, setActive] = React.useState(0)
@@ -51,40 +58,26 @@ export default function Product({ productSlug }) {
     productSlug,
   )
 
-  const { cart, addCart } = useCartContext()
-
-  const SIZE = {
-    1: 'S',
-    2: 'M',
-    3: 'L',
-    4: 'XL',
-  }
+  const { addToCart } = useCartContext()
 
   const handleAddCart = event => {
     stopEvent(event)
     if (isActive !== 0) {
-      const sizeSelected = SIZE[isActive]
+      const sizeSelected = SIZES[isActive]
       const productId = `${productSlug}-${sizeSelected}`
-      let cartValues = Object.values(cart.map(e => e.id))
-      let alreadyStored = false
-      for (let key of cartValues) {
-        if (key.includes(productId)) {
-          alreadyStored = true
-        }
-      }
-      if (!alreadyStored) {
-        addCart({
-          id: productId,
-          slug: productSlug,
-          qty: formControls.controls.number.value,
-          size: sizeSelected,
-          image: image_url,
-          name: name,
-          price: price,
-        })
-      }
+
+      addToCart({
+        id: productId,
+        slug: productSlug,
+        qty: formControls.controls.number.value,
+        size: sizeSelected,
+        image: image_url,
+        name: name,
+        price: price,
+      })
     }
   }
+
   React.useEffect(() => {
     setPageTitle(name)
   }, [name])
