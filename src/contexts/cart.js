@@ -18,7 +18,22 @@ export function CartContextProvider({ value, ...rest }) {
 
   const addToCart = React.useCallback(
     product => {
-      setCart(prev => [...prev.filter(({ id }) => product.id !== id), product])
+      setCart(prev => {
+        const [alreadyStoredProduct] = prev.filter(
+          ({ id, size }) => id === product.id && size === product.size,
+        )
+
+        if (!!alreadyStoredProduct) {
+          return [
+            ...prev.filter(
+              ({ id, size }) => id !== product.id && size !== product.size,
+            ),
+            product,
+          ]
+        }
+
+        return [...prev, product]
+      })
     },
     [setCart],
   )
