@@ -3,13 +3,18 @@ import { devices } from '../../constants/devices'
 
 export const Container = styled.div`
   display: flex;
-  height: 93vh;
-  max-width: 1220px;
+  justify-content: center;
+  align-items: baseline;
+
+  max-width: 1140px;
   margin: 0 auto;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  padding-top: 5em;
+  padding: 5em 0;
+  @media ${devices.tablet} {
+    padding: 5em;
+  }
 `
 
 export const Content = styled.div`

@@ -6,9 +6,10 @@ export const Container = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  padding: 0;
   @media ${devices.tablet} {
     flex-direction: row;
+    padding: 0;
     height: 93vh;
   }
 `

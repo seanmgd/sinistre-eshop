@@ -1,18 +1,31 @@
 import React from 'react'
 import { setPageTitle } from '../../utils/setPageTitle'
 import { useVideo } from '../../services/videos/query'
+import styled from 'styled-components'
 
 export default function Video({ videoSlug }) {
-  const { name, slug, link, image_url, created_at } = useVideo(videoSlug)
+  const { name, link } = useVideo(videoSlug)
 
   React.useEffect(() => {
     setPageTitle(name)
   }, [name])
 
   return (
-    <p>
-      name : {name} | slug : {slug} | link : {link} | image_url : {image_url} |
-      created_at : {created_at}
-    </p>
+    <Container>
+      <Iframe title={name} src={link} allow="fullscreen" />
+    </Container>
   )
 }
+
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 83vh;
+`
+const Iframe = styled.iframe`
+  width: inherit;
+  height: inherit;
+`

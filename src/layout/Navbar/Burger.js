@@ -29,12 +29,24 @@ export const Burger = () => {
       path: '/artists',
     },
     {
-      name: isAuth ? t('logout') : t('login'),
+      name: isAuth ? 'logout' : 'login',
       path: '/login',
     },
     {
       name: 'contact',
       path: '/contact',
+    },
+    {
+      name: 'blog',
+      path: '/blog',
+    },
+    {
+      name: 'cookies',
+      path: '/',
+    },
+    {
+      name: 'terms_of_use',
+      path: '/',
     },
   ]
 

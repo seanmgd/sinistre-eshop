@@ -1,6 +1,12 @@
 import styled from 'styled-components'
 import { devices } from '../../constants/devices'
 
+export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
 export const Content = styled.div`
   height: 100vh;
   display: flex;
@@ -9,7 +15,7 @@ export const Content = styled.div`
 
   @media ${devices.tablet} {
     flex-direction: row;
-    height: 50vh;
+    height: 60vh;
   }
   @media ${devices.laptop} {
     height: 70vh;
@@ -21,10 +27,8 @@ export const ImagesContainer = styled.div`
   height: inherit;
 
   @media ${devices.tablet} {
-    width: 55vw;
-  }
-  @media ${devices.laptop} {
     width: 50vw;
+    height: inherit;
   }
   @media ${devices.laptopL} {
     width: 35vw;
@@ -39,7 +43,7 @@ export const MainImage = styled.div`
   background-image: url('${props => props.image}');
   background-size: cover;
   @media ${devices.tablet} {
-    margin: 0 52px 0 14px;
+    margin: 0 32px 0 16px;
     width: 66%;
     height: inherit;
   }
@@ -83,7 +87,7 @@ export const InfoContainer = styled.div`
   }
 
   @media ${devices.tablet} {
-    width: 35%;
+    width: 35vw;
     height: inherit;
     margin: 0;
     flex-direction: column;
@@ -96,16 +100,16 @@ export const InfoContainer = styled.div`
   }
 
   @media ${devices.laptop} {
-    width: 25%;
+    width: 30vw;
     h1 {
       font-size: 3em;
     }
   }
   @media ${devices.laptopL} {
-    width: 18%;
+    width: 25vw;
   }
   @media ${devices.desktop} {
-    width: 15%;
+    width: 20vw;
   }
 `
 

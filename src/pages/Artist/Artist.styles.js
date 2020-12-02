@@ -1,6 +1,24 @@
 import styled from 'styled-components'
 import { devices } from '../../constants/devices'
 
+export const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  @media ${devices.tablet} {
+    flex-direction: inherit;
+    div {
+      margin: 1em;
+    }
+  }
+  @media ${devices.laptopL} {
+    div {
+      margin: 2em;
+    }
+  }
+`
+
 export const ImageContainer = styled.div`
   display: flex;
   width: 100%;
