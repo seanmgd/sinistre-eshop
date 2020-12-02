@@ -114,6 +114,10 @@ const GlobalStyles = createGlobalStyle`
     background: ${({ theme }) => theme.colors.primary.light};
     }
 
+    p {
+    line-height: 1.5;
+    }
+
     :focus {
     outline: 0;
     }

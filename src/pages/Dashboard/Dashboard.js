@@ -8,8 +8,7 @@ export default function Dashboard() {
 
   React.useEffect(() => {
     setPageTitle(t('dashboard'))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [t])
 
   return <PageTitle>{t('dashboard')}</PageTitle>
 }

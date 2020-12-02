@@ -8,8 +8,7 @@ export default function Account() {
 
   React.useEffect(() => {
     setPageTitle(t('account'))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [t])
 
   return <PageTitle>{t('account')}</PageTitle>
 }

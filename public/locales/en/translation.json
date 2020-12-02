@@ -39,5 +39,16 @@
   "who_are_we": "Who are we ?",
   "legal_notices": "Legal notices",
   "cookies": "Cookies",
-  "terms_of_use": "Terms of use"
+  "terms_of_use": "Terms of use",
+  "shipping": "Shipping",
+  "shipping_estimated": "Shipping estimated on ",
+  "shipping_details": "Shipping details",
+  "checkout_details": "Checkout details",
+  "coupon": "Have you a coupon code ?",
+  "apply": "Apply",
+  "security": "You are on a security page. All data information are encrypted with SSL certificate.",
+  "order": "Your order",
+  "complete_address": "Full address (street name, number...)",
+  "zip_code": "Zip code",
+  "city": "City"
 }

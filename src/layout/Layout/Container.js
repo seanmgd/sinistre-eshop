@@ -10,6 +10,18 @@ export const Container = styled.div`
   @media ${devices.tablet} {
     flex-direction: row;
     padding: 0;
+    height: 93vh;
+  }
+`
+
+export const CardsContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  @media ${devices.tablet} {
+    flex-direction: row;
   }
   a {
     width: 100%;
