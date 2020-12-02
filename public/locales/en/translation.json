@@ -25,5 +25,10 @@
   "mail_address": "Mail address",
   "password": "Password",
   "firstname": "Firstname",
-  "lastname": "Lastname"
+  "lastname": "Lastname",
+  "submit": "Submit",
+  "message": "Message",
+  "MailAddress": "Mail Address",
+  "confirmMessageContact": "Message sent",
+  "errorMessageContact": "An error is acknowledged when sending the message"
 }

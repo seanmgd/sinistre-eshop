@@ -285,7 +285,7 @@ const GlobalStyles = createGlobalStyle`
 
     button[disabled],
     html input[disabled] {
-    cursor: default;
+    cursor: no-drop;
     }
 
 
