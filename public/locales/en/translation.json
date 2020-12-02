@@ -25,5 +25,6 @@
   "mail_address": "Mail address",
   "password": "Password",
   "firstname": "Firstname",
-  "lastname": "Lastname"
+  "lastname": "Lastname",
+  "empty_cart": "Your cart is empty, please select a product to add"
 }

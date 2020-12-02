@@ -2,8 +2,10 @@ import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { setPageTitle } from '../../utils/setPageTitle'
 import { useProduct } from '../../services/products/query'
+import { useCartContext } from '../../contexts/cart'
 import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
+import { stopEvent } from '@ttrmz/react-utils'
 import {
   Container,
   Content,
@@ -43,13 +45,46 @@ export default function Product({ productSlug }) {
       },
     }
     setFormControls({ controls: updatedControls })
-    console.log(formControls.controls.number.value)
   }
 
-  const { id, name, description, image_url, images_url, price } = useProduct(
+  const { name, description, image_url, images_url, price } = useProduct(
     productSlug,
   )
 
+  const { cart, addCart } = useCartContext()
+
+  const SIZE = {
+    1: 'S',
+    2: 'M',
+    3: 'L',
+    4: 'XL',
+  }
+
+  const handleAddCart = event => {
+    stopEvent(event)
+    if (isActive !== 0) {
+      const sizeSelected = SIZE[isActive]
+      const productId = `${productSlug}-${sizeSelected}`
+      let cartValues = Object.values(cart.map(e => e.id))
+      let alreadyStored = false
+      for (let key of cartValues) {
+        if (key.includes(productId)) {
+          alreadyStored = true
+        }
+      }
+      if (!alreadyStored) {
+        addCart({
+          id: productId,
+          slug: productSlug,
+          qty: formControls.controls.number.value,
+          size: sizeSelected,
+          image: image_url,
+          name: name,
+          price: price,
+        })
+      }
+    }
+  }
   React.useEffect(() => {
     setPageTitle(name)
   }, [name])
@@ -60,7 +95,7 @@ export default function Product({ productSlug }) {
         <ImagesContainer>
           <OtherImageContainer>
             {images_url?.map(image => (
-              <OtherImage image={image} alt="" />
+              <OtherImage image={image} alt="image" key={image} />
             ))}
           </OtherImageContainer>
           <MainImage image={image_url} />
@@ -109,7 +144,7 @@ export default function Product({ productSlug }) {
                 />
               </InputStyled>
             </div>
-            <Button color="primary" size="large">
+            <Button color="primary" size="large" onClick={handleAddCart}>
               {t('add_cart')}
             </Button>
           </Action>

@@ -28,7 +28,6 @@ export const useProduct = productId => {
     })
       .then(res => {
         setProduct(res.data)
-        console.log(res.data)
       })
       .catch(err => {
         console.log(err)

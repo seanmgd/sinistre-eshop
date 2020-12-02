@@ -25,5 +25,6 @@
   "mail_address": "Adresse mail",
   "password": "Mot de passe",
   "firstname": "Prénom",
-  "lastname": "Nom"
+  "lastname": "Nom",
+  "empty_cart": "Votre panier est vide, veuillez ajouter un produit en cliquant ici"
 }
