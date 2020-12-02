@@ -5,3 +5,12 @@ export const LayoutWrapper = styled.main`
   flex-direction: column;
   min-height: 100vh;
 `
+
+export const ChildrenWrapper = styled.div`
+  height: 83vh;
+  display: flex;
+  width: inherit;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+`

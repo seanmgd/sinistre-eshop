@@ -36,6 +36,18 @@ export const Burger = () => {
       name: 'contact',
       path: '/contact',
     },
+    {
+      name: 'blog',
+      path: '/blog',
+    },
+    {
+      name: 'cookies',
+      path: '/',
+    },
+    {
+      name: 'terms_of_use',
+      path: '/',
+    },
   ]
 
   return (
