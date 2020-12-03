@@ -6,7 +6,6 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  height: 93vh;
   @media ${devices.tablet} {
     flex-direction: inherit;
     div {
@@ -32,9 +31,11 @@ export const ImageContainer = styled.div`
   @media ${devices.tablet} {
     width: 50%;
     height: 70vh;
+    margin-left: 32px;
   }
   @media ${devices.laptop} {
     width: 35%;
+    margin: 0;
   }
   @media ${devices.laptopL} {
     width: 25%;
@@ -49,14 +50,13 @@ export const InfoContainer = styled.div`
   p {
     display: block;
     text-align: justify;
-    font-size: 1.2em;
   }
   div {
     display: flex;
     align-items: center;
     height: auto;
     margin: 1em 0;
-    p {
+    h1 {
       font-size: 2em;
     }
     svg {
@@ -75,10 +75,10 @@ export const InfoContainer = styled.div`
       flex-direction: column;
       justify-content: left;
       align-items: baseline;
-      p {
+      h1 {
         margin-left: -3px;
-        margin-top: -8px;
-        font-size: 4em;
+        margin-top: -3px;
+        font-size: 28px;
       }
       span {
         margin: 1em 0;
@@ -89,8 +89,8 @@ export const InfoContainer = styled.div`
   @media ${devices.laptop} {
     width: 35%;
     div {
-      p {
-        font-size: 5em;
+      h1 {
+        font-size: 3em;
       }
     }
   }

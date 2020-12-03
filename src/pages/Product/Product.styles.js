@@ -4,8 +4,7 @@ import { devices } from '../../constants/devices'
 export const Container = styled.div`
   display: flex;
   align-items: center;
-  position: relative;
-  height: 93vh;
+  justify-content: center;
 `
 
 export const Content = styled.div`
@@ -16,23 +15,17 @@ export const Content = styled.div`
 
   @media ${devices.tablet} {
     flex-direction: row;
-    height: 50vh;
-  }
-  @media ${devices.laptop} {
     height: 70vh;
   }
 `
 
 export const ImagesContainer = styled.div`
   display: flex;
-  height: 100%;
+  height: inherit;
 
   @media ${devices.tablet} {
-    width: 55vw;
+    width: 57vw;
     height: inherit;
-  }
-  @media ${devices.laptop} {
-    width: 50vw;
   }
   @media ${devices.laptopL} {
     width: 35vw;
@@ -47,7 +40,7 @@ export const MainImage = styled.div`
   background-image: url('${props => props.image}');
   background-size: cover;
   @media ${devices.tablet} {
-    margin: 0 52px 0 14px;
+    margin: 0 32px 0 16px;
     width: 66%;
     height: inherit;
   }
@@ -80,18 +73,17 @@ export const InfoContainer = styled.div`
   height: inherit;
   margin: 0 2em;
   h1 {
-    font-size: 27px;
+    font-size: 28px;
     text-align: center;
     margin: 0.5em 0;
   }
   p {
     display: block;
     text-align: justify;
-    font-size: 1.2em;
   }
 
   @media ${devices.tablet} {
-    width: 35%;
+    width: 35vw;
     height: inherit;
     margin: 0;
     flex-direction: column;
@@ -99,27 +91,27 @@ export const InfoContainer = styled.div`
     align-items: baseline;
     h1 {
       text-align: left;
-      margin: -6px 0 0.5em;
+      margin: -3px 0 0.5em;
     }
   }
 
   @media ${devices.laptop} {
-    width: 25%;
+    width: 30vw;
     h1 {
       font-size: 3em;
     }
   }
   @media ${devices.laptopL} {
-    width: 18%;
+    width: 25vw;
   }
   @media ${devices.desktop} {
-    width: 15%;
+    width: 20vw;
   }
 `
 
 export const InputStyled = styled.span`
   margin: 0 16px 0 8px;
-  width: 45px;
+  width: 50px;
   input {
     text-align: center;
     height: 45px;
@@ -175,5 +167,18 @@ export const Action = styled.div`
   div {
     display: flex;
     align-items: baseline;
+  }
+`
+
+export const CartBanner = styled.div`
+  position: absolute;
+  bottom: 11vh;
+  width: 100%;
+  padding: 16px;
+  text-align: center;
+  background: ${({ theme }) => theme.colors.primary.base};
+  color: ${({ theme }) => theme.colors.primary.light};
+  span {
+    margin-right: 16px;
   }
 `

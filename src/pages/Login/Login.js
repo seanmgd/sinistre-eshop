@@ -50,8 +50,7 @@ export default function Login() {
 
   React.useEffect(() => {
     setPageTitle(t('login'))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [t])
   React.useEffect(() => {
     if (loginMode === false) {
       setFormControls({

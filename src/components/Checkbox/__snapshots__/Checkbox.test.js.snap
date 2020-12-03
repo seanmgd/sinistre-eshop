@@ -2,7 +2,7 @@
 
 exports[`<Checkbox /> should render a checked Checkbox 1`] = `
 <input
-  class="sc-bdfBwQ gLnSbH"
+  class="sc-bdfBwQ gTBYiw"
   data-testid="checkbox"
   type="checkbox"
 />
@@ -10,7 +10,7 @@ exports[`<Checkbox /> should render a checked Checkbox 1`] = `
 
 exports[`<Checkbox /> should render a disabled Checkbox 1`] = `
 <input
-  class="sc-bdfBwQ gLnSbH"
+  class="sc-bdfBwQ gTBYiw"
   data-testid="checkbox"
   disabled=""
   readonly=""
@@ -20,7 +20,7 @@ exports[`<Checkbox /> should render a disabled Checkbox 1`] = `
 
 exports[`<Checkbox /> should render a unchecked Checkbox 1`] = `
 <input
-  class="sc-bdfBwQ gLnSbH"
+  class="sc-bdfBwQ gTBYiw"
   data-testid="checkbox"
   readonly=""
   type="checkbox"
@@ -29,7 +29,7 @@ exports[`<Checkbox /> should render a unchecked Checkbox 1`] = `
 
 exports[`<Checkbox /> should render a undisabled Checkbox 1`] = `
 <input
-  class="sc-bdfBwQ gLnSbH"
+  class="sc-bdfBwQ gTBYiw"
   data-testid="checkbox"
   readonly=""
   type="checkbox"

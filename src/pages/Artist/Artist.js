@@ -1,8 +1,8 @@
 import React from 'react'
 import { setPageTitle } from '../../utils/setPageTitle'
 import { useArtist } from '../../services/artists/query'
+import { Container } from '../../layout/Layout/Container'
 import {
-  Container,
   ImageContainer,
   InfoContainer,
   IconContainer,
@@ -42,7 +42,7 @@ export default function Artist({ artistSlug }) {
       <ImageContainer image={image_url} />
       <InfoContainer>
         <div>
-          <p>{name}</p>
+          <h1>{name}</h1>
           <IconContainer>
             <a href={fb_link} target="_blank" rel="noreferrer">
               <ArtistIcon as={FontAwesomeIcon} icon={faFacebook} />

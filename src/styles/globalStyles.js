@@ -114,6 +114,10 @@ const GlobalStyles = createGlobalStyle`
     background: ${({ theme }) => theme.colors.primary.light};
     }
 
+    p {
+    line-height: 1.5;
+    }
+
     :focus {
     outline: 0;
     }
@@ -331,14 +335,17 @@ const GlobalStyles = createGlobalStyle`
     }
 
     html,
-    button,
-    input,
-    select,
-    textarea {
+    button {
     color: ${({ theme }) => theme.colors.primary.base};
     font-family: Roboto;
     }
 
+
+    input,
+    select,
+    textarea{
+    color:${({ theme }) => theme.colors.black.base};
+    }
     button {
     margin: 0;
     border: none;

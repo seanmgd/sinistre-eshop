@@ -40,8 +40,7 @@ export default function Contact() {
   })
   React.useEffect(() => {
     setPageTitle(t('contact'))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [t])
   const formElements = []
   for (let key in formControls.controls) {
     formElements.push({

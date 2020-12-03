@@ -4,7 +4,7 @@ import { devices } from '../../constants/devices'
 export const Container = styled.div`
   display: flex;
   align-items: baseline;
-  height: 93vh;
+
   max-width: 1140px;
   margin: 0 auto;
   flex-direction: column;

@@ -17,13 +17,16 @@ import {
   OtherImage,
   OtherImageContainer,
   SizeContainer,
+  CartBanner,
 } from './Product.styles'
+import ToastNotification from '../../components/ToastNotification/ToastNotification'
 
 const SIZES = ['S', 'M', 'L', 'XL']
 
 export default function Product({ productSlug }) {
   const { t } = useTranslation()
   const [activeSize, setActiveSize] = React.useState('')
+  const [showCart, setShowCart] = React.useState(false)
 
   const [formControls, setFormControls] = React.useState({
     controls: {
@@ -58,6 +61,7 @@ export default function Product({ productSlug }) {
 
   const handleAddCart = event => {
     stopEvent(event)
+    setShowCart(!showCart)
     if (!!activeSize) {
       const productId = `${productSlug}-${activeSize}`
 
@@ -135,6 +139,13 @@ export default function Product({ productSlug }) {
             </Button>
           </Action>
         </InfoContainer>
+        {showCart && (
+          <ToastNotification
+            textNotification={t('product_added')}
+            buttonLink="/cart"
+            buttonText={t('see_cart')}
+          />
+        )}
       </Content>
     </Container>
   )

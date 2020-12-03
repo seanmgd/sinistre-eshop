@@ -2,11 +2,13 @@
 
 exports[`Toast notification should render a notification 1`] = `
 <div
-  class="sc-bdfBwQ dVrhzj"
+  class="sc-gsTCUz fQNHPQ"
   style="opacity: 0;"
 >
   <p
-    class="sc-gsTCUz eAiYwU"
-  />
+    class="sc-dlfnbm cXpbAw"
+  >
+    This is a notification example
+  </p>
 </div>
 `;

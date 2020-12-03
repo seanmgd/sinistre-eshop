@@ -8,8 +8,7 @@ export default function Blog() {
 
   React.useEffect(() => {
     setPageTitle(t('blog'))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [t])
 
   return <PageTitle>{t('blog')}</PageTitle>
 }

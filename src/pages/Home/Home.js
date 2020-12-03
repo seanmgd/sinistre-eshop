@@ -1,23 +1,36 @@
 import React from 'react'
-import { PageTitle } from '../../components'
 import { setPageTitle } from '../../utils/setPageTitle'
 import { useTranslation } from 'react-i18next'
 import { useThemeSwitcher } from '../../contexts/themeSwitcher'
 import { Button } from '../../components/Button'
+import { CustomContainer, Title } from './Home.styles'
 
 export default function Home() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { switchTheme } = useThemeSwitcher()
+  const [isEnglish, setIsEnglish] = React.useState(true)
+  const changeLanguage = () => {
+    setIsEnglish(!isEnglish)
+    i18n.changeLanguage(isEnglish ? 'en' : 'fr')
+  }
 
   React.useEffect(() => {
     setPageTitle(t('home'))
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [t])
 
   return (
-    <>
-      <PageTitle>{t('home')}</PageTitle>
-      <Button onClick={switchTheme}>switch theme</Button>
-    </>
+    <CustomContainer>
+      <Title>{t('welcome')}</Title>
+      <div>
+        <Button onClick={switchTheme}>{t('switch_theme')}</Button>
+        <Button
+          onClick={() => {
+            changeLanguage()
+          }}
+        >
+          {t('switch_lang')}
+        </Button>
+      </div>
+    </CustomContainer>
   )
 }
