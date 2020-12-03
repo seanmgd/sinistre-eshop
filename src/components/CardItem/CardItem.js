@@ -6,7 +6,7 @@ import { ImgCard } from './CardItem.styles'
 const SIZES = ['small', 'medium', 'large', 'x-large']
 const COLORS = ['black', 'grey', 'dark-grey', 'light-grey']
 
-const CardItem = ({
+export const CardItem = ({
   to,
   imgUrl,
   label,
@@ -43,5 +43,3 @@ CardItem.defaultProps = {
 
 CardItem.SIZES = SIZES
 CardItem.COLORS = COLORS
-
-export default CardItem

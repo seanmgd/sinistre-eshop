@@ -1,11 +1,9 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { setPageTitle } from '../../utils/setPageTitle'
+import { CardItem, Loader, TextError } from '../../components'
+import { CardsContainer, Container } from '../../layout/Layout/Container'
 import { useArtists } from '../../services/artists/query'
-import CardItem from '../../components/CardItem/CardItem'
-import { Container, CardsContainer } from '../../layout/Layout/Container'
-import { Loader } from '../../components/Loader'
-import { TextError } from '../../components/TextError'
+import { setPageTitle } from '../../utils/setPageTitle'
 
 export default function Artists() {
   const { t } = useTranslation()
