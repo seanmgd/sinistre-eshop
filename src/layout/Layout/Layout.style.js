@@ -7,7 +7,7 @@ export const LayoutWrapper = styled.main`
 `
 
 export const ChildrenWrapper = styled.div`
-  height: 83vh;
+  min-height: 83vh;
   display: flex;
   width: inherit;
   align-items: center;
