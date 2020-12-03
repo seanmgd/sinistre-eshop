@@ -6,7 +6,7 @@ function createProps(props = {}) {
   return { label: 'this is a test', to: '/', imgUrl: 'testimg', ...props }
 }
 
-describe('Card item', () => {
+describe('<CardItem />', () => {
   it('should render card item', () => {
     const { container } = render(<CardItem {...createProps()} />)
 
