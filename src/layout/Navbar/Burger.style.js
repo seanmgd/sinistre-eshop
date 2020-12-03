@@ -20,7 +20,8 @@ export const StyledBurger = styled.div`
   div {
     width: 2rem;
     height: 0.25rem;
-    background-color: ${({ theme }) => theme.colors.grey.dark};
+    background-color: ${({ theme }) => theme.colors.primary.base};
+    border: 1px solid ${({ theme }) => theme.colors.primary.light};
     border-radius: 10px;
     transform-origin: 1px;
     transition: all 0.3s linear;
@@ -45,7 +46,7 @@ export const StyledUl = styled.ul`
     padding: 18px 10px;
   }
   flex-flow: column nowrap;
-  background-color: ${({ theme }) => theme.colors.grey.light};
+  background-color: ${({ theme }) => theme.colors.primary.base};
   position: fixed;
   transform: ${({ open }) => (open ? 'translateX(0)' : 'translateX(100%)')};
   top: 0;
@@ -56,7 +57,7 @@ export const StyledUl = styled.ul`
   transition: transform 0.3s ease-in-out;
   z-index: 1;
   li {
-    color: ${({ theme }) => theme.colors.grey.dark};
+    color: ${({ theme }) => theme.colors.primary.light};
     font-weight: bold;
   }
 `

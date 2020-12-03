@@ -1,15 +1,16 @@
 import React from 'react'
-import { setPageTitle } from '../../utils/setPageTitle'
-import { useVideo } from '../../services/videos/query'
-import styled from 'styled-components'
-import { Loader } from '../../components/Loader'
-import { TextError } from '../../components/TextError'
 import { useTranslation } from 'react-i18next'
+import { Loader, TextError } from '../../components'
+import { useVideo } from '../../services/videos/query'
+import { setPageTitle } from '../../utils/setPageTitle'
+import { VideoFrame, VideoWrapper } from './Video.styles'
 
 export default function Video({ videoSlug }) {
-  const { video, isOffline, isLoader } = useVideo(videoSlug)
-  const { name, link } = video
   const { t } = useTranslation()
+  const { video, isOffline, isLoader } = useVideo(videoSlug)
+
+  const { name, link } = video
+
   React.useEffect(() => {
     setPageTitle(name)
   }, [name])
@@ -17,26 +18,14 @@ export default function Video({ videoSlug }) {
   if (isLoader) {
     return <Loader />
   }
+
   return (
-    <Container>
+    <VideoWrapper>
       {isOffline ? (
         <TextError errorMsg={t('errorOffline')} />
       ) : (
-        <Iframe title={name} src={link} allow="fullscreen" />
+        <VideoFrame title={name} src={link} allow="fullscreen" />
       )}
-    </Container>
+    </VideoWrapper>
   )
 }
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100vw;
-  height: 83vh;
-`
-const Iframe = styled.iframe`
-  width: inherit;
-  height: inherit;
-`

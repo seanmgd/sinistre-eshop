@@ -1,9 +1,9 @@
-import React, { useRef, useEffect } from 'react'
+import React from 'react'
 
-export default function Paypal({ total }) {
-  const paypal = useRef()
+export function Paypal({ total }) {
+  const paypal = React.useRef()
 
-  useEffect(() => {
+  React.useEffect(() => {
     window.paypal
       .Buttons({
         createOrder: (data, actions, err) => {
@@ -29,6 +29,7 @@ export default function Paypal({ total }) {
         },
       })
       .render(paypal.current)
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   return (

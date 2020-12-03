@@ -1,31 +1,31 @@
-import React from 'react'
-import { setPageTitle } from '../../utils/setPageTitle'
-import { useArtist } from '../../services/artists/query'
-import { Container } from '../../layout/Layout/Container'
-import {
-  ImageContainer,
-  InfoContainer,
-  IconContainer,
-  ArtistIcon,
-} from './Artist.styles'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faFacebook,
+  faInstagram,
   faSoundcloud,
   faVimeoV,
   faYoutube,
-  faInstagram,
 } from '@fortawesome/free-brands-svg-icons'
-import { Loader } from '../../components/Loader'
-import { TextError } from '../../components/TextError'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React from 'react'
 import { useTranslation } from 'react-i18next'
+import { Loader, TextError } from '../../components'
+import { Container } from '../../layout/Layout/Container'
+import { useArtist } from '../../services/artists/query'
+import { setPageTitle } from '../../utils/setPageTitle'
+import {
+  ArtistDetails,
+  ArtistIcon,
+  ArtistImage,
+  ArtistSocials,
+} from './Artist.styles'
 
 library.add(faFacebook, faSoundcloud, faVimeoV, faYoutube, faInstagram)
 
 export default function Artist({ artistSlug }) {
   const { t } = useTranslation()
   const { artist, isLoader, isOffline } = useArtist(artistSlug)
+
   const {
     name,
     description,
@@ -39,40 +39,40 @@ export default function Artist({ artistSlug }) {
 
   React.useEffect(() => {
     setPageTitle(name)
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [name])
 
   if (isLoader) {
     return <Loader />
   }
+
+  const socials = [
+    { icon: faFacebook, link: fb_link },
+    { icon: faYoutube, link: yt_link },
+    { icon: faSoundcloud, link: sc_link },
+    { icon: faVimeoV, link: vimeo_link },
+    { icon: faInstagram, link: ig_link },
+  ]
+
   return isOffline ? (
     <TextError errorMsg={t('errorOffline')} />
   ) : (
     <Container>
-      <ImageContainer image={image_url} />
-      <InfoContainer>
+      <ArtistImage image={image_url} />
+
+      <ArtistDetails>
         <div>
           <h1>{name}</h1>
-          <IconContainer>
-            <a href={fb_link} target="_blank" rel="noreferrer">
-              <ArtistIcon as={FontAwesomeIcon} icon={faFacebook} />
-            </a>
-            <a href={yt_link} target="_blank" rel="noreferrer">
-              <ArtistIcon as={FontAwesomeIcon} icon={faYoutube} />
-            </a>
-            <a href={sc_link} target="_blank" rel="noreferrer">
-              <ArtistIcon as={FontAwesomeIcon} icon={faSoundcloud} />
-            </a>
-            <a href={vimeo_link} target="_blank" rel="noreferrer">
-              <ArtistIcon as={FontAwesomeIcon} icon={faVimeoV} />
-            </a>
-            <a href={ig_link} target="_blank" rel="noreferrer">
-              <ArtistIcon as={FontAwesomeIcon} icon={faInstagram} />
-            </a>
-          </IconContainer>
+
+          <ArtistSocials>
+            {socials.map(({ link, icon }) => (
+              <a key={link} href={link} target="_blank" rel="noreferrer">
+                <ArtistIcon as={FontAwesomeIcon} icon={icon} />
+              </a>
+            ))}
+          </ArtistSocials>
         </div>
         <p>{description}</p>
-      </InfoContainer>
+      </ArtistDetails>
     </Container>
   )
 }

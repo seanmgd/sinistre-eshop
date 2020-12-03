@@ -1,7 +1,7 @@
 import { render } from '../../renderTest'
-import ToastNotification from './ToastNotification'
+import { ToastNotification } from './ToastNotification'
 
-describe('Toast notification', () => {
+describe('<ToastNotification />', () => {
   it('should render a notification', () => {
     const { container } = render(<ToastNotification />)
     expect(container.firstChild).toMatchSnapshot()

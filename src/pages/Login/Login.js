@@ -1,15 +1,16 @@
+import { stopEvent } from '@ttrmz/react-utils'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { PageTitle } from '../../components'
-import { setPageTitle } from '../../utils/setPageTitle'
-import { Button } from '../../components'
-import { renderForm } from '../../utils/renderForm'
-import { checkValidity } from '../../utils/checkFormValidity'
+import { Button, PageTitle } from '../../components'
 import { useUserContext } from '../../contexts/user'
-import { FormContainer, Form, NewClientText } from './Login.styles'
+import { checkValidity } from '../../utils/checkFormValidity'
+import { renderForm } from '../../utils/renderForm'
+import { setPageTitle } from '../../utils/setPageTitle'
+import { Form, FormContainer, NewClientText } from './Login.styles'
 
 export default function Login() {
   const { t } = useTranslation()
+
   const [formControls, setFormControls] = React.useState({
     controls: {
       email: {
@@ -45,12 +46,14 @@ export default function Login() {
     },
     isSignup: true,
   })
+
   const [loginMode, setLoginMode] = React.useState(true)
-  const { login, error } = useUserContext()
+  const { login } = useUserContext()
 
   React.useEffect(() => {
     setPageTitle(t('login'))
   }, [t])
+
   React.useEffect(() => {
     if (loginMode === false) {
       setFormControls({
@@ -153,7 +156,7 @@ export default function Login() {
         isSignup: true,
       })
     }
-  }, [loginMode])
+  }, [loginMode, formControls, t])
 
   const formElements = []
   for (let key in formControls.controls) {
@@ -180,7 +183,8 @@ export default function Login() {
   }
 
   const loginHandler = event => {
-    event.preventDefault()
+    stopEvent(event)
+
     const loginParams = {
       username: formControls.controls.email.value,
       password: formControls.controls.password.value,
@@ -192,14 +196,18 @@ export default function Login() {
     <FormContainer>
       <Form>
         <PageTitle>{loginMode ? t('login') : t('register')}</PageTitle>
+
         {renderForm(formElements, inputChangedHandler)}
+
         <Button size="large" onClick={loginMode && loginHandler}>
           {loginMode ? t('login') : t('register')}
         </Button>
       </Form>
+
       <NewClientText>
         <span>{loginMode ? t('new_user') : t('user')}</span>
       </NewClientText>
+
       <Button size="large" onClick={() => setLoginMode(!loginMode)}>
         {loginMode ? t('create_account') : t('login_account')}
       </Button>

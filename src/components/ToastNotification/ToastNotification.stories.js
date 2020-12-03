@@ -1,5 +1,5 @@
 import { text } from '@storybook/addon-knobs'
-import ToastNotification from './ToastNotification'
+import { ToastNotification } from './ToastNotification'
 
 export default {
   title: 'Action/ToastNotification',
