@@ -7,7 +7,6 @@ export const Container = styled.div`
   justify-content: space-between;
   align-items: baseline;
   flex-direction: column;
-  height: 93vh;
   max-width: 1000px;
   margin: 0 auto;
   padding: 1em;
@@ -18,7 +17,7 @@ export const Container = styled.div`
   input {
     padding: 12px;
     border-radius: 4px;
-    border: 1px solid ${({ theme }) => theme.colors.grey.base};
+    border: 1px solid ${({ theme }) => theme.colors.primary.base};
   }
 `
 
@@ -102,7 +101,7 @@ export const SecurityImage = styled.div`
 export const CardElementWrapper = styled.div`
   padding: 12px;
   border-radius: 4px;
-  border: 1px solid ${({ theme }) => theme.colors.grey.base};
+  border: 1px solid ${({ theme }) => theme.colors.primary.base};
 `
 
 export const StyledP = styled.p`

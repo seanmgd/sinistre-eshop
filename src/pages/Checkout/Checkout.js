@@ -1,6 +1,7 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
 import { setPageTitle } from '../../utils/setPageTitle'
+import { useCartContext } from '../../contexts/cart'
 import axios from 'axios'
 import {
   Container,
@@ -215,6 +216,13 @@ export default function Checkout() {
     setPageTitle(t('checkout'))
   }, [t])
 
+  const { cart } = useCartContext()
+  const priceSum = cart.reduce(
+    (acc, curr) => acc + parseInt(curr.qty) * parseInt(curr.price),
+    0,
+  )
+  const totalSum = priceSum + 10
+
   return (
     <Container>
       <ShippingDetails>
@@ -224,26 +232,19 @@ export default function Checkout() {
         {/*<CardElementWrapper>*/}
         {/*  <CardElement options={cardElementOptions} />*/}
         {/*</CardElementWrapper>*/}
-        <Paypal total={12} />
+        <Paypal total={totalSum} />
       </ShippingDetails>
       <InfoDetails>
         <Title>{t('order')}</Title>
         <OrderDetails>
-          <CheckoutDetails
-            productName="Basic hoodie"
-            productPrice="30"
-            productQty="1"
-          />
-          <CheckoutDetails
-            productName="Tees long sleeves"
-            productPrice="60"
-            productQty="2"
-          />
-          <CheckoutDetails
-            productName="Basic tee shirt"
-            productPrice="70"
-            productQty="3"
-          />
+          {cart.map(product => (
+            <CheckoutDetails
+              productName={product.name}
+              productPrice={product.price * product.qty}
+              productQty={product.qty}
+              productSize={product.size}
+            />
+          ))}
           <CheckoutDetails>
             <span>{t('shipping')}</span>
             <span>
@@ -253,7 +254,7 @@ export default function Checkout() {
           </CheckoutDetails>
           <CheckoutDetails>
             <span>Total</span>
-            <span>170 €</span>
+            <span>{totalSum} €</span>
           </CheckoutDetails>
         </OrderDetails>
         <CouponDetails>

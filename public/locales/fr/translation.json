@@ -28,7 +28,6 @@
   "lastname": "Nom",
   "submit": "Envoyer",
   "message": "Message",
-  "MailAddress": "Adresse Email",
   "confirmMessageContact": "Message envoyé",
   "errorMessageContact": "Une erreur est internu lors de l'envoi",
   "footer_social_medias_motto": "Rejoignez nous sur les réseaux sociaux pour en savoir sur nos produits et bon plans",
@@ -51,5 +50,11 @@
   "complete_address": "Addresse complète (rue, numéro, code porte..)",
   "zip_code": "Code postal",
   "city": "Ville",
-  "errorOffline": "Vous avez des problèmes de connexion"
+  "welcome":"Bienvenue chez Sinistre",
+  "switch_theme": "Changer le theme",
+  "switch_lang": "Changer la langue",
+  "empty_cart": "Votre panier est vide, veuillez ajouter un produit en cliquant ici",
+  "see_cart": "Voir le panier",
+  "product_added": "Le produit a été ajouté !",
+  "errorOffline": "Pas de connexion internet, veuillez re-éssayez plus tard"
 }

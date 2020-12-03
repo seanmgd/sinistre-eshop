@@ -45,6 +45,15 @@ exports[`<Button /> should render a button with primary color 1`] = `
 </button>
 `;
 
+exports[`<Button /> should render a button with revPrimary color 1`] = `
+<button
+  class="sc-bdfBwQ fWxcCS"
+  color="revPrimary"
+>
+  My button
+</button>
+`;
+
 exports[`<Button /> should render a large button 1`] = `
 <button
   class="sc-bdfBwQ hLjxpl"

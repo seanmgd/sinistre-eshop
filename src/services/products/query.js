@@ -26,6 +26,8 @@ export const useProducts = () => {
 
 export const useProduct = productId => {
   const [product, setProduct] = React.useState([])
+  const [isOffline, setIfOffline] = React.useState(false)
+  const [isLoader, setIsLoader] = React.useState(true)
   React.useEffect(() => {
     axios({
       method: 'GET',
@@ -33,12 +35,14 @@ export const useProduct = productId => {
     })
       .then(res => {
         setProduct(res.data)
-        console.log(res.data)
+        setIsLoader(false)
       })
       .catch(err => {
+        setIsLoader(false)
+        setIfOffline(true)
         console.log(err)
       })
   }, [productId])
 
-  return product
+  return { product, isOffline, isLoader }
 }

@@ -5,6 +5,10 @@ export default {
         base: '#253141',
         light: 'rgb(241,241,241)',
       },
+      revPrimary: {
+        base: 'rgb(241,241,241)',
+        light: '#253141',
+      },
       grey: {
         base: '#767481',
         light: '#eeeeee',
@@ -26,6 +30,10 @@ export default {
       primary: {
         base: 'rgb(241,241,241)',
         light: '#253141',
+      },
+      revPrimary: {
+        base: '#253141',
+        light: 'rgb(241,241,241)',
       },
       grey: {
         base: '#767481',

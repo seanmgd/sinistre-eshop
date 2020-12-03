@@ -14,7 +14,7 @@ export const Checkbox = styled.input.attrs(props => ({
   height: 16px;
   width: 16px;
   background: transparent;
-  border: 2px solid ${({ theme }) => theme.colors.black.base};
+  border: 2px solid ${({ theme }) => theme.colors.primary.base};
   position: relative;
   margin: 0;
 

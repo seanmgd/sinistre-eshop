@@ -22,7 +22,7 @@ export const InputElement = styled.input`
       ? `1px solid ${theme.colors.error.base}`
       : `1px ${theme.colors.grey.base} solid`};
   border-radius: 4px;
-  padding: 4px;
+  padding: 12px;
   width: 100%;
   &:focus {
     border-color: ${({ theme }) => `${theme.colors.grey.dark}`};

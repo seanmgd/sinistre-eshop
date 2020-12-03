@@ -111,7 +111,7 @@ export const InfoContainer = styled.div`
 
 export const InputStyled = styled.span`
   margin: 0 16px 0 8px;
-  width: 45px;
+  width: 50px;
   input {
     text-align: center;
     height: 45px;

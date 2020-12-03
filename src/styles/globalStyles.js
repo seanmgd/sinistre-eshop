@@ -335,14 +335,17 @@ const GlobalStyles = createGlobalStyle`
     }
 
     html,
-    button,
-    input,
-    select,
-    textarea {
+    button {
     color: ${({ theme }) => theme.colors.primary.base};
     font-family: Roboto;
     }
 
+
+    input,
+    select,
+    textarea{
+    color:${({ theme }) => theme.colors.black.base};
+    }
     button {
     margin: 0;
     border: none;
