@@ -6,6 +6,8 @@ import { Input } from '../../components/Input'
 import { useCartContext } from '../../contexts/cart'
 import { useProduct } from '../../services/products/query'
 import { setPageTitle } from '../../utils/setPageTitle'
+import { Loader } from '../../components/Loader'
+import { TextError } from '../../components/TextError'
 import {
   Action,
   Container,
@@ -17,7 +19,6 @@ import {
   OtherImage,
   OtherImageContainer,
   SizeContainer,
-  CartBanner,
 } from './Product.styles'
 import ToastNotification from '../../components/ToastNotification/ToastNotification'
 
@@ -53,9 +54,8 @@ export default function Product({ productSlug }) {
     setFormControls({ controls: updatedControls })
   }
 
-  const { name, description, image_url, images_url, price } = useProduct(
-    productSlug,
-  )
+  const { product, isOffline, isLoader } = useProduct(productSlug)
+  const { name, description, image_url, images_url, price } = product
 
   const { updateCart } = useCartContext()
 
@@ -81,72 +81,82 @@ export default function Product({ productSlug }) {
     setPageTitle(name)
   }, [name])
 
+  if (isLoader) {
+    return <Loader />
+  }
   return (
     <Container>
-      <Content>
-        <ImagesContainer>
-          <OtherImageContainer>
-            {images_url?.map(image => (
-              <OtherImage image={image} alt="image" key={image} />
-            ))}
-          </OtherImageContainer>
-
-          <MainImage image={image_url} />
-        </ImagesContainer>
-
-        <InfoContainer>
-          <h1>{name}</h1>
-
-          <p>{description}</p>
-
-          <SizeContainer>
-            <h2>{price + ' €'}</h2>
-            <div>
-              {t('size')}
-
-              {SIZES.map(size => (
-                <button
-                  key={size}
-                  onClick={() => setActiveSize(size)}
-                  className={activeSize === size ? 'selected' : ''}
-                >
-                  {size}
-                </button>
+      {' '}
+      {isOffline ? (
+        <TextError errorMsg={t('errorOffline')} />
+      ) : (
+        <Content>
+          <ImagesContainer>
+            <OtherImageContainer>
+              {images_url?.map(image => (
+                <OtherImage image={image} alt="image" key={image} />
               ))}
-            </div>
-          </SizeContainer>
+            </OtherImageContainer>
 
-          <Action>
-            <div>
-              {t('qty')}
+            <MainImage image={image_url} />
+          </ImagesContainer>
 
-              <InputStyled>
-                <Input
-                  value={formControls.controls.number.value}
-                  inputElementProps={formControls.controls.number.elementConfig}
-                  onChange={event => inputChangedHandler(event, 'number')}
-                />
-              </InputStyled>
-            </div>
+          <InfoContainer>
+            <h1>{name}</h1>
 
-            <Button
-              disabled={!activeSize}
-              color="primary"
-              size="large"
-              onClick={handleAddCart}
-            >
-              {t('add_cart')}
-            </Button>
-          </Action>
-        </InfoContainer>
-        {showCart && (
-          <ToastNotification
-            textNotification={t('product_added')}
-            buttonLink="/cart"
-            buttonText={t('see_cart')}
-          />
-        )}
-      </Content>
+            <p>{description}</p>
+
+            <SizeContainer>
+              <h2>{price + ' €'}</h2>
+              <div>
+                {t('size')}
+
+                {SIZES.map(size => (
+                  <button
+                    key={size}
+                    onClick={() => setActiveSize(size)}
+                    className={activeSize === size ? 'selected' : ''}
+                  >
+                    {size}
+                  </button>
+                ))}
+              </div>
+            </SizeContainer>
+
+            <Action>
+              <div>
+                {t('qty')}
+
+                <InputStyled>
+                  <Input
+                    value={formControls.controls.number.value}
+                    inputElementProps={
+                      formControls.controls.number.elementConfig
+                    }
+                    onChange={event => inputChangedHandler(event, 'number')}
+                  />
+                </InputStyled>
+              </div>
+
+              <Button
+                disabled={!activeSize}
+                color="primary"
+                size="large"
+                onClick={handleAddCart}
+              >
+                {t('add_cart')}
+              </Button>
+            </Action>
+          </InfoContainer>
+          {showCart && (
+            <ToastNotification
+              textNotification={t('product_added')}
+              buttonLink="/cart"
+              buttonText={t('see_cart')}
+            />
+          )}
+        </Content>
+      )}
     </Container>
   )
 }

@@ -3,6 +3,8 @@ import axios from 'axios'
 
 export const useVideos = () => {
   const [videos, setVideos] = React.useState([])
+  const [isOffline, setIfOffline] = React.useState(false)
+  const [isLoader, setIsLoader] = React.useState(true)
   React.useEffect(() => {
     axios({
       method: 'GET',
@@ -10,17 +12,22 @@ export const useVideos = () => {
     })
       .then(res => {
         setVideos(res.data)
+        setIsLoader(false)
       })
       .catch(err => {
+        setIsLoader(false)
+        setIfOffline(true)
         console.log(err)
       })
   }, [])
 
-  return videos
+  return { videos, isOffline, isLoader }
 }
 
 export const useVideo = videoId => {
   const [video, setVideo] = React.useState([])
+  const [isOffline, setIfOffline] = React.useState(false)
+  const [isLoader, setIsLoader] = React.useState(true)
   React.useEffect(() => {
     axios({
       method: 'GET',
@@ -28,11 +35,14 @@ export const useVideo = videoId => {
     })
       .then(res => {
         setVideo(res.data)
+        setIsLoader(false)
       })
       .catch(err => {
+        setIsLoader(false)
+        setIfOffline(true)
         console.log(err)
       })
   }, [videoId])
 
-  return video
+  return { video, isOffline, isLoader }
 }

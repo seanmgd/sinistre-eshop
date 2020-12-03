@@ -3,6 +3,8 @@ import axios from 'axios'
 
 export const useArtists = () => {
   const [artists, setArtists] = React.useState([])
+  const [isOffline, setIfOffline] = React.useState(false)
+  const [isLoader, setIsLoader] = React.useState(true)
   React.useEffect(() => {
     axios({
       method: 'GET',
@@ -10,17 +12,22 @@ export const useArtists = () => {
     })
       .then(res => {
         setArtists(res.data)
+        setIsLoader(false)
       })
       .catch(err => {
+        setIsLoader(false)
+        setIfOffline(true)
         console.log(err)
       })
   }, [])
 
-  return artists
+  return { artists, isOffline, isLoader }
 }
 
 export const useArtist = artistId => {
   const [artist, setArtist] = React.useState([])
+  const [isOffline, setIfOffline] = React.useState(false)
+  const [isLoader, setIsLoader] = React.useState(true)
   React.useEffect(() => {
     axios({
       method: 'GET',
@@ -28,11 +35,14 @@ export const useArtist = artistId => {
     })
       .then(res => {
         setArtist(res.data)
+        setIsLoader(false)
       })
       .catch(err => {
+        setIsLoader(false)
+        setIfOffline(true)
         console.log(err)
       })
   }, [artistId])
 
-  return artist
+  return { artist, isOffline, isLoader }
 }

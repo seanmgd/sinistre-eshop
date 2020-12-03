@@ -17,10 +17,15 @@ import {
   faYoutube,
   faInstagram,
 } from '@fortawesome/free-brands-svg-icons'
+import { Loader } from '../../components/Loader'
+import { TextError } from '../../components/TextError'
+import { useTranslation } from 'react-i18next'
 
 library.add(faFacebook, faSoundcloud, faVimeoV, faYoutube, faInstagram)
 
 export default function Artist({ artistSlug }) {
+  const { t } = useTranslation()
+  const { artist, isLoader, isOffline } = useArtist(artistSlug)
   const {
     name,
     description,
@@ -30,14 +35,19 @@ export default function Artist({ artistSlug }) {
     vimeo_link,
     yt_link,
     ig_link,
-  } = useArtist(artistSlug)
+  } = artist
 
   React.useEffect(() => {
     setPageTitle(name)
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [name])
 
-  return (
+  if (isLoader) {
+    return <Loader />
+  }
+  return isOffline ? (
+    <TextError errorMsg={t('errorOffline')} />
+  ) : (
     <Container>
       <ImageContainer image={image_url} />
       <InfoContainer>
