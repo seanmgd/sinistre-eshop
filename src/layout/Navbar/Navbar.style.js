@@ -36,4 +36,21 @@ export const NavItem = styled.a`
   align-items: center;
   justify-content: center;
   margin: 0 16px;
+  transition: 0.5s ease;
+  position: relative;
+
+  :hover {
+    transform: translateY(1px);
+  }
+`
+
+export const SumCart = styled.span`
+  position: absolute;
+  top: 16px;
+  left: 11px;
+  border-radius: 36px;
+  background: ${({ theme }) => theme.colors.error.base};
+  padding: 2px 4px;
+  font-size: 8px;
+  color: ${({ theme }) => theme.colors.primary.light};
 `

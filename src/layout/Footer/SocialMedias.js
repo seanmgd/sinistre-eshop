@@ -17,38 +17,23 @@ export const SocialMedias = () => {
         target={'_blank'}
         href={'https://www.facebook.com/'}
       >
-        <FontAwesomeIcon
-          icon={faFacebook}
-          color={theme.light.colors.black.base}
-        />
+        <FontAwesomeIcon icon={faFacebook} />
       </a>
       <a rel={'noreferrer'} target={'_blank'} href={'https://soundcloud.com/'}>
-        <FontAwesomeIcon
-          icon={faSoundcloud}
-          color={theme.light.colors.black.base}
-        />
+        <FontAwesomeIcon icon={faSoundcloud} />
       </a>
       <a rel={'noreferrer'} target={'_blank'} href={'https://vimeo.com/'}>
-        <FontAwesomeIcon
-          icon={faVimeoV}
-          color={theme.light.colors.black.base}
-        />
+        <FontAwesomeIcon icon={faVimeoV} />
       </a>
       <a rel={'noreferrer'} target={'_blank'} href={'https://www.youtube.com/'}>
-        <FontAwesomeIcon
-          icon={faYoutube}
-          color={theme.light.colors.black.base}
-        />
+        <FontAwesomeIcon icon={faYoutube} />
       </a>
       <a
         rel={'noreferrer'}
         target={'_blank'}
         href={'https://www.instagram.com/'}
       >
-        <FontAwesomeIcon
-          icon={faInstagram}
-          color={theme.light.colors.black.base}
-        />
+        <FontAwesomeIcon icon={faInstagram} />
       </a>
     </IconsWrapper>
   )
