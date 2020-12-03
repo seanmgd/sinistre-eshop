@@ -1,5 +1,4 @@
 import { IconsWrapper } from './SocialMedias.style'
-import theme from '../../styles/theme'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faFacebook,

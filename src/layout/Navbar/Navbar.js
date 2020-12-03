@@ -11,6 +11,7 @@ export const Navbar = () => {
   const { t } = useTranslation()
   const { user } = useUserContext()
   const { cart } = useCartContext()
+  console.log(cart)
   const productsSum = cart.reduce((acc, curr) => acc + parseInt(curr.qty), 0)
   const isAuth = user.token
 
@@ -52,7 +53,9 @@ export const Navbar = () => {
               ) : (
                 <div>
                   <FontAwesomeIcon icon={route.icon} />
-                  {route.path === '/cart' && <SumCart>{productsSum}</SumCart>}
+                  {route.path === '/cart' && cart.length !== 0 && (
+                    <SumCart>{productsSum}</SumCart>
+                  )}
                 </div>
               )}
             </NavItem>
