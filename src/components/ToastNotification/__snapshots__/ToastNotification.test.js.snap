@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Toast notification should render a notification 1`] = `
+exports[`<ToastNotification /> should render a notification 1`] = `
 <div
   class="sc-gsTCUz fQNHPQ"
   style="opacity: 0;"
