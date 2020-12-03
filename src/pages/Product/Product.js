@@ -1,13 +1,16 @@
 import { stopEvent } from '@ttrmz/react-utils'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { Button } from '../../components/Button'
-import { Input } from '../../components/Input'
+import {
+  Button,
+  Input,
+  Loader,
+  TextError,
+  ToastNotification,
+} from '../../components'
 import { useCartContext } from '../../contexts/cart'
 import { useProduct } from '../../services/products/query'
 import { setPageTitle } from '../../utils/setPageTitle'
-import { Loader } from '../../components/Loader'
-import { TextError } from '../../components/TextError'
 import {
   Action,
   Container,
@@ -20,7 +23,6 @@ import {
   OtherImageContainer,
   SizeContainer,
 } from './Product.styles'
-import ToastNotification from '../../components/ToastNotification/ToastNotification'
 
 const SIZES = ['S', 'M', 'L', 'XL']
 
