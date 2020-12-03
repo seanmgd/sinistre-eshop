@@ -1,11 +1,9 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { setPageTitle } from '../../utils/setPageTitle'
+import { CardItem, Loader, TextError } from '../../components'
+import { CardsContainer, Container } from '../../layout/Layout/Container'
 import { useProducts } from '../../services/products/query'
-import CardItem from '../../components/CardItem/CardItem'
-import { Container, CardsContainer } from '../../layout/Layout/Container'
-import { TextError } from '../../components/TextError'
-import { Loader } from '../../components/Loader'
+import { setPageTitle } from '../../utils/setPageTitle'
 
 export default function Products() {
   const { t } = useTranslation()

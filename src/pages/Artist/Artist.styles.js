@@ -1,25 +1,7 @@
 import styled from 'styled-components'
 import { devices } from '../../constants/devices'
 
-export const Container = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  @media ${devices.tablet} {
-    flex-direction: inherit;
-    div {
-      margin: 1em;
-    }
-  }
-  @media ${devices.laptopL} {
-    div {
-      margin: 2em;
-    }
-  }
-`
-
-export const ImageContainer = styled.div`
+export const ArtistImage = styled.div`
   display: flex;
   width: 100%;
   height: 40vh;
@@ -42,7 +24,7 @@ export const ImageContainer = styled.div`
   }
 `
 
-export const InfoContainer = styled.div`
+export const ArtistDetails = styled.div`
   display: flex;
   flex-direction: column;
   height: inherit;
@@ -99,8 +81,9 @@ export const InfoContainer = styled.div`
   }
 `
 
-export const IconContainer = styled.span`
+export const ArtistSocials = styled.span`
   display: flex;
+
   svg {
     transition: 1s ease;
     :hover {

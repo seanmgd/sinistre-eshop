@@ -1,7 +1,6 @@
 import { files, select, text } from '@storybook/addon-knobs'
-import React from 'react'
-import CardItem from './CardItem'
 import styled from 'styled-components'
+import { CardItem } from './CardItem'
 
 export default {
   title: 'Data display/Card',

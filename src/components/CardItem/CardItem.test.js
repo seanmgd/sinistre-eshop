@@ -1,7 +1,6 @@
 import { fireEvent } from '@testing-library/react'
-import React from 'react'
 import { render } from '../../renderTest'
-import CardItem from './CardItem'
+import { CardItem } from './CardItem'
 
 function createProps(props = {}) {
   return { label: 'this is a test', to: '/', imgUrl: 'testimg', ...props }
