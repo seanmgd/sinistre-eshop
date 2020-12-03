@@ -1,30 +1,26 @@
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { setPageTitle } from '../../utils/setPageTitle'
+import { CheckoutDetails, Paypal } from '../../components'
 import { useCartContext } from '../../contexts/cart'
-import axios from 'axios'
+import security from '../../styles/img/security-icon.png'
+import { setPageTitle } from '../../utils/setPageTitle'
+// import axios from 'axios'
 import {
+  ButtonCoupon,
   Container,
-  ShippingDetails,
-  Form,
+  CouponDetails,
+  // Form,
   InfoDetails,
+  InputCoupon,
   OrderDetails,
   SecurityDetails,
   SecurityImage,
-  CouponDetails,
-  InputCoupon,
-  ButtonCoupon,
-  cardElementOptions,
-  CardElementWrapper,
+  ShippingDetails,
+  // cardElementOptions,
+  // CardElementWrapper,
   StyledP,
   Title,
 } from './Checkout.styles'
-import security from '../../styles/img/security-icon.png'
-import { checkValidity } from '../../utils/checkFormValidity'
-import { renderForm } from '../../utils/renderForm'
-import { CardElement, useStripe, useElements } from '@stripe/react-stripe-js'
-import Paypal from '../../components/Paypal/Paypal'
-import CheckoutDetails from '../../components/CheckoutDetails/CheckoutDetails'
 
 export default function Checkout() {
   const { t } = useTranslation()

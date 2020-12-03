@@ -7,20 +7,19 @@ import { PageTitle } from '../../components/PageTitle'
 import { useCartContext } from '../../contexts/cart'
 import { setPageTitle } from '../../utils/setPageTitle'
 import {
-  ActionOverview,
-  Container,
-  Content,
-  EmptyCart,
-  Grid,
-  IncrementButton,
-  InfoOverwiew,
-  Overview,
-  ProductImage,
+  CartEmpty,
+  CartOverview,
+  CartOverviewActions,
+  CartOverviewInfos,
+  CartProducts,
+  CartSummary,
+  CartWrapper,
 } from './Cart.styles'
+import { CartItem } from './CartItem'
 
 export default function Cart() {
   const { t } = useTranslation()
-  const { cart, updateCart, clearCart } = useCartContext()
+  const { cart, clearCart } = useCartContext()
 
   const handleClear = event => {
     stopEvent(event)
@@ -37,82 +36,51 @@ export default function Cart() {
     0,
   )
 
-  const handleUpdateQty = (product, increment) => {
-    updateCart({ ...product, qty: String(parseInt(product.qty) + increment) })
-  }
-
   return (
-    <Container>
+    <CartWrapper>
       {cart.length !== 0 ? (
         <>
           <PageTitle>{t('cart')}</PageTitle>
-          <Content>
-            <Grid>
+
+          <CartSummary>
+            <CartProducts>
               {cart.map(product => (
-                <ul key={product.id}>
-                  <li>
-                    <Link to={`/product/${product.slug}`}>
-                      <ProductImage image={product.image} />{' '}
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to={`/product/${product.slug}`}>{product.name}</Link>
-                  </li>
-                  <li>{product.price} €</li>
-                  <li>
-                    {t('qty')}: {product.qty}
-                  </li>
-                  <li>
-                    {t('size')}: {product.size}
-                  </li>
-                  <li>Total: {product.price * product.qty} €</li>
-                  <IncrementButton>
-                    <Button
-                      size="large"
-                      onClick={() => handleUpdateQty(product, 1)}
-                    >
-                      +
-                    </Button>
-                    <Button
-                      size="large"
-                      color="error"
-                      onClick={() => handleUpdateQty(product, -1)}
-                    >
-                      -
-                    </Button>
-                  </IncrementButton>
-                </ul>
+                <CartItem product={product} key={product.id} />
               ))}
-            </Grid>
-            <Overview>
-              <InfoOverwiew>
+            </CartProducts>
+
+            <CartOverview>
+              <CartOverviewInfos>
                 <div>
                   Total {t('products')} <span> {productsSum} </span>
                 </div>
                 <div>
                   Total {t('checkout')} <span>{priceSum} €</span>
                 </div>
-              </InfoOverwiew>
+              </CartOverviewInfos>
+
               <hr />
-              <ActionOverview>
+
+              <CartOverviewActions>
                 <Button size="x-large">
                   <Link to="/checkout">{t('checkout')}</Link>
                 </Button>
+
                 <Button size="x-large" color="grey" onClick={handleClear}>
                   {t('clear')}
                 </Button>
-              </ActionOverview>
-            </Overview>
-          </Content>
+              </CartOverviewActions>
+            </CartOverview>
+          </CartSummary>
         </>
       ) : (
-        <EmptyCart>
+        <CartEmpty>
           <Link to="/products">
             <span>😱</span>
             {t('empty_cart')}
           </Link>
-        </EmptyCart>
+        </CartEmpty>
       )}
-    </Container>
+    </CartWrapper>
   )
 }
