@@ -110,7 +110,12 @@ const GlobalStyles = createGlobalStyle`
     font-family: Roboto;
     font-size: 14px;
     font-weight: 400;
-    color: ${({ theme }) => theme.colors.black.base};
+    color: ${({ theme }) => theme.colors.primary.base};
+    background: ${({ theme }) => theme.colors.primary.light};
+    }
+
+    p {
+    line-height: 1.5;
     }
 
     :focus {
@@ -284,7 +289,7 @@ const GlobalStyles = createGlobalStyle`
 
     button[disabled],
     html input[disabled] {
-    cursor: default;
+    cursor: no-drop;
     }
 
 
@@ -330,14 +335,17 @@ const GlobalStyles = createGlobalStyle`
     }
 
     html,
-    button,
-    input,
-    select,
-    textarea {
-    color: ${({ theme }) => theme.colors.black.base};
+    button {
+    color: ${({ theme }) => theme.colors.primary.base};
     font-family: Roboto;
     }
 
+
+    input,
+    select,
+    textarea{
+    color:${({ theme }) => theme.colors.black.base};
+    }
     button {
     margin: 0;
     border: none;

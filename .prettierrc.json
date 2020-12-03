@@ -2,5 +2,7 @@
   "semi": false,
   "singleQuote": true,
   "trailingComma": "all",
-  "proseWrap": "preserve"
+  "proseWrap": "preserve",
+  "tabWidth": 2,
+  "useTabs": false
 }
