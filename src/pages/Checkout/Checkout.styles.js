@@ -17,7 +17,7 @@ export const Container = styled.div`
   input {
     padding: 12px;
     border-radius: 4px;
-    border: 1px solid ${({ theme }) => theme.colors.grey.base};
+    border: 1px solid ${({ theme }) => theme.colors.primary.base};
   }
 `
 
@@ -101,7 +101,7 @@ export const SecurityImage = styled.div`
 export const CardElementWrapper = styled.div`
   padding: 12px;
   border-radius: 4px;
-  border: 1px solid ${({ theme }) => theme.colors.grey.base};
+  border: 1px solid ${({ theme }) => theme.colors.primary.base};
 `
 
 export const StyledP = styled.p`

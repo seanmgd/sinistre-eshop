@@ -51,5 +51,9 @@
   "zip_code": "Code postal",
   "city": "Ville",
   "welcome":"Bienvenue chez Sinistre",
-  "switch": "Changer le theme"
+  "switch_theme": "Changer le theme",
+  "switch_lang": "Changer la langue",
+  "empty_cart": "Votre panier est vide, veuillez ajouter un produit en cliquant ici",
+  "see_cart": "Voir le panier",
+  "product_added": "Le produit a été ajouté !"
 }

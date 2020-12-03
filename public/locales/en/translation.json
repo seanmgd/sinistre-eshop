@@ -51,5 +51,9 @@
   "zip_code": "Zip code",
   "city": "City",
   "welcome": "Welcome to Sinistre",
-  "switch": "Switch theme"
+  "switch_theme": "Switch theme",
+  "switch_lang": "Switch lang",
+  "empty_cart": "Your cart is empty, please select a product to add",
+  "see_cart": "See cart",
+  "product_added": "The product was added to your card"
 }

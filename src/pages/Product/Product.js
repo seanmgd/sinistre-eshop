@@ -1,25 +1,33 @@
+import { stopEvent } from '@ttrmz/react-utils'
 import React from 'react'
 import { useTranslation } from 'react-i18next'
-import { setPageTitle } from '../../utils/setPageTitle'
-import { useProduct } from '../../services/products/query'
 import { Button } from '../../components/Button'
 import { Input } from '../../components/Input'
-import { Container } from '../../layout/Layout/Container'
+import { useCartContext } from '../../contexts/cart'
+import { useProduct } from '../../services/products/query'
+import { setPageTitle } from '../../utils/setPageTitle'
 import {
+  Action,
+  Container,
   Content,
   ImagesContainer,
-  OtherImageContainer,
-  MainImage,
-  OtherImage,
   InfoContainer,
   InputStyled,
+  MainImage,
+  OtherImage,
+  OtherImageContainer,
   SizeContainer,
-  Action,
+  CartBanner,
 } from './Product.styles'
+import ToastNotification from '../../components/ToastNotification/ToastNotification'
+
+const SIZES = ['S', 'M', 'L', 'XL']
 
 export default function Product({ productSlug }) {
   const { t } = useTranslation()
-  const [isActive, setActive] = React.useState(0)
+  const [activeSize, setActiveSize] = React.useState('')
+  const [showCart, setShowCart] = React.useState(false)
+
   const [formControls, setFormControls] = React.useState({
     controls: {
       number: {
@@ -43,12 +51,31 @@ export default function Product({ productSlug }) {
       },
     }
     setFormControls({ controls: updatedControls })
-    console.log(formControls.controls.number.value)
   }
 
-  const { id, name, description, image_url, images_url, price } = useProduct(
+  const { name, description, image_url, images_url, price } = useProduct(
     productSlug,
   )
+
+  const { updateCart } = useCartContext()
+
+  const handleAddCart = event => {
+    stopEvent(event)
+    setShowCart(!showCart)
+    if (!!activeSize) {
+      const productId = `${productSlug}-${activeSize}`
+
+      updateCart({
+        id: productId,
+        slug: productSlug,
+        qty: formControls.controls.number.value,
+        size: activeSize,
+        image: image_url,
+        name: name,
+        price: price,
+      })
+    }
+  }
 
   React.useEffect(() => {
     setPageTitle(name)
@@ -60,47 +87,39 @@ export default function Product({ productSlug }) {
         <ImagesContainer>
           <OtherImageContainer>
             {images_url?.map(image => (
-              <OtherImage image={image} alt="" />
+              <OtherImage image={image} alt="image" key={image} />
             ))}
           </OtherImageContainer>
+
           <MainImage image={image_url} />
         </ImagesContainer>
+
         <InfoContainer>
           <h1>{name}</h1>
+
           <p>{description}</p>
+
           <SizeContainer>
             <h2>{price + ' €'}</h2>
             <div>
               {t('size')}
-              <button
-                onClick={() => setActive(1)}
-                className={isActive === 1 && 'selected'}
-              >
-                S
-              </button>
-              <button
-                onClick={() => setActive(2)}
-                className={isActive === 2 && 'selected'}
-              >
-                M
-              </button>
-              <button
-                onClick={() => setActive(3)}
-                className={isActive === 3 && 'selected'}
-              >
-                L
-              </button>
-              <button
-                onClick={() => setActive(4)}
-                className={isActive === 4 && 'selected'}
-              >
-                XL
-              </button>
+
+              {SIZES.map(size => (
+                <button
+                  key={size}
+                  onClick={() => setActiveSize(size)}
+                  className={activeSize === size ? 'selected' : ''}
+                >
+                  {size}
+                </button>
+              ))}
             </div>
           </SizeContainer>
+
           <Action>
             <div>
               {t('qty')}
+
               <InputStyled>
                 <Input
                   value={formControls.controls.number.value}
@@ -109,11 +128,24 @@ export default function Product({ productSlug }) {
                 />
               </InputStyled>
             </div>
-            <Button color="primary" size="large">
+
+            <Button
+              disabled={!activeSize}
+              color="primary"
+              size="large"
+              onClick={handleAddCart}
+            >
               {t('add_cart')}
             </Button>
           </Action>
         </InfoContainer>
+        {showCart && (
+          <ToastNotification
+            textNotification={t('product_added')}
+            buttonLink="/cart"
+            buttonText={t('see_cart')}
+          />
+        )}
       </Content>
     </Container>
   )

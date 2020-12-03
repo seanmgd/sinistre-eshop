@@ -1,12 +1,15 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import styled from 'styled-components'
 import PropTypes from 'prop-types'
 import { motion } from 'framer-motion'
+import { Link } from '@reach/router'
+import { Button } from '../Button'
+import { devices } from '../../constants/devices'
 
-const ToastNotification = ({ textNotification }) => {
-  const [animate, setAnimate] = useState('animated')
+const ToastNotification = ({ textNotification, buttonLink, buttonText }) => {
+  const [animate, setAnimate] = React.useState('animated')
 
-  useEffect(() => {
+  React.useEffect(() => {
     setTimeout(() => {
       setAnimate('animatedClose')
     }, 3000)
@@ -14,17 +17,28 @@ const ToastNotification = ({ textNotification }) => {
 
   return (
     <Container variants={variantToast} initial="initial" animate={animate}>
-      <Text>{textNotification}</Text>
+      <Text>
+        {textNotification}
+        {buttonText.length !== 0 && (
+          <Link to={buttonLink}>
+            <Button color="revPrimary">{buttonText}</Button>
+          </Link>
+        )}
+      </Text>
     </Container>
   )
 }
 
 ToastNotification.propTypes = {
-  text: PropTypes.string,
+  textNotification: PropTypes.string,
+  buttonLink: PropTypes.string,
+  buttonText: PropTypes.string,
 }
 
 ToastNotification.defaultProps = {
-  text: 'This is a notification example',
+  textNotification: 'This is a notification example',
+  buttonLink: '',
+  buttonText: '',
 }
 
 const variantToast = {
@@ -36,16 +50,24 @@ const variantToast = {
 const Container = styled(motion.div)`
   background-color: ${({ theme }) => theme.colors.primary.base};
   position: absolute;
-  top: 100px;
-  left: 50%;
-  transform: translate(-50%, -50%) !important;
-  width: 250px;
   overflow: hidden;
+  border-bottom-left-radius: 4px;
+  top: 40vh;
+  width: 100%;
+  text-align: center;
+  @media ${devices.tablet} {
+    width: auto;
+    top: 6vh;
+    right: 0;
+  }
 `
 
 const Text = styled.p`
   color: ${({ theme }) => theme.colors.primary.light};
   font-size: 16px;
   padding: 16px;
+  a {
+    margin-left: 16px;
+  }
 `
 export default ToastNotification

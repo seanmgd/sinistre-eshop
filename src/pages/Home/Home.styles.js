@@ -11,4 +11,9 @@ export const Title = styled.h1`
 `
 export const CustomContainer = styled(Container)`
   flex-direction: column;
+  div {
+    button {
+      margin: 0 1em;
+    }
+  }
 `

@@ -111,7 +111,7 @@ export const InfoContainer = styled.div`
 
 export const InputStyled = styled.span`
   margin: 0 16px 0 8px;
-  width: 45px;
+  width: 50px;
   input {
     text-align: center;
     height: 45px;
@@ -167,5 +167,18 @@ export const Action = styled.div`
   div {
     display: flex;
     align-items: baseline;
+  }
+`
+
+export const CartBanner = styled.div`
+  position: absolute;
+  bottom: 11vh;
+  width: 100%;
+  padding: 16px;
+  text-align: center;
+  background: ${({ theme }) => theme.colors.primary.base};
+  color: ${({ theme }) => theme.colors.primary.light};
+  span {
+    margin-right: 16px;
   }
 `

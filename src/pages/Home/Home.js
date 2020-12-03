@@ -6,8 +6,13 @@ import { Button } from '../../components/Button'
 import { CustomContainer, Title } from './Home.styles'
 
 export default function Home() {
-  const { t } = useTranslation()
+  const { t, i18n } = useTranslation()
   const { switchTheme } = useThemeSwitcher()
+  const [isEnglish, setIsEnglish] = React.useState(true)
+  const changeLanguage = () => {
+    setIsEnglish(!isEnglish)
+    i18n.changeLanguage(isEnglish ? 'en' : 'fr')
+  }
 
   React.useEffect(() => {
     setPageTitle(t('home'))
@@ -16,7 +21,16 @@ export default function Home() {
   return (
     <CustomContainer>
       <Title>{t('welcome')}</Title>
-      <Button onClick={switchTheme}>{t('switch')}</Button>
+      <div>
+        <Button onClick={switchTheme}>{t('switch_theme')}</Button>
+        <Button
+          onClick={() => {
+            changeLanguage()
+          }}
+        >
+          {t('switch_lang')}
+        </Button>
+      </div>
     </CustomContainer>
   )
 }
