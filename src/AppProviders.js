@@ -12,8 +12,7 @@ export function AppProviders({ children }) {
     <Elements stripe={stripePromise}>
       <ThemeSwitcherProvider>
         <UserContextProvider>
-            <CartContextProvider>{children}
-            </CartContextProvider>
+          <CartContextProvider>{children}</CartContextProvider>
         </UserContextProvider>
       </ThemeSwitcherProvider>
     </Elements>
