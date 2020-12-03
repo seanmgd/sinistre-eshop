@@ -1,7 +1,7 @@
 import React from 'react'
-import { RowDetails } from '../../components/CheckoutDetails/CheckoutDetails.styles'
+import { RowDetails } from './CheckoutDetails.styles'
 
-function CheckoutDetails({
+export function CheckoutDetails({
   productName,
   productPrice,
   productQty,
@@ -20,5 +20,3 @@ function CheckoutDetails({
     </RowDetails>
   )
 }
-
-export default CheckoutDetails
