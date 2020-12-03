@@ -169,16 +169,3 @@ export const Action = styled.div`
     align-items: baseline;
   }
 `
-
-export const CartBanner = styled.div`
-  position: absolute;
-  bottom: 11vh;
-  width: 100%;
-  padding: 16px;
-  text-align: center;
-  background: ${({ theme }) => theme.colors.primary.base};
-  color: ${({ theme }) => theme.colors.primary.light};
-  span {
-    margin-right: 16px;
-  }
-`

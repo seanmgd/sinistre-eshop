@@ -55,5 +55,6 @@
   "switch_lang": "Changer la langue",
   "empty_cart": "Votre panier est vide, veuillez ajouter un produit en cliquant ici",
   "see_cart": "Voir le panier",
-  "product_added": "Le produit a été ajouté !"
+  "product_added": "Le produit a été ajouté !",
+  "errorOffline": "Pas de connexion internet, veuillez re-éssayez plus tard"
 }
