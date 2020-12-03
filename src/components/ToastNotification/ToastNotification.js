@@ -6,7 +6,11 @@ import { Link } from '@reach/router'
 import { Button } from '../Button'
 import { devices } from '../../constants/devices'
 
-const ToastNotification = ({ textNotification, buttonLink, buttonText }) => {
+export function ToastNotification({
+  textNotification,
+  buttonLink,
+  buttonText,
+}) {
   const [animate, setAnimate] = React.useState('animated')
 
   React.useEffect(() => {
@@ -70,4 +74,3 @@ const Text = styled.p`
     margin-left: 16px;
   }
 `
-export default ToastNotification
