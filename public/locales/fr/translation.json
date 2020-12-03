@@ -45,7 +45,7 @@
   "checkout_details": "Mode de Paiement",
   "coupon": "Avez-vous un coupon de réduction ?",
   "apply": "Appliquer",
-  "security": "Vous êtes sur une page sécurisée. Toutes les informations ont été\n  cryptées avec des certificats SSL.",
+  "security": "Vous êtes sur une page sécurisée. Toutes les informations ont été cryptées avec des certificats SSL.",
   "order": "Votre commande",
   "complete_address": "Addresse complète (rue, numéro, code porte..)",
   "zip_code": "Code postal",
