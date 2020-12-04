@@ -60,4 +60,17 @@ export const StyledUl = styled.ul`
     color: ${({ theme }) => theme.colors.primary.light};
     font-weight: bold;
   }
+
+  @media ${devices.tablet} {
+    display: none;
+  }
+`
+
+export const SumCart = styled.span`
+  margin-left: 8px;
+  border-radius: 36px;
+  padding: 4px 7px;
+  font-size: 9px;
+  color: ${({ theme }) => theme.colors.primary.light};
+  background: ${({ theme }) => theme.colors.error.base};
 `

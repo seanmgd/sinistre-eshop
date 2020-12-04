@@ -1,12 +1,17 @@
-import { NavItem, StyledNavbar, Container } from './Navbar.style'
+import { NavItem, StyledNavbar, Container, SumCart } from './Navbar.style'
 import { Link } from '@reach/router'
 import { useTranslation } from 'react-i18next'
 import { Burger } from './Burger'
 import { useUserContext } from '../../contexts/user'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import { useCartContext } from '../../contexts/cart'
 
 export const Navbar = () => {
   const { t } = useTranslation()
   const { user } = useUserContext()
+  const { cart } = useCartContext()
+  const productsSum = cart.reduce((acc, curr) => acc + parseInt(curr.qty), 0)
   const isAuth = user.token
 
   const ROUTES = [
@@ -31,8 +36,8 @@ export const Navbar = () => {
       path: isAuth ? '/logout' : '/login',
     },
     {
-      name: 'contact',
-      path: '/contact',
+      path: '/cart',
+      icon: faShoppingCart,
     },
   ]
 
@@ -42,7 +47,14 @@ export const Navbar = () => {
         <Container>
           {ROUTES.map(route => (
             <NavItem as={Link} to={route.path} key={route.path}>
-              {t(route.name)}
+              {route.name
+                ? t(route.name)
+                : cart.length !== 0 && (
+                    <>
+                      <FontAwesomeIcon icon={route.icon} />
+                      <SumCart>{productsSum}</SumCart>
+                    </>
+                  )}
             </NavItem>
           ))}
         </Container>

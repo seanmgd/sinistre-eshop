@@ -88,7 +88,6 @@ export default function Product({ productSlug }) {
   }
   return (
     <Container>
-      {' '}
       {isOffline ? (
         <TextError errorMsg={t('errorOffline')} />
       ) : (
