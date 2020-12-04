@@ -6,8 +6,5 @@ export const IconsWrapper = styled.div`
   a {
     font-size: 18px;
     margin-right: 8px;
-    svg {
-      color: ${({ theme }) => theme.colors.primary.base};
-    }
   }
 `

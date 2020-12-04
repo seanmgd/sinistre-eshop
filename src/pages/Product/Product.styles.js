@@ -114,7 +114,7 @@ export const InputStyled = styled.span`
   width: 50px;
   input {
     text-align: center;
-    height: 45px;
+    height: 38px;
   }
 `
 

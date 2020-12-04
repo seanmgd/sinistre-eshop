@@ -156,7 +156,8 @@ export default function Login() {
         isSignup: true,
       })
     }
-  }, [loginMode, formControls, t])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [loginMode, t])
 
   const formElements = []
   for (let key in formControls.controls) {

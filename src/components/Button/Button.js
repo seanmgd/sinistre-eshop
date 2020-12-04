@@ -20,6 +20,11 @@ export const Button = styled.button`
   border-radius: 4px;
   font-weight: bold;
   text-align: center;
+  transition: 0.5s ease;
+
+  :hover {
+    transform: translateY(1px);
+  }
 `
 
 Button.propTypes = {
