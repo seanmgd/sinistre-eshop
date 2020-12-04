@@ -4,7 +4,7 @@
   <a href="https://github.com/seanmgd/sinistre-eshop/graphs/commit-activity" target="_blank">
     <img alt="Maintenance" src="https://img.shields.io/badge/Maintained%3F-yes-green.svg" />
   </a>
-  [![Netlify Status](https://api.netlify.com/api/v1/badges/dd407e5a-efa9-474c-b41c-1db2b18b66f9/deploy-status)](https://app.netlify.com/sites/sinistre/deploys)
+  [![Netlify Status](https://api.netlify.com/api/v1/badges/dd407e5a-efa9-474c-b41c-1db2b18b66f9/deploy-status)](https://app.netlify.com/sites/sinistre/deploys)]
 </p>
 
 > Portfolio && eCommerce of Sinistre collective
