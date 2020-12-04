@@ -49,8 +49,8 @@ export const SumCart = styled.span`
   top: 16px;
   left: 11px;
   border-radius: 36px;
-  background: ${({ theme }) => theme.colors.error.base};
   padding: 2px 4px;
   font-size: 8px;
+  background: ${({ theme }) => theme.colors.error.base};
   color: ${({ theme }) => theme.colors.primary.light};
 `

@@ -11,7 +11,6 @@ export const Navbar = () => {
   const { t } = useTranslation()
   const { user } = useUserContext()
   const { cart } = useCartContext()
-  console.log(cart)
   const productsSum = cart.reduce((acc, curr) => acc + parseInt(curr.qty), 0)
   const isAuth = user.token
 
@@ -48,16 +47,14 @@ export const Navbar = () => {
         <Container>
           {ROUTES.map(route => (
             <NavItem as={Link} to={route.path} key={route.path}>
-              {route.name ? (
-                t(route.name)
-              ) : (
-                <div>
-                  <FontAwesomeIcon icon={route.icon} />
-                  {route.path === '/cart' && cart.length !== 0 && (
-                    <SumCart>{productsSum}</SumCart>
+              {route.name
+                ? t(route.name)
+                : cart.length !== 0 && (
+                    <>
+                      <FontAwesomeIcon icon={route.icon} />
+                      <SumCart>{productsSum}</SumCart>
+                    </>
                   )}
-                </div>
-              )}
             </NavItem>
           ))}
         </Container>
