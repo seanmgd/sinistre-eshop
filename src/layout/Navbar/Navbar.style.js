@@ -29,7 +29,6 @@ export const Container = styled.div`
 `
 
 export const NavItem = styled.a`
-  height: 100%;
   display: flex;
   flex-direction: column;
   font-weight: bold;
@@ -42,6 +41,11 @@ export const NavItem = styled.a`
   :hover {
     transform: translateY(1px);
   }
+
+  &.active {
+    border-bottom: 1px solid ${({ theme }) => theme.colors.primary.base};
+    margin-top: 1px;
+  }
 `
 
 export const SumCart = styled.span`
@@ -52,5 +56,5 @@ export const SumCart = styled.span`
   padding: 2px 4px;
   font-size: 8px;
   background: ${({ theme }) => theme.colors.error.base};
-  color: ${({ theme }) => theme.colors.primary.light};
+  color: #ffffff;
 `

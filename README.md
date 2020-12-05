@@ -35,14 +35,14 @@ yarn test
 
 👤 **Sean Magaud**
 
-* Portfolio: https://seanmagaud.herokuapp.com
-* Twitter: [@dadadu06zer](https://twitter.com/dadadu06zer)
-* Github: [@seanmgd](https://github.com/seanmgd)
-* LinkedIn: [@sean-magaud](https://linkedin.com/in/sean-magaud)
+- Portfolio: https://seanmagaud.herokuapp.com
+- Twitter: [@dadadu06zer](https://twitter.com/dadadu06zer)
+- Github: [@seanmgd](https://github.com/seanmgd)
+- LinkedIn: [@sean-magaud](https://linkedin.com/in/sean-magaud)
 
 ## 🤝 Contributing
 
-👤 **Tristan Ramirez** [@ttRmz](https://github.com/ttRmz) 
+👤 **Tristan Ramirez** [@ttRmz](https://github.com/ttRmz)
 
 👤 **Diego Lehen** [@dygzz](https://github.com/Dygzz)
 
@@ -51,60 +51,60 @@ yarn test
 👤 **Rémi Bosgaerd** [@stupa163](https://github.com/Stupa163)
 
 ## Architecture details
+
 PWA React application using Laravel API provided [by one of my other project](https://github.com/seanmgd/ecommerceonlaravel) which is hosted on my private network with a Raspberry
 
 This app contains these points :
 
->[Reach Router for routing](https://github.com/seanmgd/sinistre-eshop/blob/main/src/app/App.js)
+> [Reach Router for routing](https://github.com/seanmgd/sinistre-eshop/blob/main/src/app/App.js)
 
->[Authentication system](https://github.com/seanmgd/sinistre-eshop/blob/main/src/server/auth/mutations.js)
+> [Authentication system](https://github.com/seanmgd/sinistre-eshop/blob/main/src/server/auth/mutations.js)
 
->[Styled component](https://github.com/seanmgd/sinistre-eshop/tree/main/src/components/CardItem)
+> [Styled component](https://github.com/seanmgd/sinistre-eshop/tree/main/src/components/CardItem)
 
->[Offline](https://github.com/seanmgd/sinistre-eshop/pull/26/files)
+> [Offline](https://github.com/seanmgd/sinistre-eshop/pull/26/files)
 
->[Best React architecture](https://github.com/seanmgd/sinistre-eshop/tree/main/src)
+> [Best React architecture](https://github.com/seanmgd/sinistre-eshop/tree/main/src)
 
->[Responsive](https://github.com/seanmgd/sinistre-eshop/blob/main/src/constants/devices.js)
+> [Responsive](https://github.com/seanmgd/sinistre-eshop/blob/main/src/constants/devices.js)
 
->[ES6+ norms](https://github.com/seanmgd/sinistre-eshop/blob/main/src/services/artists/query.js)
+> [ES6+ norms](https://github.com/seanmgd/sinistre-eshop/blob/main/src/services/artists/query.js)
 
->[Global Theme](https://github.com/seanmgd/sinistre-eshop/blob/main/src/services/artists/query.js)
+> [Global Theme](https://github.com/seanmgd/sinistre-eshop/blob/main/src/services/artists/query.js)
 
->[Dark / Light mode]()
+> [Dark / Light mode](https://github.com/seanmgd/sinistre-eshop/blob/main/src/contexts/themeSwitcher.js)
 
->Redux for API Calls (WIP)
+> [Context instead redux for API Calls](https://github.com/seanmgd/sinistre-eshop/tree/main/src/services)
 
->Push notification (WIP)
+> Push notification (WIP)
 
->[Hosted on netlify](https://sinistre.netlify.app/) with [Cloudfare security for sinistre.de domain](https://sinistre.de/)
+> [Hosted on netlify](https://sinistre.netlify.app/) with [Cloudfare security for sinistre.de domain](https://sinistre.de/)
 
->[Custom project titles && icons](https://github.com/seanmgd/sinistre-eshop/blob/main/public/manifest.json) with a superb algerian flag favicon
+> [Custom project titles && icons](https://github.com/seanmgd/sinistre-eshop/blob/main/public/manifest.json) with a superb algerian flag favicon
 
->[i18n](https://github.com/seanmgd/sinistre-eshop/blob/main/src/i18n.js) for [multilanguage](https://github.com/seanmgd/sinistre-eshop/tree/main/public/locales)
+> [i18n](https://github.com/seanmgd/sinistre-eshop/blob/main/src/i18n.js) for [multilanguage](https://github.com/seanmgd/sinistre-eshop/tree/main/public/locales)
 
 # Bonus
 
->[Lazy loading](https://github.com/seanmgd/sinistre-eshop/blob/main/src/app/App.js)
+> [Lazy loading](https://github.com/seanmgd/sinistre-eshop/blob/main/src/app/App.js)
 
->[Storybook for components](https://github.com/seanmgd/sinistre-eshop/tree/main/src/components/CardItem)
+> [Storybook for components](https://github.com/seanmgd/sinistre-eshop/tree/main/src/components/CardItem)
 
->[Browser lang detector](https://github.com/seanmgd/sinistre-eshop/blob/main/src/i18n.js)
+> [Browser lang detector](https://github.com/seanmgd/sinistre-eshop/blob/main/src/i18n.js)
 
->[Context using](https://github.com/seanmgd/sinistre-eshop/tree/main/src/contexts)
+> [Context using](https://github.com/seanmgd/sinistre-eshop/tree/main/src/contexts)
 
->[Tests with Jest](https://github.com/seanmgd/sinistre-eshop/blob/main/src/components/Button/Button.test.js)
+> [Tests with Jest](https://github.com/seanmgd/sinistre-eshop/blob/main/src/components/Button/Button.test.js)
 
->[Git review system](https://github.com/seanmgd/sinistre-eshop/pulls?page=2&q=is%3Apr+is%3Aclosed)
+> [Git review system](https://github.com/seanmgd/sinistre-eshop/pulls?page=2&q=is%3Apr+is%3Aclosed)
 
->[Pre commit hooks](https://github.com/seanmgd/sinistre-eshop/blob/main/package.json)
+> [Pre commit hooks](https://github.com/seanmgd/sinistre-eshop/blob/main/package.json)
 
->Github actions link to our discord private server
+> Github actions link to our discord private server
 
->Trello for tasks management
+> Trello for tasks management
 
->Sonarqube code analysis
-
+> Sonarqube code analysis
 
 ## Show your support
 
@@ -114,5 +114,3 @@ Give a ⭐️ if this project helped you!
 
 Copyright © 2020 [Sean Mgd](https://github.com/seanmgd).<br />
 This project is [MIT](https://github.com/seanmgd/sinistre-eshop/blob/master/LICENSE) licensed.
-
-

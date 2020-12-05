@@ -20,9 +20,10 @@ export const InputElement = styled.input`
   border: ${({ touched, theme, invalid }) =>
     invalid && touched
       ? `1px solid ${theme.colors.error.base}`
-      : `1px ${theme.colors.grey.base} solid`};
+      : `1px ${theme.colors.grey.light} solid`};
   border-radius: 4px;
-  padding: 12px;
+  padding: 12px 14px;
+  font-size: 16px;
   width: 100%;
   &:focus {
     border-color: ${({ theme }) => `${theme.colors.grey.dark}`};

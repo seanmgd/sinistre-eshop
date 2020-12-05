@@ -6,7 +6,7 @@ import { useUserContext } from '../../contexts/user'
 import { checkValidity } from '../../utils/checkFormValidity'
 import { renderForm } from '../../utils/renderForm'
 import { setPageTitle } from '../../utils/setPageTitle'
-import { Form, FormContainer, NewClientText } from './Login.styles'
+import { Form, FormContainer, NewClientText, SwitchForm } from './Login.styles'
 
 export default function Login() {
   const { t } = useTranslation()
@@ -17,10 +17,9 @@ export default function Login() {
         elementType: 'input',
         elementConfig: {
           type: 'email',
-          placeholder: '',
+          placeholder: t('mail_address'),
         },
         value: '',
-        label: t('mail_address'),
         validation: {
           required: true,
           isEmail: true,
@@ -32,10 +31,9 @@ export default function Login() {
         elementType: 'input',
         elementConfig: {
           type: 'password',
-          placeholder: '',
+          placeholder: t('password'),
         },
         value: '',
-        label: t('password'),
         validation: {
           required: true,
           minLength: 6,
@@ -63,10 +61,9 @@ export default function Login() {
             elementType: 'input',
             elementConfig: {
               type: 'text',
-              placeholder: '',
+              placeholder: t('firstname'),
             },
             value: '',
-            label: t('firstname'),
             validation: {
               required: true,
             },
@@ -77,10 +74,9 @@ export default function Login() {
             elementType: 'input',
             elementConfig: {
               type: 'text',
-              placeholder: '',
+              placeholder: t('lastname'),
             },
             value: '',
-            label: t('lastname'),
             validation: {
               required: true,
             },
@@ -91,10 +87,9 @@ export default function Login() {
             elementType: 'input',
             elementConfig: {
               type: 'email',
-              placeholder: '',
+              placeholder: t('mail_address'),
             },
             value: '',
-            label: t('mail_address'),
             validation: {
               required: true,
               isEmail: true,
@@ -106,10 +101,9 @@ export default function Login() {
             elementType: 'input',
             elementConfig: {
               type: 'password',
-              placeholder: '',
+              placeholder: t('password'),
             },
             value: '',
-            label: t('password'),
             validation: {
               required: true,
               minLength: 6,
@@ -126,10 +120,9 @@ export default function Login() {
             elementType: 'input',
             elementConfig: {
               type: 'email',
-              placeholder: '',
+              placeholder: t('mail_address'),
             },
             value: '',
-            label: t('mail_address'),
             validation: {
               required: true,
               isEmail: true,
@@ -141,10 +134,9 @@ export default function Login() {
             elementType: 'input',
             elementConfig: {
               type: 'password',
-              placeholder: '',
+              placeholder: t('password'),
             },
             value: '',
-            label: t('password'),
             validation: {
               required: true,
               minLength: 6,
@@ -209,9 +201,9 @@ export default function Login() {
         <span>{loginMode ? t('new_user') : t('user')}</span>
       </NewClientText>
 
-      <Button size="large" onClick={() => setLoginMode(!loginMode)}>
+      <SwitchForm size="large" onClick={() => setLoginMode(!loginMode)}>
         {loginMode ? t('create_account') : t('login_account')}
-      </Button>
+      </SwitchForm>
     </FormContainer>
   )
 }

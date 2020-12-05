@@ -21,12 +21,9 @@ export function Paypal({ total }) {
           })
         },
         onApprove: async (data, actions) => {
-          const order = await actions.order.capture()
-          console.log(order)
+          await actions.order.capture()
         },
-        onError: err => {
-          console.log(err)
-        },
+        onError: () => {},
       })
       .render(paypal.current)
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -34,7 +31,7 @@ export function Paypal({ total }) {
 
   return (
     <div>
-      <div ref={paypal}></div>
+      <div ref={paypal} />
     </div>
   )
 }
