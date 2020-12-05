@@ -25,7 +25,9 @@ export function ToastNotification({
         {textNotification}
         {buttonText.length !== 0 && (
           <Link to={buttonLink}>
-            <Button color="revPrimary">{buttonText}</Button>
+            <Button color="revPrimary" size="medium" fontSize="medium">
+              {buttonText}
+            </Button>
           </Link>
         )}
       </Text>

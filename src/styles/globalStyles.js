@@ -344,6 +344,7 @@ const GlobalStyles = createGlobalStyle`
     select,
     textarea{
     color:${({ theme }) => theme.colors.black.base};
+    font-family: Roboto;
     }
     button {
     margin: 0;

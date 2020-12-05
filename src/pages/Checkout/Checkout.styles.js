@@ -76,7 +76,6 @@ export const ButtonCoupon = styled(Button)`
   margin-left: -3px;
   background: ${({ theme }) => theme.colors.primary.base};
   color: ${({ theme }) => theme.colors.primary.light};
-  font-size: 18px;
   border-top-left-radius: 0px;
   border-bottom-left-radius: 0px;
 `

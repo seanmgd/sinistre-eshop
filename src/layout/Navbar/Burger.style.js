@@ -21,7 +21,7 @@ export const StyledBurger = styled.div`
     width: 2rem;
     height: 0.25rem;
     background-color: ${({ theme }) => theme.colors.primary.base};
-    border: 1px solid ${({ theme }) => theme.colors.primary.light};
+    box-shadow: 0px 0px 0px 1px ${({ theme }) => theme.colors.primary.light};
     border-radius: 10px;
     transform-origin: 1px;
     transition: all 0.3s linear;
@@ -71,6 +71,6 @@ export const SumCart = styled.span`
   border-radius: 36px;
   padding: 4px 7px;
   font-size: 9px;
-  color: ${({ theme }) => theme.colors.primary.light};
+  color: #ffffff;
   background: ${({ theme }) => theme.colors.error.base};
 `

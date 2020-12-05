@@ -25,9 +25,13 @@ export default function Home() {
       <HomeTitle>{t('welcome')}</HomeTitle>
 
       <div>
-        <Button onClick={switchTheme}>{t('switch_theme')}</Button>
+        <Button onClick={switchTheme} size="large" hover={true}>
+          {t('switch_theme')}
+        </Button>
 
-        <Button onClick={handleSwitchLang}>{t('switch_lang')}</Button>
+        <Button onClick={handleSwitchLang} size="large" hover={true}>
+          {t('switch_lang')}
+        </Button>
       </div>
     </HomeWrapper>
   )
