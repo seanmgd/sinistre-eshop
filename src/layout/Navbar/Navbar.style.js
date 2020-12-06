@@ -41,7 +41,6 @@ export const NavItem = styled.a`
   :hover {
     transform: translateY(1px);
   }
-
   &.active {
     border-bottom: 1px solid ${({ theme }) => theme.colors.primary.base};
     margin-top: 1px;

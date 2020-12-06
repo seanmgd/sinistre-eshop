@@ -35,6 +35,7 @@ yarn test
 
 👤 **Sean Magaud**
 
+
 - Portfolio: https://seanmagaud.herokuapp.com
 - Twitter: [@dadadu06zer](https://twitter.com/dadadu06zer)
 - Github: [@seanmgd](https://github.com/seanmgd)
@@ -52,9 +53,10 @@ yarn test
 
 ## Architecture details
 
+
 PWA React application using Laravel API provided [by one of my other project](https://github.com/seanmgd/ecommerceonlaravel) which is hosted on my private network with a Raspberry
 
-This app contains these points :
+This app contain these points :
 
 > [Reach Router for routing](https://github.com/seanmgd/sinistre-eshop/blob/main/src/app/App.js)
 
