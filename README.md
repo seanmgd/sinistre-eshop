@@ -76,7 +76,7 @@ This app contains these points :
 
 > [Context instead redux for API Calls](https://github.com/seanmgd/sinistre-eshop/tree/main/src/services)
 
-> Push notification (WIP)
+> [Push notification](https://github.com/seanmgd/sinistre-eshop/tree/main/src/services/firebase)
 
 > [Hosted on netlify](https://sinistre.netlify.app/) with [Cloudfare security for sinistre.de domain](https://sinistre.de/)
 
