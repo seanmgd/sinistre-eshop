@@ -8,10 +8,9 @@ const data = {
   to: localStorage.getItem('notification-token'),
 }
 const options = {
-  headers: {
-    Authorization: `key=${process.env.REACT_APP_FIREBASE_CM_KEY}`,
-    'Content-Type': 'application/json',
-  },
+  Authorization: `key=${process.env.REACT_APP_FIREBASE_CM_KEY}`,
+  'Content-Type': 'application/json',
+  Accept: '*',
 }
 export const sendNotification = () => {
   axios({
