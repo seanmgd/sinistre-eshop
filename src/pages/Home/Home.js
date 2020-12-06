@@ -4,6 +4,7 @@ import { Button } from '../../components'
 import { useThemeSwitcher } from '../../contexts/themeSwitcher'
 import { setPageTitle } from '../../utils/setPageTitle'
 import { HomeTitle, HomeWrapper } from './Home.styles'
+import { sendNotification } from '../../services/firebase/query'
 
 export default function Home() {
   const { t, i18n } = useTranslation()
@@ -25,9 +26,17 @@ export default function Home() {
       <HomeTitle>{t('welcome')}</HomeTitle>
 
       <div>
-        <Button onClick={switchTheme}>{t('switch_theme')}</Button>
+        <Button onClick={switchTheme} size="large" hover={true}>
+          {t('switch_theme')}
+        </Button>
 
-        <Button onClick={handleSwitchLang}>{t('switch_lang')}</Button>
+        <Button onClick={handleSwitchLang} size="large" hover={true}>
+          {t('switch_lang')}
+        </Button>
+
+        <Button onClick={sendNotification} size="large" hover={true}>
+          {t('send_notification')}
+        </Button>
       </div>
     </HomeWrapper>
   )

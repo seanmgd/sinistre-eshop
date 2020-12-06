@@ -42,7 +42,7 @@ exports[`<CardItem /> should render a card item  with light-grey background colo
   href="/"
 >
   <div
-    class="sc-bdfBwQ koGeHP"
+    class="sc-bdfBwQ hvBvKD"
     label="this is a test"
   />
 </a>

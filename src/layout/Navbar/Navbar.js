@@ -1,3 +1,4 @@
+import React from 'react'
 import { NavItem, StyledNavbar, Container, SumCart } from './Navbar.style'
 import { Link } from '@reach/router'
 import { useTranslation } from 'react-i18next'
@@ -13,6 +14,7 @@ export const Navbar = () => {
   const { cart } = useCartContext()
   const productsSum = cart.reduce((acc, curr) => acc + parseInt(curr.qty), 0)
   const isAuth = user.token
+  const [active, setActive] = React.useState('home')
 
   const ROUTES = [
     {
@@ -46,7 +48,13 @@ export const Navbar = () => {
       <StyledNavbar>
         <Container>
           {ROUTES.map(route => (
-            <NavItem as={Link} to={route.path} key={route.path}>
+            <NavItem
+              as={Link}
+              to={route.path}
+              key={route.path}
+              onClick={() => setActive(route.name)}
+              className={active === route.name ? 'active' : ''}
+            >
               {route.name
                 ? t(route.name)
                 : cart.length !== 0 && (

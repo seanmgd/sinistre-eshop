@@ -35,6 +35,7 @@ export const ImagesContainer = styled.div`
 export const MainImage = styled.div`
   display: flex;
   width: 100%;
+  height: 50vh;
   background-position: center;
   background-color: black;
   background-image: url('${props => props.image}');

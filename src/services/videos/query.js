@@ -3,7 +3,7 @@ import axios from 'axios'
 
 export const useVideos = () => {
   const [videos, setVideos] = React.useState([])
-  const [isOffline, setIfOffline] = React.useState(false)
+  const [isOffline, setIsOffline] = React.useState(false)
   const [isLoader, setIsLoader] = React.useState(true)
   React.useEffect(() => {
     axios({
@@ -14,10 +14,9 @@ export const useVideos = () => {
         setVideos(res.data)
         setIsLoader(false)
       })
-      .catch(err => {
+      .catch(() => {
         setIsLoader(false)
-        setIfOffline(true)
-        console.log(err)
+        setIsOffline(true)
       })
   }, [])
 
@@ -26,7 +25,7 @@ export const useVideos = () => {
 
 export const useVideo = videoId => {
   const [video, setVideo] = React.useState([])
-  const [isOffline, setIfOffline] = React.useState(false)
+  const [isOffline, setIsOffline] = React.useState(false)
   const [isLoader, setIsLoader] = React.useState(true)
   React.useEffect(() => {
     axios({
@@ -37,10 +36,9 @@ export const useVideo = videoId => {
         setVideo(res.data)
         setIsLoader(false)
       })
-      .catch(err => {
+      .catch(() => {
         setIsLoader(false)
-        setIfOffline(true)
-        console.log(err)
+        setIsOffline(true)
       })
   }, [videoId])
 

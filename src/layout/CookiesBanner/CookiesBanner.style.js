@@ -29,12 +29,19 @@ export const CookiesTextContainer = styled.div`
     margin: 1em auto;
     width: 20vw;
     min-width: 150px;
+    color: ${({ theme }) => theme.colors.primary.light};
   }
 
   span {
     text-align: justify;
   }
 
+  @media ${devices.laptop} {
+    span {
+      text-align: center;
+      line-height: 1.5;
+    }
+  }
   @media ${devices.laptopL} {
     display: block;
     button {

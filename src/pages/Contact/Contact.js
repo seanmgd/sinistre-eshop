@@ -19,18 +19,16 @@ export default function Contact() {
     controls: {
       email: {
         elementType: 'input',
-        elementConfig: { type: 'email', placeholder: '' },
+        elementConfig: { type: 'email', placeholder: t('mail_address') },
         value: '',
-        label: t('mail_address'),
         validation: { required: true, isEmail: true },
         valid: false,
         touched: false,
       },
       message: {
         elementType: 'textarea',
-        elementConfig: { rows: '5', cols: '1' },
+        elementConfig: { rows: '5', cols: '1', placeholder: t('message') },
         value: '',
-        label: t('message'),
         validation: { required: true, minLength: 1 },
         valid: false,
         touched: false,

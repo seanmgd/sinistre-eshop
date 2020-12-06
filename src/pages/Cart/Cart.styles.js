@@ -10,6 +10,10 @@ export const CartWrapper = styled.div`
   justify-content: flex-start;
   align-items: center;
   padding: 5em 0;
+  button {
+    padding: 8px;
+    font-size: 1em;
+  }
 
   @media ${devices.laptop} {
     padding: 5em;
