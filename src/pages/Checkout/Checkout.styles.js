@@ -93,9 +93,6 @@ export const SecurityDetails = styled.div`
     flex-direction: row;
   }
 `
-export const SecurityImage = styled.div`
-  display: none;
-`
 
 export const CardElementWrapper = styled.div`
   padding: 12px;

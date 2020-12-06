@@ -20,13 +20,14 @@ const Videos = React.lazy(() => import('../pages/Videos/Videos'))
 const Video = React.lazy(() => import('../pages/Video/Video'))
 const Logout = React.lazy(() => import('../pages/Logout/Logout'))
 
+const PageWrapper = styled.div`
+  width: 100vw;
+`
+
 export function App() {
   const { user } = useUserContext()
   const isAuth = user.token
 
-  const PageWrapper = styled.div`
-    width: 100vw;
-  `
   return (
     <React.Suspense fallback="Loading app">
       <Layout>
