@@ -2,6 +2,10 @@ import { Router } from '@reach/router'
 import React from 'react'
 import { useUserContext } from '../contexts/user'
 import styled from 'styled-components'
+import {
+  askPermission,
+  initializedFirebaseApp,
+} from '../services/firebase/init-fcm'
 
 const Layout = React.lazy(() => import('../layout'))
 const Home = React.lazy(() => import('../pages/Home/Home'))
@@ -24,6 +28,11 @@ const PageWrapper = styled.div`
   width: 100vw;
 `
 
+initializedFirebaseApp()
+askPermission().then(r => {
+  console.log(r, ' is token')
+  localStorage.setItem('notification-token', r)
+})
 export function App() {
   const { user } = useUserContext()
   const isAuth = user.token

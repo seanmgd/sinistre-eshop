@@ -33,7 +33,7 @@ export default function Checkout() {
   return (
     <Container>
       <ShippingDetails>
-        <Title>{t('checkout_details')}</Title>s
+        <Title>{t('checkout_details')}</Title>
         <Paypal total={totalSum} />
       </ShippingDetails>
       <InfoDetails>

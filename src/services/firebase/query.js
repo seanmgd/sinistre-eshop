@@ -2,8 +2,8 @@ import axios from 'axios'
 
 const data = {
   notification: {
-    title: 'Wesh alors',
-    body: 'Mets nous un 20/20 stp',
+    title: 'Title test',
+    body: 'body message test',
   },
   to: localStorage.getItem('notification-token'),
 }

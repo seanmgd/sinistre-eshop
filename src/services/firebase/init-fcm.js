@@ -1,5 +1,4 @@
-import firebase from 'firebase/app'
-
+import firebase from 'firebase'
 export const initializedFirebaseApp = () => {
   const config = {
     apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
@@ -11,4 +10,10 @@ export const initializedFirebaseApp = () => {
     measurementId: 'G-ZYM9SJEFLQ',
   }
   firebase.initializeApp(config)
+}
+export const askPermission = () => {
+  const messaging = firebase.messaging()
+  messaging.requestPermission()
+
+  return messaging.getToken()
 }
