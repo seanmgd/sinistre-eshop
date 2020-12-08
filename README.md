@@ -100,7 +100,7 @@ This app contain these points :
 
 > [Pre commit hooks](https://github.com/seanmgd/sinistre-eshop/blob/main/package.json)
 
-> [Newsletter using Mailchimp](https://github.com/seanmgd/sinistre-eshop/blob/main/src/pages/Home)
+> [Newsletter using Mailchimp](https://github.com/seanmgd/sinistre-eshop/blob/main/src/components/Newsletter/Newsletter.js)
 
 > Github actions link to our discord private server
 
