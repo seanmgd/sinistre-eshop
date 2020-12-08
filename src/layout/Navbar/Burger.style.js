@@ -7,7 +7,7 @@ export const StyledBurger = styled.div`
   position: fixed;
   top: 15px;
   right: 20px;
-  z-index: 20;
+  z-index: 102;
   display: flex;
   justify-content: space-around;
   flex-flow: column nowrap;
@@ -55,7 +55,7 @@ export const StyledUl = styled.ul`
   width: 200px;
   padding-top: 3.5rem;
   transition: transform 0.3s ease-in-out;
-  z-index: 1;
+  z-index: 101;
   li {
     color: ${({ theme }) => theme.colors.primary.light};
     font-weight: bold;

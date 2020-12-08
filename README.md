@@ -100,6 +100,8 @@ This app contain these points :
 
 > [Pre commit hooks](https://github.com/seanmgd/sinistre-eshop/blob/main/package.json)
 
+> [Newsletter using Mailchimp](https://github.com/seanmgd/sinistre-eshop/blob/main/src/pages/Home)
+
 > Github actions link to our discord private server
 
 > Trello for tasks management

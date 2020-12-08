@@ -29,7 +29,7 @@
   "submit": "Envoyer",
   "message": "Message",
   "confirmMessageContact": "Message envoyé",
-  "errorMessageContact": "Une erreur est internu lors de l'envoi",
+  "errorMessageContact": "Une erreur est intervenu lors de l'envoi",
   "footer_social_medias_motto": "Rejoignez nous sur les réseaux sociaux pour en savoir sur nos produits et bon plans",
   "services_clients": "Services clients",
   "contact_us": "Contactez nous",
@@ -57,5 +57,9 @@
   "see_cart": "Voir le panier",
   "product_added": "Le produit a été ajouté !",
   "errorOffline": "Pas de connexion internet, veuillez re-éssayez plus tard",
-  "send_notification": "Envoyer une notification"
+  "send_notification": "Envoyer une notification",
+  "newsletter_subscribe": "Inscrivez-vous à notre newsletter et recevez 20% de réduction sur votre prochaine commande !",
+  "newsletter_success": "Félicitations ! Vous avez reçu un mail avec votre code de promotion \uD83D\uDE00",
+  "newsletter_loading": "Vérification ...",
+  "newsletter_error": "L'adresse mail est invalide ou déjà inscrite à notre newsletter \uD83D\uDE16"
 }
