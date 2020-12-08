@@ -92,7 +92,7 @@ export default function Contact() {
         {renderForm(formElements, inputChangedHandler)}
         <Button
           size="large"
-          color="grey"
+          color="primary"
           disabled={disableButton}
           type="submit"
           onClick={event => submitMessage(event)}

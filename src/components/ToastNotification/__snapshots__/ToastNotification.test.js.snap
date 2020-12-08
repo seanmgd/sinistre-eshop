@@ -2,7 +2,7 @@
 
 exports[`<ToastNotification /> should render a notification 1`] = `
 <div
-  class="sc-gsTCUz fQNHPQ"
+  class="sc-gsTCUz fTvTdI"
   style="opacity: 0;"
 >
   <p

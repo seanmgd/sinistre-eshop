@@ -57,5 +57,9 @@
   "see_cart": "See cart",
   "product_added": "The product was added to your card",
   "errorOffline": "No internet connection, please try later",
-  "send_notification": "Send notification"
+  "send_notification": "Send notification",
+  "newsletter_subscribe": "Subscribe to our newsletter and get 20% off coupon code !",
+  "newsletter_success": "Congrats! Check your mail box, you received your coupon code \uD83D\uDE00",
+  "newsletter_loading": "Loading ...",
+  "newsletter_error": "This mail address is invalid or already subscribed \uD83D\uDE16"
 }

@@ -14,7 +14,7 @@ export const StyledNavbar = styled.nav`
   border-bottom: 1px solid #d6d4d4;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
-  z-index: 999;
+  z-index: 1;
 
   @media ${devices.tablet} {
     display: flex;
