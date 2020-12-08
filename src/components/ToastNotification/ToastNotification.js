@@ -50,7 +50,7 @@ ToastNotification.defaultProps = {
 const variantToast = {
   initial: { opacity: 0, transition: { duration: 1 } },
   animated: { opacity: 1, transition: { duration: 0.5 } },
-  animatedClose: { opacity: 0, transition: { duration: 1 } },
+  animatedClose: { opacity: 0, transition: { duration: 1 }, zIndex: -1 },
 }
 
 const Container = styled(motion.div)`
@@ -59,12 +59,16 @@ const Container = styled(motion.div)`
   overflow: hidden;
   border-bottom-left-radius: 4px;
   top: 40vh;
+  left: 0;
   width: 100%;
   text-align: center;
+  padding: 0 32px;
+
   @media ${devices.tablet} {
     width: auto;
     top: 6vh;
     right: 0;
+    left: unset;
   }
 `
 

@@ -29,9 +29,9 @@ const PageWrapper = styled.div`
 `
 
 initializedFirebaseApp()
-askPermission().then(r => {
-  console.log(r, ' is token')
-  localStorage.setItem('notification-token', r)
+askPermission().then(token => {
+  console.log('ton token: ', token)
+  localStorage.setItem('notification-token', token)
 })
 export function App() {
   const { user } = useUserContext()

@@ -4,17 +4,27 @@ import { Container } from '../../layout/Layout/Container'
 
 export const HomeWrapper = styled(Container)`
   flex-direction: column;
-  div {
-    button {
-      margin: 0 1em;
-    }
-  }
 `
 
 export const HomeTitle = styled.h1`
   font-size: 2em;
-  margin-bottom: 5em;
   @media ${devices.tablet} {
     font-size: 5em;
+  }
+`
+
+export const ButtonContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+
+  button {
+    margin: 1em 0;
+  }
+
+  @media ${devices.tablet} {
+    flex-direction: row;
+    button {
+      margin: 0 1em;
+    }
   }
 `
