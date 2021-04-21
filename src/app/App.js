@@ -2,11 +2,6 @@ import { Router } from '@reach/router'
 import React from 'react'
 import { useUserContext } from '../contexts/user'
 import styled from 'styled-components'
-import {
-  askPermission,
-  initializedFirebaseApp,
-} from '../services/firebase/init-fcm'
-
 const Layout = React.lazy(() => import('../layout'))
 const Home = React.lazy(() => import('../pages/Home/Home'))
 const Dashboard = React.lazy(() => import('../pages/Dashboard/Dashboard'))
@@ -28,47 +23,57 @@ const PageWrapper = styled.div`
   width: 100vw;
 `
 
-initializedFirebaseApp()
-askPermission().then(token => {
-  console.log('ton token: ', token)
-  localStorage.setItem('notification-token', token)
-})
 export function App() {
   const { user } = useUserContext()
   const isAuth = user.token
 
   return (
-    <React.Suspense fallback="Loading app">
-      <Layout>
-        <React.Suspense fallback="Loading">
-          <PageWrapper>
-            <Router>
-              {isAuth && (
-                <>
-                  <Account path="/account" />
-                  <Cart path="/cart" />
-                  <Checkout path="/checkout" />
-                  <Logout path="/logout" />
-                </>
-              )}
-              <Home path="/" />
-              <Dashboard path="/dashboard" />
-              <Account path="/account" />
-              <Artists path="/artists" />
-              <Artist path="/artist/:artistSlug" />
-              <Blog path="/blog" />
-              <Cart path="/cart" />
-              <Checkout path="/checkout" />
-              <Contact path="/contact" />
-              <Login path="/login" />
-              <Products path="/products" />
-              <Product path="/product/:productSlug" />
-              <Videos path="/videos" />
-              <Video path="/video/:videoSlug" />
-            </Router>
-          </PageWrapper>
-        </React.Suspense>
-      </Layout>
-    </React.Suspense>
+    <div
+      style={{
+        backgroundColor: '#546b8b',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        fontSize: '3rem',
+        width: '100vw',
+        height: '100vh',
+        color: 'white',
+      }}
+    >
+      😞 😞 Site en maintenance 😞 😞
+      <br /> Ré ouverture prévue pour Juillet 2021
+    </div>
   )
+  // <React.Suspense fallback="Loading app">
+  //   <Layout>
+  //     <React.Suspense fallback="Loading">
+  //       <PageWrapper>
+  //         <Router>
+  //           {isAuth && (
+  //             <>
+  //               <Account path="/account" />
+  //               <Cart path="/cart" />
+  //               <Checkout path="/checkout" />
+  //               <Logout path="/logout" />
+  //             </>
+  //           )}
+  //           <Home path="/" />
+  //           <Dashboard path="/dashboard" />
+  //           <Account path="/account" />
+  //           <Artists path="/artists" />
+  //           <Artist path="/artist/:artistSlug" />
+  //           <Blog path="/blog" />
+  //           <Cart path="/cart" />
+  //           <Checkout path="/checkout" />
+  //           <Contact path="/contact" />
+  //           <Login path="/login" />
+  //           <Products path="/products" />
+  //           <Product path="/product/:productSlug" />
+  //           <Videos path="/videos" />
+  //           <Video path="/video/:videoSlug" />
+  //         </Router>
+  //       </PageWrapper>
+  //     </React.Suspense>
+  //   </Layout>
+  // </React.Suspense>
 }
