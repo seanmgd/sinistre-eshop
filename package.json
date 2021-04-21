@@ -28,7 +28,6 @@
     "@stripe/stripe-js": "^1.11.0",
     "@ttrmz/react-utils": "^2.0.0",
     "axios": "^0.21.0",
-    "firebase": "^8.1.2",
     "framer-motion": "^2.9.4",
     "global": "^4.4.0",
     "i18next": "^19.4.2",
